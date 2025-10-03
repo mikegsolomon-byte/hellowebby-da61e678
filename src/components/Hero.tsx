@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import IntakeFormDialog from "./IntakeFormDialog";
 
 const Hero = () => {
+  const [formOpen, setFormOpen] = useState(false);
+  
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: "smooth" });
@@ -18,7 +22,7 @@ const Hero = () => {
           - all done for you under one monthly subscription you can cancel anytime. Easy!
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button size="lg" onClick={() => scrollToSection("pricing")}>
+          <Button size="lg" onClick={() => setFormOpen(true)}>
             Get Started
           </Button>
           <Button 
@@ -30,6 +34,7 @@ const Hero = () => {
           </Button>
         </div>
       </div>
+      <IntakeFormDialog open={formOpen} onOpenChange={setFormOpen} />
     </section>
   );
 };

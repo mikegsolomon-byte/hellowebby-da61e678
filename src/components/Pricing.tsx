@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Check } from "lucide-react";
+import IntakeFormDialog from "./IntakeFormDialog";
 
 const plans = [
   {
@@ -47,6 +49,14 @@ const plans = [
 ];
 
 const Pricing = () => {
+  const [formOpen, setFormOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState("");
+
+  const handleGetStarted = (planName: string) => {
+    setSelectedPlan(planName);
+    setFormOpen(true);
+  };
+
   return (
     <section id="pricing" className="py-20 px-4 section-light">
       <div className="container mx-auto max-w-7xl">
@@ -74,7 +84,9 @@ const Pricing = () => {
                   <span className="text-4xl font-bold">{plan.price}</span>
                   <span className="text-muted-foreground">/month</span>
                 </div>
-                <Button className="w-full">Get Started</Button>
+                <Button className="w-full" onClick={() => handleGetStarted(plan.name)}>
+                  Get Started
+                </Button>
               </CardHeader>
               <CardContent className="space-y-3">
                 {plan.features.map((feature, idx) => (
@@ -101,6 +113,11 @@ const Pricing = () => {
           </CardContent>
         </Card>
       </div>
+      <IntakeFormDialog 
+        open={formOpen} 
+        onOpenChange={setFormOpen}
+        selectedPlan={selectedPlan}
+      />
     </section>
   );
 };
