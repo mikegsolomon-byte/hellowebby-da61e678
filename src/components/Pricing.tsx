@@ -35,7 +35,7 @@ const plans = [
   {
     name: "Pro Plan",
     description: "Get started with our pro plan, perfect for guaranteed results",
-    price: "€199",
+    price: "€250",
     features: [
       "Unlimited pages",
       "Everything in Starter",
