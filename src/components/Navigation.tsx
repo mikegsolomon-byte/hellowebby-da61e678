@@ -7,14 +7,14 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 z-50 border-b">
+    <nav className="fixed top-0 w-full bg-background/60 backdrop-blur-xl z-50 border-b border-border/50">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10">
-              <span className="text-2xl">🌐</span>
+            <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-primary to-accent shadow-lg shadow-primary/30">
+              <span className="text-xl">🌐</span>
             </div>
-            <span className="font-bold text-xl">hellowebby</span>
+            <span className="font-extrabold text-xl tracking-tight">hellowebby</span>
           </div>
 
           <div className="hidden md:flex items-center gap-6">
@@ -44,7 +44,7 @@ const Navigation = () => {
             </button>
           </div>
 
-          <Button onClick={() => scrollToSection("pricing")}>Get Started</Button>
+          <Button className="rounded-full px-5" onClick={() => scrollToSection("pricing")}>Get Started</Button>
         </div>
       </div>
     </nav>
