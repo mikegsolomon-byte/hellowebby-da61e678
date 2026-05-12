@@ -26,11 +26,12 @@ const reasons = [
 
 const WhySubscription = () => {
   return (
-    <section className="py-20 px-4">
+    <section className="relative py-24 px-4 overflow-hidden">
+      <div className="glow-orb bg-accent/20 w-[400px] h-[400px] top-10 right-0 animate-pulse-glow" />
       <div className="container mx-auto max-w-6xl">
         <div className="mb-16 max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Why Subscription?
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
+            Why <span className="gradient-text">Subscription?</span>
           </h2>
           <p className="text-lg text-muted-foreground mb-4">
             Small businesses shouldn't have to pay thousands upfront. We deliver continuous value each month, so you can focus on what you do best.
@@ -42,9 +43,9 @@ const WhySubscription = () => {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {reasons.map((reason, index) => (
-            <Card key={index} className="border-0 shadow-md hover:shadow-lg transition-shadow">
+            <Card key={index} className="glass border-border/40 hover:border-primary/40 hover:-translate-y-1 transition-all">
               <CardContent className="p-6">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-primary/20 to-accent/20 border border-primary/30 flex items-center justify-center mb-4">
                   <reason.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="text-lg font-bold mb-2">{reason.title}</h3>
