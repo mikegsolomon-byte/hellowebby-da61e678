@@ -42,10 +42,11 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-20 px-4">
-      <div className="container mx-auto max-w-3xl">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-          Frequently Asked Questions
+    <section id="faq" className="relative py-24 px-4 overflow-hidden">
+      <div className="glow-orb bg-primary/15 w-[500px] h-[500px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse-glow" />
+      <div className="container relative mx-auto max-w-3xl">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4">
+          Frequently Asked <span className="gradient-text">Questions</span>
         </h2>
         <p className="text-lg text-muted-foreground text-center mb-12">
           Everything you need to know about our smart website service
