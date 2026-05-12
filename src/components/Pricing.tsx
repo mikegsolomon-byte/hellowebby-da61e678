@@ -6,44 +6,47 @@ import IntakeFormDialog from "./IntakeFormDialog";
 
 const plans = [
   {
-    name: "Starter Plan",
-    description: "Get started with our affordable starter plan",
-    price: "€79",
+    name: "Starter",
+    description: "Perfect for small businesses just getting online",
+    price: "€49",
     features: [
-      "Up to 5 pages",
-      "Contact forms",
+      "Up to 3 pages",
+      "Contact form",
       "Basic SEO setup",
-      "Mobile responsive",
-      "Basic analytics"
+      "Mobile responsive design",
+      "Hosting & SSL included",
+      "1 content update per month"
     ]
   },
   {
-    name: "Unlimited Plan",
-    description: "Get started with premium features in our unlimited plan",
-    price: "€129",
+    name: "Growth",
+    description: "For businesses ready to grow their presence",
+    price: "€89",
     popular: true,
     features: [
-      "Up to 10 pages",
+      "Up to 8 pages",
       "Everything in Starter",
-      "Advanced contact forms",
+      "Booking/appointment tools",
       "Blog functionality",
-      "Live chat support",
+      "Live chat integration",
       "SEO optimization",
-      "Social media integration"
+      "Social media integration",
+      "4 content updates per month"
     ]
   },
   {
-    name: "Pro Plan",
-    description: "Get started with our pro plan, perfect for guaranteed results",
-    price: "€250",
+    name: "Pro",
+    description: "Full-service for serious growth",
+    price: "€149",
     features: [
       "Unlimited pages",
-      "Everything in Starter",
+      "Everything in Growth",
       "E-commerce functionality",
       "Payment processing",
-      "Advanced SEO",
+      "Advanced SEO & analytics",
       "Monthly marketing consultation",
-      "Priority support"
+      "Priority support",
+      "Unlimited content updates"
     ]
   }
 ];
@@ -62,10 +65,10 @@ const Pricing = () => {
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Choose Your Plan
+            Simple, Transparent Pricing
           </h2>
           <p className="text-lg text-muted-foreground">
-            Simple, transparent pricing that scales with your needs
+            No hidden fees. Cancel anytime.
           </p>
         </div>
 
@@ -102,13 +105,13 @@ const Pricing = () => {
 
         <Card className="border-0 shadow-lg bg-muted/50">
           <CardContent className="p-8 text-center">
-            <h3 className="text-2xl font-bold mb-2">💵 One-time Setup Fee</h3>
-            <p className="text-3xl font-bold text-primary mb-2">€149</p>
+            <h3 className="text-2xl font-bold mb-2">One-time Setup</h3>
+            <p className="text-3xl font-bold text-primary mb-2">€79</p>
             <p className="text-muted-foreground mb-4">
-              Applied to all plans to get your website built and launched
+              Covers design, build, and launch of your website
             </p>
             <p className="text-sm text-muted-foreground">
-              💬 Cancel anytime, no contracts. Your website stays live until you say otherwise.
+              No contracts. Your site stays live until you cancel. Switch plans anytime.
             </p>
           </CardContent>
         </Card>
