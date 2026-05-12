@@ -24,14 +24,15 @@ const features = [
 
 const SmartWebsiteFeatures = () => {
   return (
-    <section id="features" className="py-20 px-4 section-light">
+    <section id="features" className="relative py-24 px-4 section-light overflow-hidden">
+      <div className="glow-orb bg-primary/20 w-[400px] h-[400px] top-0 right-0 animate-pulse-glow" />
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16">
           What is a Smart Website?
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+            <Card key={index} className="glass border-border/40 hover:border-primary/40 hover:-translate-y-1 transition-all">
               <CardContent className="p-8">
                 <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-6 mx-auto`}>
                   <feature.icon className="w-8 h-8 text-white" />
