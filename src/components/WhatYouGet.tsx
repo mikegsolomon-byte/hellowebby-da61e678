@@ -30,14 +30,15 @@ const benefits = [
 
 const WhatYouGet = () => {
   return (
-    <section className="py-20 px-4">
+    <section className="relative py-24 px-4 overflow-hidden">
+      <div className="glow-orb bg-accent/20 w-[400px] h-[400px] -bottom-20 -left-20 animate-float-slow" />
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16">
           What You Get
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
-            <div key={index} className="flex flex-col items-center text-center">
+            <div key={index} className="glass rounded-2xl p-8 flex flex-col items-center text-center hover:border-primary/40 hover:-translate-y-1 transition-all">
               <div className="text-5xl mb-4">{benefit.icon}</div>
               <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
               <p className="text-muted-foreground">{benefit.description}</p>

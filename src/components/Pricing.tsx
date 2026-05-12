@@ -61,11 +61,12 @@ const Pricing = () => {
   };
 
   return (
-    <section id="pricing" className="py-20 px-4 section-light">
-      <div className="container mx-auto max-w-7xl">
+    <section id="pricing" className="relative py-24 px-4 section-light overflow-hidden">
+      <div className="glow-orb bg-primary/25 w-[600px] h-[600px] top-10 left-1/2 -translate-x-1/2 animate-pulse-glow" />
+      <div className="container relative mx-auto max-w-7xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Simple, Transparent Pricing
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
+            Simple, <span className="gradient-text">Transparent</span> Pricing
           </h2>
           <p className="text-lg text-muted-foreground">
             No hidden fees. Cancel anytime.
@@ -74,20 +75,20 @@ const Pricing = () => {
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {plans.map((plan, index) => (
-            <Card key={index} className={`relative ${plan.popular ? 'border-primary shadow-xl' : 'border-0 shadow-lg'}`}>
+            <Card key={index} className={`relative glass transition-all hover:-translate-y-1 ${plan.popular ? 'border-primary/60 ring-glow scale-[1.02]' : 'border-border/40 hover:border-primary/40'}`}>
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-medium">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-accent text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold shadow-lg shadow-primary/40">
                   Most Popular
                 </div>
               )}
               <CardHeader className="text-center pb-8 pt-8">
-                <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
+                <h3 className="text-2xl font-extrabold mb-2">{plan.name}</h3>
                 <p className="text-sm text-muted-foreground mb-4">{plan.description}</p>
                 <div className="mb-4">
-                  <span className="text-4xl font-bold">{plan.price}</span>
+                  <span className="text-5xl font-extrabold">{plan.price}</span>
                   <span className="text-muted-foreground">/month</span>
                 </div>
-                <Button className="w-full" onClick={() => handleGetStarted(plan.name)}>
+                <Button className={`w-full rounded-xl ${plan.popular ? 'ring-glow' : ''}`} variant={plan.popular ? 'default' : 'outline'} onClick={() => handleGetStarted(plan.name)}>
                   Get Started
                 </Button>
               </CardHeader>
@@ -103,10 +104,10 @@ const Pricing = () => {
           ))}
         </div>
 
-        <Card className="border-0 shadow-lg bg-muted/50">
+        <Card className="glass border-border/40">
           <CardContent className="p-8 text-center">
             <h3 className="text-2xl font-bold mb-2">One-time Setup</h3>
-            <p className="text-3xl font-bold text-primary mb-2">€79</p>
+            <p className="text-4xl font-extrabold gradient-text mb-2">€79</p>
             <p className="text-muted-foreground mb-4">
               Covers design, build, and launch of your website
             </p>

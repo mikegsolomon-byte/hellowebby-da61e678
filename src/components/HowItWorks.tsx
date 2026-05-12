@@ -20,10 +20,11 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="py-20 px-4 section-light">
+    <section id="how-it-works" className="relative py-24 px-4 section-light overflow-hidden">
+      <div className="glow-orb bg-primary/20 w-[500px] h-[500px] top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 animate-pulse-glow" />
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
             How It Works
           </h2>
           <p className="text-lg text-muted-foreground">
@@ -32,9 +33,9 @@ const HowItWorks = () => {
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {steps.map((step, index) => (
-            <Card key={index} className="border-0 shadow-lg">
+            <Card key={index} className="glass border-border/40 hover:border-primary/40 hover:-translate-y-1 transition-all">
               <CardContent className="p-8">
-                <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-2xl font-bold mb-6 mx-auto">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-primary to-accent text-primary-foreground flex items-center justify-center text-2xl font-extrabold mb-6 mx-auto shadow-lg shadow-primary/30">
                   {step.number}
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-center">{step.title}</h3>
