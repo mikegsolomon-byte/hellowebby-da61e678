@@ -11,7 +11,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative pt-36 pb-28 px-4 overflow-hidden">
+    <section className="relative pt-36 pb-28 px-4 overflow-hidden py-[124px]">
       {/* Sunny glows */}
       <div className="glow-orb animate-float-slow bg-primary/60 w-[520px] h-[520px] -top-32 -left-32" />
       <div className="glow-orb animate-pulse-glow bg-primary/40 w-[600px] h-[600px] -bottom-40 -right-32" />

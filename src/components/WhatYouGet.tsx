@@ -30,7 +30,7 @@ const benefits = [
 
 const WhatYouGet = () => {
   return (
-    <section className="relative py-24 px-4 overflow-hidden">
+    <section className="relative px-4 overflow-hidden py-[36px]">
       <div className="glow-orb bg-accent/20 w-[400px] h-[400px] -bottom-20 -left-20 animate-float-slow" />
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16">

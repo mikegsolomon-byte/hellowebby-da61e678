@@ -26,7 +26,7 @@ const reasons = [
 
 const WhySubscription = () => {
   return (
-    <section className="relative py-24 px-4 overflow-hidden">
+    <section className="relative px-4 overflow-hidden py-[36px]">
       <div className="glow-orb bg-accent/20 w-[400px] h-[400px] top-10 right-0 animate-pulse-glow" />
       <div className="container mx-auto max-w-6xl">
         <div className="mb-16 max-w-3xl mx-auto">
