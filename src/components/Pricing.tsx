@@ -77,7 +77,7 @@ const Pricing = () => {
           {plans.map((plan, index) => (
             <Card key={index} className={`relative glass transition-all hover:-translate-y-1 ${plan.popular ? 'border-primary/60 ring-glow scale-[1.02]' : 'border-border/40 hover:border-primary/40'}`}>
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-accent text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold shadow-lg shadow-primary/40">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-foreground text-primary px-4 py-1 rounded-full text-sm font-bold border-2 border-foreground">
                   Most Popular
                 </div>
               )}

@@ -35,7 +35,7 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <Card key={index} className="glass border-border/40 hover:border-primary/40 hover:-translate-y-1 transition-all">
               <CardContent className="p-8">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-primary to-accent text-primary-foreground flex items-center justify-center text-2xl font-extrabold mb-6 mx-auto shadow-lg shadow-primary/30">
+                <div className="w-16 h-16 rounded-2xl bg-primary text-foreground border-2 border-foreground flex items-center justify-center text-2xl font-extrabold mb-6 mx-auto shadow-[4px_4px_0_0_hsl(var(--foreground))]">
                   {step.number}
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-center">{step.title}</h3>
