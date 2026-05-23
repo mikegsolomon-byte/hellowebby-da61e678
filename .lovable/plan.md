@@ -1,37 +1,52 @@
-## Visual Refresh Plan for hellowebby
+# Hidden Checkout Link with Stripe
 
-### Goal
-Transform the current generic, white-background landing page into a bold, premium dark-mode experience that feels like a serious web design agency.
+A private, unlisted page at **`/secure-checkout`** that you share with prospects. They pick a plan, click pay, and Stripe charges €79 setup + first month today, then the monthly fee automatically every month after.
 
-### 3 Design Directions
+## What gets built
 
-Choose one of these aesthetics for the full site:
+### 1. Stripe setup (Lovable's built-in payments)
+Enable Lovable's seamless Stripe integration (no Stripe account or API key needed — test environment is provisioned immediately).
 
-1. **Deep Aurora Tech** — Deep charcoal background with large, soft indigo/purple aurora glows, Plus Jakarta Sans font, frosted glass navigation, and a pulsing "new feature" badge.
-2. **Dark Kinetic Aura** — Near-black background with kinetic ambient glows, Bricolage Grotesque display font paired with Inter body text, oversized tight-tracking headlines, and subtle social proof bar.
-3. **Modern Dark Tech** — Very dark navy/black background with abstract blurred gradient orbs, Plus Jakarta Sans font, gradient icon badges, and a trusted-by logo strip.
+Products & prices created in Stripe (all EUR):
+- **Setup Fee** — €79 one-time
+- **Starter** — €49 / month recurring
+- **Growth** — €89 / month recurring
+- **Pro** — €149 / month recurring
 
-**Recommended: Dark Kinetic Aura** — it delivers the highest impact with distinctive typography and a professional, editorial feel.
+Stripe handles "setup + first month on bill 1, then monthly thereafter" natively by attaching the one-time price alongside the recurring price on a single Checkout Session.
 
-### What Will Change
+### 2. Hidden page: `/secure-checkout`
+- Not linked from nav, footer, or sitemap
+- `<meta name="robots" content="noindex,nofollow">` so it never gets indexed
+- Plan selector (Starter / Growth / Pro radio cards), Growth pre-selected
+- Live summary box:
+  - One-time setup: €79
+  - First month ({plan}): €XX
+  - **Total today: €XX**
+  - Then €XX/month, cancel anytime
+- Email field (pre-fills Stripe Checkout)
+- "Continue to secure payment" button → opens Stripe Checkout in a new tab
+- Supports `?plan=pro` query param for pre-selected share links
 
-- **Global theme**: Switch from light mode to a cohesive dark palette (near-black background, high-contrast text, vibrant indigo/violet accents).
-- **Typography**: Introduce a strong display font (Bricolage Grotesque) for headlines to break away from generic system fonts.
-- **Hero**: Add animated ambient gradient glows behind the headline, a subtle noise texture overlay, and a frosted-glass navigation bar.
-- **Cards / Sections**: Replace flat white cards with subtle glassmorphism or dark elevated surfaces with refined borders.
-- **Buttons**: Upgrade to rounded, shadow-casting primary buttons with hover lift effects; secondary buttons get glass borders.
-- **Pricing**: Dark-themed cards with a highlighted "Most Popular" glow instead of a flat badge.
-- **Animations**: Add gentle floating/pulsing orbs in the hero, smooth scroll behavior preserved.
+### 3. Edge function: `create-checkout`
+Creates a Stripe Checkout Session in `subscription` mode with two line items: the chosen monthly price + the €79 setup price. Returns the Checkout URL.
 
-### Files to Modify
-- `src/index.css` — new dark color tokens, gradient utilities, font imports
-- `tailwind.config.ts` — extend theme with new fonts and colors if needed
-- `src/components/Hero.tsx` — layout, background effects, typography
-- `src/components/Navigation.tsx` — glass effect, dark styling
-- `src/components/Pricing.tsx` — dark cards, glowing highlight
-- `src/components/SmartWebsiteFeatures.tsx` — dark cards, icon gradients
-- `src/components/WhatYouGet.tsx` — dark section styling
-- `index.html` — Google Fonts preconnect for Bricolage Grotesque + Inter
+### 4. Result pages
+- `/checkout/success` — confirmation with next steps
+- `/checkout/cancelled` — link back to `/secure-checkout`
 
-### Next Step
-Reply with your chosen direction (1, 2, or 3) or approve the recommended Dark Kinetic Aura and I will implement the full refresh.
+## Billing behavior
+- **Today:** €79 setup + first month, single charge
+- **30 days later:** monthly fee only, automatic
+- **Every month after:** monthly fee, automatic
+- Cancellation via Stripe customer portal (can add a "Manage billing" link later)
+
+## Files
+- `src/pages/SecureCheckout.tsx`
+- `src/pages/CheckoutSuccess.tsx`
+- `src/pages/CheckoutCancelled.tsx`
+- `supabase/functions/create-checkout/index.ts`
+- Route entries in `src/App.tsx` (above the catch-all)
+
+## Test first, then go live
+Lovable's Stripe starts in test mode — you can run a full purchase with card `4242 4242 4242 4242` end-to-end. When happy, flip to live mode.
