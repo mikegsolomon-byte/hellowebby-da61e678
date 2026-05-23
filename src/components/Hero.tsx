@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import IntakeFormDialog from "./IntakeFormDialog";
-import heroBg from "@/assets/hero-bg.png";
 
 const Hero = () => {
   const [formOpen, setFormOpen] = useState(false);
@@ -13,17 +12,12 @@ const Hero = () => {
 
   return (
     <section className="relative pt-36 pb-28 px-4 overflow-hidden py-[124px]">
-      {/* Hero background image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroBg})` }}
-        aria-hidden="true"
-      />
-      {/* Soft fade at bottom for text readability */}
-      <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-b from-transparent via-background/80 to-background" aria-hidden="true" />
+      {/* Sunny glows */}
+      <div className="glow-orb animate-float-slow bg-primary/60 w-[520px] h-[520px] -top-32 -left-32" />
+      <div className="glow-orb animate-pulse-glow bg-primary/40 w-[600px] h-[600px] -bottom-40 -right-32" />
 
       <div className="container relative mx-auto max-w-5xl text-center z-10">
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] mb-8 mt-72 md:mt-96">
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] mb-8">
           Smart Websites that help your business grow{" "}
           <span className="gradient-text block mt-2">one fixed price</span>
         </h1>
