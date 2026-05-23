@@ -46,7 +46,7 @@ const WhySubscription = () => {
             <Card key={index} className="glass border-border/40 hover:border-primary/40 hover:-translate-y-1 transition-all">
               <CardContent className="p-6">
                 <div className="w-12 h-12 rounded-xl bg-primary border-2 border-foreground flex items-center justify-center mb-4 shadow-[3px_3px_0_0_hsl(var(--foreground))]">
-                  <reason.icon className="w-6 h-6 text-primary" />
+                  <reason.icon className="w-6 h-6 text-foreground" strokeWidth={2.5} />
                 </div>
                 <h3 className="text-lg font-bold mb-2">{reason.title}</h3>
                 <p className="text-sm text-muted-foreground">{reason.description}</p>
