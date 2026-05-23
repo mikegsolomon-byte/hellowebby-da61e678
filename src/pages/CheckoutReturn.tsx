@@ -7,7 +7,7 @@ export default function CheckoutReturn() {
   return (
     <main className="min-h-screen flex items-center justify-center px-4 bg-background">
       <div className="glass rounded-2xl p-10 max-w-lg w-full text-center">
-        <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-tr from-primary to-accent flex items-center justify-center text-2xl">
+        <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-primary border-2 border-foreground flex items-center justify-center text-2xl shadow-[4px_4px_0_0_hsl(var(--foreground))]">
           ✓
         </div>
         <h1 className="text-3xl font-bold mb-3 gradient-text">You're in!</h1>
