@@ -19,8 +19,8 @@ const Hero = () => {
         style={{ backgroundImage: `url(${heroBg})` }}
         aria-hidden="true"
       />
-      {/* Readability overlay */}
-      <div className="absolute inset-0 bg-background/70 backdrop-blur-[2px]" aria-hidden="true" />
+      {/* Soft fade at bottom for text readability */}
+      <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-b from-transparent via-background/80 to-background" aria-hidden="true" />
 
       <div className="container relative mx-auto max-w-5xl text-center z-10">
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] mb-8 mt-72 md:mt-96">
