@@ -20,7 +20,7 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="relative py-24 px-4 section-light overflow-hidden">
+    <section id="how-it-works" className="relative px-4 section-light overflow-hidden py-[36px]">
       <div className="glow-orb bg-primary/20 w-[500px] h-[500px] top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 animate-pulse-glow" />
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">

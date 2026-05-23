@@ -21,7 +21,7 @@ const features = [
 
 const SmartWebsiteFeatures = () => {
   return (
-    <section id="features" className="relative py-24 px-4 section-light overflow-hidden">
+    <section id="features" className="relative px-4 section-light overflow-hidden py-[36px]">
       <div className="glow-orb bg-primary/20 w-[400px] h-[400px] top-0 right-0 animate-pulse-glow" />
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16">
