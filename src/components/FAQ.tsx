@@ -46,23 +46,27 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section id="faq" className="relative px-4 overflow-hidden py-[36px]">
-      <div className="glow-orb bg-primary/15 w-[500px] h-[500px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse-glow" />
-      <div className="container relative mx-auto max-w-3xl">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4">
+    <section id="faq" className="max-w-3xl mx-auto px-6 py-24 relative">
+      <div className="glow-orb bg-[#6c5ce7]/20 w-[500px] h-[500px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse-glow" />
+      <div className="relative">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
           Frequently Asked <span className="gradient-text">Questions</span>
         </h2>
-        <p className="text-lg text-muted-foreground text-center mb-12">
-          Everything you need to know about our smart website service
+        <p className="text-muted-foreground text-center mb-12">
+          Everything you need to know about our smart website service.
         </p>
-        
-        <Accordion type="single" collapsible className="w-full">
+
+        <Accordion type="single" collapsible className="w-full space-y-3">
           {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
-              <AccordionTrigger className="text-left">
+            <AccordionItem
+              key={index}
+              value={`item-${index}`}
+              className="glass rounded-2xl px-6 border-0"
+            >
+              <AccordionTrigger className="text-left font-bold hover:no-underline py-5">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
+              <AccordionContent className="text-muted-foreground pb-5">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>
