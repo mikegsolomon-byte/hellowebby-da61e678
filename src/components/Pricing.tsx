@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Check } from "lucide-react";
 import IntakeFormDialog from "./IntakeFormDialog";
 
@@ -61,62 +59,71 @@ const Pricing = () => {
   };
 
   return (
-    <section id="pricing" className="relative px-4 section-light overflow-hidden py-[36px]">
-      <div className="glow-orb bg-primary/25 w-[600px] h-[600px] top-10 left-1/2 -translate-x-1/2 animate-pulse-glow" />
-      <div className="container relative mx-auto max-w-7xl">
+    <section id="pricing" className="max-w-6xl mx-auto px-6 py-24 relative">
+      <div className="glow-orb bg-[#e84393]/30 w-[500px] h-[500px] top-20 left-1/2 -translate-x-1/2 animate-pulse-glow" />
+      <div className="relative">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Simple, <span className="gradient-text">Transparent</span> Pricing
           </h2>
-          <p className="text-lg text-muted-foreground">
-            No hidden fees. Cancel anytime.
-          </p>
+          <p className="text-muted-foreground">No hidden fees. Cancel anytime.</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {plans.map((plan, index) => (
-            <Card key={index} className={`relative glass transition-all hover:-translate-y-1 ${plan.popular ? 'border-primary/60 ring-glow scale-[1.02]' : 'border-border/40 hover:border-primary/40'}`}>
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-foreground text-primary px-4 py-1 rounded-full text-sm font-bold border-2 border-foreground">
-                  Most Popular
-                </div>
-              )}
-              <CardHeader className="text-center pb-8 pt-8">
-                <h3 className="text-2xl font-extrabold mb-2">{plan.name}</h3>
-                <p className="text-sm text-muted-foreground mb-4">{plan.description}</p>
-                <div className="mb-4">
+        <div className="grid md:grid-cols-3 gap-8 mb-10 items-start">
+          {plans.map((plan, index) => {
+            const accent = plan.popular ? "#e84393" : index === 0 ? "#ff6b35" : "#6c5ce7";
+            return (
+              <div
+                key={index}
+                className={`relative p-8 rounded-[2rem] flex flex-col transition-all ${
+                  plan.popular
+                    ? "bg-gradient-to-b from-[#e84393]/20 to-transparent border-2 border-[#e84393] md:scale-105 z-10 shadow-2xl shadow-[#e84393]/20"
+                    : "glass hover:bg-white/[0.07]"
+                }`}
+              >
+                {plan.popular && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#e84393] rounded-full text-[10px] font-bold tracking-widest uppercase text-white">
+                    Most Popular
+                  </div>
+                )}
+                <div className="text-lg font-bold mb-2">{plan.name}</div>
+                <p className="text-sm text-muted-foreground mb-6 min-h-[2.5rem]">{plan.description}</p>
+                <div className="flex items-baseline gap-1 mb-6">
                   <span className="text-5xl font-extrabold">{plan.price}</span>
                   <span className="text-muted-foreground">/month</span>
                 </div>
-                <Button className={`w-full rounded-xl ${plan.popular ? 'ring-glow' : ''}`} variant={plan.popular ? 'default' : 'outline'} onClick={() => handleGetStarted(plan.name)}>
+                <ul className="space-y-3 mb-8 text-sm flex-1">
+                  {plan.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: accent }} />
+                      <span className="text-foreground/85">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  onClick={() => handleGetStarted(plan.name)}
+                  className={`w-full py-4 rounded-xl font-bold transition-all ${
+                    plan.popular
+                      ? "bg-gradient-to-r from-[#e84393] to-[#6c5ce7] text-white hover:shadow-[0_10px_30px_rgba(232,67,147,0.4)]"
+                      : "bg-white/10 hover:bg-white/20 text-foreground"
+                  }`}
+                >
                   Get Started
-                </Button>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                {plan.features.map((feature, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">{feature}</span>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
-          ))}
+                </button>
+              </div>
+            );
+          })}
         </div>
 
-        <Card className="glass border-border/40">
-          <CardContent className="p-8 text-center">
-            <h3 className="text-2xl font-bold mb-2">One-time Setup</h3>
-            <p className="text-4xl font-extrabold gradient-text mb-2">€79</p>
-            <p className="text-muted-foreground mb-4">
-              Covers design, build, and launch of your website
-            </p>
+        <div className="glass rounded-[2rem] p-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div>
+            <h3 className="text-xl font-bold mb-1">One-time Setup</h3>
             <p className="text-sm text-muted-foreground">
-              No contracts. Your site stays live until you cancel. Switch plans anytime.
-              All prices include VAT. No hidden fees.
+              Covers design, build, and launch. All prices include VAT. No hidden fees.
             </p>
-          </CardContent>
-        </Card>
+          </div>
+          <div className="text-4xl font-extrabold gradient-text">€79</div>
+        </div>
       </div>
       <IntakeFormDialog 
         open={formOpen} 
