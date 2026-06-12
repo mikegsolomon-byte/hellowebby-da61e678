@@ -7,20 +7,32 @@ import {
 
 const faqs = [
   {
-    question: "What makes your websites \"smart\"?",
-    answer: "Our smart websites include integrated booking systems, automated follow-ups, lead capture optimization, and AI-powered tools that work together to help you get more customers without extra effort."
+    question: "What's included in the monthly subscription?",
+    answer: "Hosting, SSL, unlimited updates and changes, ongoing maintenance, security updates, SEO upkeep, and support. You'll never pay extra for changes."
   },
   {
     question: "How long does it take to get my website live?",
-    answer: "Most websites are live within 5-7 business days after we receive all your content and requirements. We work quickly to get you online and generating leads as soon as possible."
+    answer: "Most websites are live within 5 working days once we have your content and brand details. We move fast so you can start generating leads."
   },
   {
-    question: "What's included in the monthly subscription?",
-    answer: "Your monthly subscription includes hosting, unlimited updates and changes, ongoing maintenance, security updates, performance monitoring, and customer support. You'll never pay extra for changes or updates."
+    question: "Can I cancel at any time?",
+    answer: "Yes. No long-term contracts. Cancel any time with 30 days' notice — your site stays live until the end of your billing period."
   },
   {
-    question: "Can I cancel anytime?",
-    answer: "Yes! There are no long-term contracts. You can cancel your subscription at any time with 30 days notice. Your website will remain live until the end of your billing period."
+    question: "Do I own my website?",
+    answer: "You own all your content and data. We host and maintain the site during your subscription, and you can export your content whenever you like."
+  },
+  {
+    question: "Will you update my website for me?",
+    answer: "Yes — every plan includes managed updates. Send us the change, we make it. No CMS wrangling, no extra invoices."
+  },
+  {
+    question: "Is this suitable for a business with no tech experience?",
+    answer: "Absolutely. We handle everything — design, copy guidance, hosting, SEO, updates. You focus on your business; we look after the website."
+  },
+  {
+    question: "What makes your websites \"smart\"?",
+    answer: "Our smart websites include integrated booking systems, automated follow-ups, lead capture optimization, and AI-powered tools that work together to help you get more customers without extra effort."
   },
   {
     question: "Do you provide the content for my website?",
@@ -29,14 +41,6 @@ const faqs = [
   {
     question: "What's the difference between Starter and Pro plans?",
     answer: "The Starter plan is perfect for small businesses needing a simple web presence. The Pro plan includes advanced features like e-commerce, payment processing, and priority support - ideal for businesses looking to sell online or scale quickly."
-  },
-  {
-    question: "Do I own my website and content?",
-    answer: "You own all your content and data. While we maintain the website on our platform during your subscription, you can export your content at any time."
-  },
-  {
-    question: "What kind of support do you provide?",
-    answer: "All plans include email support with response within 24-48 hours. Pro plan customers get priority support with faster response times and access to our team for monthly strategy consultations."
   }
 ];
 

@@ -4,18 +4,18 @@ import { Card, CardContent } from "@/components/ui/card";
 const features = [
   {
     icon: Calendar,
-    title: "Easy Booking Tools",
-    description: "Seamless scheduling and booking systems that make it simple for customers to connect with you and book your services.",
+    title: "Let customers book you 24/7 — even while you sleep",
+    description: "Seamless scheduling so customers can book your services anytime, without back-and-forth.",
   },
   {
     icon: Target,
-    title: "Optimised to Capture Leads",
-    description: "We strategically place forms and call-to-actions to turn more of your website visitors into customers.",
+    title: "Turn website visitors into paying customers automatically",
+    description: "Strategically placed forms and CTAs convert curious visitors into real leads.",
   },
   {
     icon: Bot,
-    title: "Integrated Automation and AI",
-    description: "Save time with smart tools that automatically follow up with potential customers, helping you get more business.",
+    title: "Get found on Google by local customers",
+    description: "SEO setup plus AI follow-ups that chase leads for you and win more business.",
   }
 ];
 

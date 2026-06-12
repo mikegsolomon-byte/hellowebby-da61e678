@@ -113,6 +113,7 @@ const Pricing = () => {
             </p>
             <p className="text-sm text-muted-foreground">
               No contracts. Your site stays live until you cancel. Switch plans anytime.
+              All prices include VAT. No hidden fees.
             </p>
           </CardContent>
         </Card>
