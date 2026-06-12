@@ -29,7 +29,7 @@ const Testimonials = () => {
           </h2>
           <p className="text-lg text-muted-foreground">Real results from real owners.</p>
         </div>
-        <div className="grid md:grid-cols-3 gap-6 md:overflow-visible overflow-x-auto md:snap-none snap-x snap-mandatory flex md:block">
+        <div className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-4 px-4 md:mx-0 md:px-0">
           {testimonials.map((t, i) => (
             <Card key={i} className="glass border-border/40 min-w-[85%] md:min-w-0 snap-center">
               <CardContent className="p-8">
