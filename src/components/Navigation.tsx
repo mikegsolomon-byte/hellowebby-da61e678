@@ -1,40 +1,49 @@
+import { Button } from "@/components/ui/button";
+import logoMark from "@/assets/hellowebby-mark.png";
+
 const Navigation = () => {
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-background/70 backdrop-blur-xl border-b border-white/5">
-      <div className="container mx-auto px-6">
+    <nav className="fixed top-0 w-full bg-background/85 backdrop-blur-xl z-50 border-b-2 border-foreground">
+      <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
-          <button onClick={() => scrollToSection("hero")} className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#ff6b35] to-[#e84393]" />
+          <div className="flex items-center gap-2.5">
+            <img src={logoMark} alt="HelloWebby" className="h-10 w-auto" />
             <span className="font-extrabold text-xl tracking-tight">HelloWebby</span>
-          </button>
-
-          <div className="hidden md:flex items-center gap-8">
-            {[
-              ["Features", "features"],
-              ["How It Works", "how-it-works"],
-              ["Pricing", "pricing"],
-              ["FAQ", "faq"],
-            ].map(([label, id]) => (
-              <button
-                key={id}
-                onClick={() => scrollToSection(id)}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {label}
-              </button>
-            ))}
           </div>
 
-          <button
-            onClick={() => scrollToSection("pricing")}
-            className="px-5 py-2 bg-white text-background text-sm font-bold rounded-full hover:bg-[#f7931e] hover:text-white transition-all active:scale-95"
-          >
-            Get Started
-          </button>
+          <div className="hidden md:flex items-center gap-6">
+            <button
+              onClick={() => scrollToSection("features")}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Features
+            </button>
+            <button
+              onClick={() => scrollToSection("how-it-works")}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              How It Works
+            </button>
+            <button
+              onClick={() => scrollToSection("pricing")}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Pricing
+            </button>
+            <button
+              onClick={() => scrollToSection("faq")}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              FAQ
+            </button>
+          </div>
+
+          <Button className="rounded-full px-5 border-2 border-foreground shadow-[4px_4px_0_0_hsl(var(--foreground))] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_hsl(var(--foreground))] transition-all" onClick={() => scrollToSection("pricing")}>Get Started</Button>
         </div>
       </div>
     </nav>
