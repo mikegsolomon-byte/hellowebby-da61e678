@@ -21,6 +21,7 @@ interface Body {
   currency?: string | null;
   amountTotal?: number | null;
   lineItems?: LineItem[];
+  to?: string | null;
 }
 
 function fmt(amount: number | null | undefined, currency: string | null | undefined) {
@@ -90,7 +91,7 @@ Deno.serve(async (req) => {
 
     const result = await resend.emails.send({
       from: "hellowebby <onboarding@resend.dev>",
-      to: [Deno.env.get("PAYMENT_NOTIFICATION_TO") ?? "hello@hellowebby.com"],
+      to: [body.to ?? Deno.env.get("PAYMENT_NOTIFICATION_TO") ?? "hello@hellowebby.com"],
       ...(body.customerEmail ? { reply_to: body.customerEmail } : {}),
       subject: `New payment — ${fmt(body.amountTotal ?? null, body.currency)}${body.customerEmail ? ` from ${body.customerEmail}` : ""}`,
       html,
