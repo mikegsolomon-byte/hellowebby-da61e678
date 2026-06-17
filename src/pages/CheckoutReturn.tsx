@@ -61,6 +61,24 @@ export default function CheckoutReturn() {
         if (err || !res) throw new Error(err?.message || "Failed to load order");
         if (res.error) throw new Error(res.error);
         setData(res as SessionData);
+
+        const paidNow =
+          res.paymentStatus === "paid" || res.paymentStatus === "no_payment_required";
+        const notifyKey = `notified:${sessionId}`;
+        if (paidNow && !sessionStorage.getItem(notifyKey)) {
+          sessionStorage.setItem(notifyKey, "1");
+          supabase.functions
+            .invoke("send-payment-confirmation", {
+              body: {
+                sessionId,
+                customerEmail: res.customerEmail,
+                currency: res.currency,
+                amountTotal: res.amountTotal,
+                lineItems: res.lineItems,
+              },
+            })
+            .catch((e) => console.error("notify failed", e));
+        }
       } catch (e) {
         setError(e instanceof Error ? e.message : "Unknown error");
       } finally {
