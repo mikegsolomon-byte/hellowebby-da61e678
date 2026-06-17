@@ -90,11 +90,19 @@ Deno.serve(async (req) => {
 
     const result = await resend.emails.send({
       from: "hellowebby <onboarding@resend.dev>",
-      to: ["hello@hellowebby.com"],
+      to: [Deno.env.get("PAYMENT_NOTIFICATION_TO") ?? "hello@hellowebby.com"],
       ...(body.customerEmail ? { reply_to: body.customerEmail } : {}),
       subject: `New payment — ${fmt(body.amountTotal ?? null, body.currency)}${body.customerEmail ? ` from ${body.customerEmail}` : ""}`,
       html,
     });
+
+    if (result.error) {
+      console.error("resend error", result.error);
+      return new Response(JSON.stringify({ ok: false, error: result.error }), {
+        status: 502,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
 
     return new Response(JSON.stringify({ ok: true, result }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
