@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import IntakeFormDialog from "./IntakeFormDialog";
-import { CheckCircle2, Star, ShieldCheck, Phone } from "lucide-react";
+import { CheckCircle2, ShieldCheck, Phone } from "lucide-react";
 
 const Hero = () => {
   const [formOpen, setFormOpen] = useState(false);
