@@ -19,7 +19,7 @@ const Index = () => {
       <Hero />
       <SmartWebsiteFeatures />
       <Pricing />
-      <Testimonials />
+      
       <WhoIsThisFor />
       <HowItWorks />
       <WhatYouGet />
