@@ -46,7 +46,6 @@ const Hero = () => {
         {/* Trust bar */}
         <div className="mt-12 rounded-2xl border-2 border-foreground/10 bg-background/60 backdrop-blur px-6 py-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-sm font-medium">
           <div className="flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-foreground" /> Live in 5 days</div>
-          <div className="flex items-center justify-center gap-2"><Star className="w-4 h-4 text-foreground" /> 5-star rated by Irish SMBs</div>
           <div className="flex items-center justify-center gap-2"><ShieldCheck className="w-4 h-4 text-foreground" /> No long-term contracts</div>
           <div className="flex items-center justify-center gap-2"><Phone className="w-4 h-4 text-foreground" /> Local Irish support</div>
         </div>
