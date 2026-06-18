@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import SmartWebsiteFeatures from "@/components/SmartWebsiteFeatures";
 import Pricing from "@/components/Pricing";
-import Testimonials from "@/components/Testimonials";
+
 import WhoIsThisFor from "@/components/WhoIsThisFor";
 import HowItWorks from "@/components/HowItWorks";
 import WhatYouGet from "@/components/WhatYouGet";
@@ -19,7 +19,7 @@ const Index = () => {
       <Hero />
       <SmartWebsiteFeatures />
       <Pricing />
-      <Testimonials />
+      
       <WhoIsThisFor />
       <HowItWorks />
       <WhatYouGet />
