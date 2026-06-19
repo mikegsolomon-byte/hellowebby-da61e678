@@ -80,20 +80,39 @@ const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan" }: I
     setLoading(true);
     try {
       const payload = parsed.data;
-      const { error: dbError } = await supabase.from("form_submissions").insert({
+      const { data: inserted, error: dbError } = await supabase.from("form_submissions").insert({
         name: payload.name,
         email: payload.email,
         phone: payload.phone || null,
         company: payload.company || null,
         message: payload.message,
         pricing_plan: selectedPlan,
-      });
+      }).select("id").maybeSingle();
       if (dbError) throw dbError;
 
-      const { error: emailError } = await supabase.functions.invoke("send-notification", {
-        body: { ...payload, pricing_plan: selectedPlan },
+      const submissionId = inserted?.id ?? crypto.randomUUID();
+      const templateData = { ...payload, pricing_plan: selectedPlan };
+
+      // Internal notification to the HelloWebby inbox
+      const { error: notifyError } = await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "contact-notification",
+          idempotencyKey: `contact-notify-${submissionId}`,
+          templateData,
+        },
       });
-      if (emailError) console.error("Email notification error:", emailError);
+      if (notifyError) console.error("Notification email error:", notifyError);
+
+      // Auto-reply confirmation to the person who filled the form
+      const { error: confirmError } = await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "contact-confirmation",
+          recipientEmail: payload.email,
+          idempotencyKey: `contact-confirm-${submissionId}`,
+          templateData,
+        },
+      });
+      if (confirmError) console.error("Confirmation email error:", confirmError);
 
       setSuccess(true);
     } catch (error: any) {
