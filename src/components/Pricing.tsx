@@ -15,7 +15,7 @@ const plans = [
       "Basic SEO setup",
       "Mobile responsive design",
       "Hosting & SSL included",
-      "1 content update per month"
+      "Unlimited Content Updates"
     ]
   },
   {
@@ -31,7 +31,7 @@ const plans = [
       "Live chat integration",
       "SEO optimization",
       "Social media integration",
-      "4 content updates per month"
+      "Unlimited Content Updates"
     ]
   },
   {
