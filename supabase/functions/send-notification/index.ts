@@ -30,7 +30,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send notification to business owner
     const emailResponse = await resend.emails.send({
       from: "Smart Websites <onboarding@resend.dev>",
-      to: ["your-email@example.com"], // Replace with your actual email
+      to: ["hello@hellowebby.com"],
       subject: `New Lead: ${pricing_plan} - ${name}`,
       html: `
         <h1>New Lead Submission</h1>
