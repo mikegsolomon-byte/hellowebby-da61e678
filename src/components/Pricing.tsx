@@ -28,7 +28,6 @@ const plans = [
       "Everything in Starter",
       "Booking/appointment tools",
       "Blog functionality",
-      "Live chat integration",
       "SEO optimization",
       "Social media integration",
       "Unlimited Content Updates"
