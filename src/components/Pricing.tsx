@@ -7,47 +7,49 @@ import IntakeFormDialog from "./IntakeFormDialog";
 const plans = [
   {
     name: "Starter",
-    description: "Perfect for small businesses just getting online",
+    description: "Perfect for getting online fast",
     price: "€49",
     features: [
-      "Up to 3 pages",
-      "Contact form",
-      "Basic SEO setup",
-      "Mobile responsive design",
-      "Hosting & SSL included",
-      "Unlimited Content Updates"
-    ]
+      "5-page professionally designed website",
+      "Mobile-responsive design",
+      "Hosting, SSL certificate & domain connection",
+      "On-page SEO setup",
+      "Contact & lead capture form",
+      "Google Analytics connected",
+      "Cancel anytime after month 1",
+    ],
   },
   {
     name: "Growth",
-    description: "For businesses ready to grow their presence",
+    description: "The most popular choice for Irish SMEs",
     price: "€89",
     popular: true,
     features: [
-      "Up to 8 pages",
-      "Everything in Starter",
-      "Booking/appointment tools",
-      "Blog functionality",
-      "SEO optimization",
-      "Social media integration",
-      "Unlimited Content Updates"
-    ]
+      "Up to 10 pages, professionally designed",
+      "Online booking / appointment system",
+      "Full SEO setup + keyword targeting",
+      "Google Business Profile setup & optimisation",
+      "Monthly content updates (just email us)",
+      "Google Analytics + Search Console connected",
+      "Priority support",
+      "Cancel anytime after month 1",
+    ],
   },
   {
     name: "Pro",
-    description: "Full-service for serious growth",
+    description: "For businesses ready to grow faster",
     price: "€149",
     features: [
-      "Unlimited pages",
-      "Everything in Growth",
-      "E-commerce functionality",
-      "Payment processing",
-      "Advanced SEO & analytics",
-      "Monthly marketing consultation",
-      "Priority support",
-      "Unlimited content updates"
-    ]
-  }
+      "Unlimited pages, custom design",
+      "eCommerce / online shop (sell products or services)",
+      "Advanced SEO with monthly ranking report",
+      "Live chat or WhatsApp widget",
+      "Email marketing integration",
+      "Monthly strategy call (30 mins)",
+      "Dedicated account manager",
+      "Cancel anytime after month 1",
+    ],
+  },
 ];
 
 const Pricing = () => {
@@ -63,12 +65,15 @@ const Pricing = () => {
     <section id="pricing" className="relative px-4 section-light overflow-hidden py-[36px]">
       <div className="glow-orb bg-primary/25 w-[600px] h-[600px] top-10 left-1/2 -translate-x-1/2 animate-pulse-glow" />
       <div className="container relative mx-auto max-w-7xl">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
-            Simple, <span className="gradient-text">Transparent</span> Pricing
+            Simple, <span className="gradient-text">honest pricing</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
-            No hidden fees. Cancel anytime.
+          <p className="text-lg text-muted-foreground mb-4">
+            One monthly fee. No hidden costs. No contracts after month one.
+          </p>
+          <p className="inline-block text-sm font-medium px-4 py-2 rounded-full border-2 border-foreground/15 bg-background/60 backdrop-blur">
+            All plans include a once-off €79 setup fee — this covers your initial design consultation and website build.
           </p>
         </div>
 
@@ -87,8 +92,9 @@ const Pricing = () => {
                   <span className="text-5xl font-extrabold">{plan.price}</span>
                   <span className="text-muted-foreground">/month</span>
                 </div>
+                <p className="text-xs text-muted-foreground mb-4">+ €79 once-off setup fee</p>
                 <Button className={`w-full rounded-xl ${plan.popular ? 'ring-glow' : ''}`} variant={plan.popular ? 'default' : 'outline'} onClick={() => handleGetStarted(plan.name)}>
-                  Get Started
+                  Get started
                 </Button>
               </CardHeader>
               <CardContent className="space-y-3">
@@ -105,14 +111,8 @@ const Pricing = () => {
 
         <Card className="glass border-border/40">
           <CardContent className="p-8 text-center">
-            <h3 className="text-2xl font-bold mb-2">One-time Setup</h3>
-            <p className="text-4xl font-extrabold gradient-text mb-2">€79</p>
-            <p className="text-muted-foreground mb-4">
-              Covers design, build, and launch of your website
-            </p>
-            <p className="text-sm text-muted-foreground">
-              No contracts. Your site stays live until you cancel. Switch plans anytime.
-              All prices include VAT. No hidden fees.
+            <p className="text-base md:text-lg leading-relaxed">
+              💡 <strong>A typical Irish web agency charges €2,000–€5,000 upfront</strong> — plus €100–€200/month for hosting and maintenance. With hellowebby, your first year on the Growth plan costs <strong>€1,147 total</strong> (€79 setup + €89 × 12). That's it.
             </p>
           </CardContent>
         </Card>

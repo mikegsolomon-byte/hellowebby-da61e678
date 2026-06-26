@@ -7,41 +7,37 @@ import {
 
 const faqs = [
   {
-    question: "What's included in the monthly subscription?",
-    answer: "Hosting, SSL, unlimited updates and changes, ongoing maintenance, security updates, SEO upkeep, and support. You'll never pay extra for changes."
-  },
-  {
-    question: "How long does it take to get my website live?",
-    answer: "Most websites are live within 5 working days once we have your content and brand details. We move fast so you can start generating leads."
-  },
-  {
-    question: "Can I cancel at any time?",
-    answer: "Yes. No long-term contracts. Cancel any time with 30 days' notice — your site stays live until the end of your billing period."
-  },
-  {
     question: "Do I own my website?",
-    answer: "You own all your content and data. We host and maintain the site during your subscription, and you can export your content whenever you like."
+    answer: "You own all of your content — your text, images, and business information are always yours. The website platform and hosting infrastructure are managed by us as part of your subscription, similar to how Shopify or Wix work. If you ever decide to move on, we'll give you a full export of your content.",
   },
   {
-    question: "Will you update my website for me?",
-    answer: "Yes — every plan includes managed updates. Send us the change, we make it. No CMS wrangling, no extra invoices."
+    question: "What happens if I cancel?",
+    answer: "You can cancel anytime after your first month with 30 days' notice. We'll give you plenty of time to make alternative arrangements. There are no cancellation fees.",
   },
   {
-    question: "Is this suitable for a business with no tech experience?",
-    answer: "Absolutely. We handle everything — design, copy guidance, hosting, SEO, updates. You focus on your business; we look after the website."
+    question: "How long does it take to build my website?",
+    answer: "Most websites are live within 3–5 working days of receiving your content. We'll send you a simple form to fill in — once we have that, we get to work straight away.",
   },
   {
-    question: "What makes your websites \"smart\"?",
-    answer: "Our smart websites include integrated booking systems, automated follow-ups, lead capture optimization, and AI-powered tools that work together to help you get more customers without extra effort."
+    question: "Is the €79 setup fee charged every year?",
+    answer: "No — it's a once-off fee charged when you first sign up. Your monthly subscription covers everything after that.",
   },
   {
-    question: "Do you provide the content for my website?",
-    answer: "We'll work with you to optimize and structure your content, but you'll need to provide the initial text, images, and information about your business. We can also recommend professional copywriters if needed."
+    question: "Do you work with businesses outside Dublin?",
+    answer: "Yes, we work with businesses right across Ireland. Everything is handled remotely so your location doesn't matter.",
   },
   {
-    question: "What's the difference between Starter and Pro plans?",
-    answer: "The Starter plan is perfect for small businesses needing a simple web presence. The Pro plan includes advanced features like e-commerce, payment processing, and priority support - ideal for businesses looking to sell online or scale quickly."
-  }
+    question: "What if I want to change something on my website?",
+    answer: "On the Growth and Pro plans, just email us what you need changed and we'll sort it. Starter plan customers can make content updates themselves through a simple dashboard, or request changes for a small fee.",
+  },
+  {
+    question: "Is there a contract?",
+    answer: "No long-term contract. You're committing to one month at a time after the first month. The €79 setup fee covers the cost of building your site, and after that you're free to stay or go.",
+  },
+  {
+    question: "Do you handle SEO?",
+    answer: "Yes. Every plan includes on-page SEO setup — proper page titles, meta descriptions, structured data, and Google indexing. The Growth and Pro plans include more advanced SEO work including keyword targeting and Google Business Profile optimisation.",
+  },
 ];
 
 const FAQ = () => {
@@ -50,10 +46,10 @@ const FAQ = () => {
       <div className="glow-orb bg-primary/15 w-[500px] h-[500px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse-glow" />
       <div className="container relative mx-auto max-w-3xl">
         <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4">
-          Frequently Asked <span className="gradient-text">Questions</span>
+          Questions? <span className="gradient-text">We've got answers.</span>
         </h2>
         <p className="text-lg text-muted-foreground text-center mb-12">
-          Everything you need to know about our smart website service
+          Everything you need to know before getting started.
         </p>
         
         <Accordion type="single" collapsible className="w-full">
