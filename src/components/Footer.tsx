@@ -1,35 +1,38 @@
 import logoMark from "@/assets/hellowebby-mark.png";
 
+const scrollToSection = (id: string) => {
+  const element = document.getElementById(id);
+  element?.scrollIntoView({ behavior: "smooth" });
+};
+
 const Footer = () => {
   return (
     <footer className="pt-12 pb-8 px-4 border-t-2 border-foreground bg-primary">
       <div className="container mx-auto max-w-6xl">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="grid md:grid-cols-2 gap-8 mb-8 items-start">
           <div>
             <div className="flex items-center gap-2.5 mb-3">
-              <img src={logoMark} alt="HelloWebby — small business websites Ireland" className="h-10 w-auto" />
-              <span className="font-extrabold text-xl tracking-tight text-foreground">HelloWebby</span>
+              <img src={logoMark} alt="hellowebby — small business websites Ireland" className="h-10 w-auto" />
+              <span className="font-extrabold text-xl tracking-tight text-foreground">hellowebby</span>
             </div>
-            <p className="text-sm text-foreground/80 font-medium">
-              Smart websites for Irish small businesses. Based in Ireland.
+            <p className="text-sm text-foreground/80 font-medium max-w-md">
+              Professional websites for Irish small businesses. Built in days, not months.
             </p>
-          </div>
-          <div>
-            <h4 className="font-bold mb-3 text-foreground">Contact</h4>
-            <a href="mailto:hello@hellowebby.com" className="text-sm text-foreground/80 hover:text-foreground font-medium">
+            <a href="mailto:hello@hellowebby.com" className="mt-3 inline-block text-sm text-foreground/80 hover:text-foreground font-semibold">
               hello@hellowebby.com
             </a>
           </div>
-          <div>
-            <h4 className="font-bold mb-3 text-foreground">Legal</h4>
-            <ul className="space-y-2 text-sm font-medium">
-              <li><a href="/privacy" className="text-foreground/80 hover:text-foreground">Privacy Policy</a></li>
-              <li><a href="/terms" className="text-foreground/80 hover:text-foreground">Terms &amp; Conditions</a></li>
-            </ul>
-          </div>
+          <nav className="flex flex-wrap gap-x-6 gap-y-2 md:justify-end text-sm font-semibold">
+            <button onClick={() => scrollToSection("hero")} className="text-foreground/80 hover:text-foreground">Home</button>
+            <button onClick={() => scrollToSection("pricing")} className="text-foreground/80 hover:text-foreground">Pricing</button>
+            <button onClick={() => scrollToSection("how-it-works")} className="text-foreground/80 hover:text-foreground">How it works</button>
+            <button onClick={() => scrollToSection("faq")} className="text-foreground/80 hover:text-foreground">FAQ</button>
+            <a href="mailto:hello@hellowebby.com" className="text-foreground/80 hover:text-foreground">Contact</a>
+          </nav>
         </div>
-        <div className="border-t border-foreground/20 pt-6 text-sm text-foreground/80 text-center font-medium">
-          © 2025 HelloWebby. Smart websites for small businesses.
+        <div className="border-t border-foreground/20 pt-6 flex flex-col md:flex-row gap-3 md:justify-between md:items-center text-sm text-foreground/80 font-medium">
+          <div>🇮🇪 Irish-owned &nbsp;|&nbsp; GDPR compliant &nbsp;|&nbsp; Irish support</div>
+          <div>© 2025 hellowebby. All rights reserved.</div>
         </div>
       </div>
     </footer>
