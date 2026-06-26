@@ -32,25 +32,19 @@ const HowItWorks = () => {
             Up and running in <span className="gradient-text">3 simple steps</span>
           </h2>
         </div>
-        <div className="grid md:grid-cols-3 gap-8 md:gap-4 items-stretch">
+        <div className="relative grid md:grid-cols-3 gap-8">
+          <div className="hidden md:block absolute top-16 left-[16%] right-[16%] h-[2px] bg-foreground/15" aria-hidden="true" />
           {steps.map((step, index) => (
-            <div key={index} className="flex md:contents">
-              <Card className="glass border-border/40 hover:border-primary/40 hover:-translate-y-1 transition-all flex-1">
-                <CardContent className="p-8">
-                  <div className="w-16 h-16 rounded-2xl bg-primary text-foreground border-2 border-foreground flex items-center justify-center mb-4 mx-auto shadow-[4px_4px_0_0_hsl(var(--foreground))]">
-                    <step.icon className="w-7 h-7" strokeWidth={2.5} />
-                  </div>
-                  <div className="text-sm font-bold text-center text-muted-foreground mb-2">STEP {step.number}</div>
-                  <h3 className="text-xl font-bold mb-3 text-center">{step.title}</h3>
-                  <p className="text-muted-foreground text-center">{step.description}</p>
-                </CardContent>
-              </Card>
-              {index < steps.length - 1 && (
-                <div className="hidden md:flex items-center justify-center px-2">
-                  <ArrowRight className="w-6 h-6 text-foreground/40" />
+            <Card key={index} className="relative glass border-border/40 hover:border-primary/40 hover:-translate-y-1 transition-all">
+              <CardContent className="p-8">
+                <div className="relative w-16 h-16 rounded-2xl bg-primary text-foreground border-2 border-foreground flex items-center justify-center mb-4 mx-auto shadow-[4px_4px_0_0_hsl(var(--foreground))]">
+                  <step.icon className="w-7 h-7" strokeWidth={2.5} />
                 </div>
-              )}
-            </div>
+                <div className="text-sm font-bold text-center text-muted-foreground mb-2">STEP {step.number}</div>
+                <h3 className="text-xl font-bold mb-3 text-center">{step.title}</h3>
+                <p className="text-muted-foreground text-center">{step.description}</p>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>
