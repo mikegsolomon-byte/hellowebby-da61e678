@@ -1,20 +1,24 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { ClipboardList, Laptop, Rocket, ArrowRight } from "lucide-react";
 
 const steps = [
   {
     number: "1",
-    title: "Submit Your Request",
-    description: "Describe your website needs through our simple request portal. No technical knowledge required."
+    icon: ClipboardList,
+    title: "Tell us about your business",
+    description: "Fill in a short form about your business — what you do, who your customers are, and what you want your website to achieve. Takes about 10 minutes."
   },
   {
     number: "2",
-    title: "We Build It",
-    description: "Our expert team designs and implements your custom site with precision and care."
+    icon: Laptop,
+    title: "We build it for you",
+    description: "Our team designs and builds your website in days. You'll get a preview to review and request any changes before we go live."
   },
   {
     number: "3",
-    title: "Get Results",
-    description: "Reach more customers quickly and change/update as you need"
+    icon: Rocket,
+    title: "Go live and get customers",
+    description: "Your website goes live on your domain. We handle hosting, security, and updates. You focus on running your business."
   }
 ];
 
@@ -25,23 +29,28 @@ const HowItWorks = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
-            How It Works
+            Up and running in <span className="gradient-text">3 simple steps</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Simple, efficient, and designed to scale with your business needs
-          </p>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 md:gap-4 items-stretch">
           {steps.map((step, index) => (
-            <Card key={index} className="glass border-border/40 hover:border-primary/40 hover:-translate-y-1 transition-all">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 rounded-2xl bg-primary text-foreground border-2 border-foreground flex items-center justify-center text-2xl font-extrabold mb-6 mx-auto shadow-[4px_4px_0_0_hsl(var(--foreground))]">
-                  {step.number}
+            <div key={index} className="flex md:contents">
+              <Card className="glass border-border/40 hover:border-primary/40 hover:-translate-y-1 transition-all flex-1">
+                <CardContent className="p-8">
+                  <div className="w-16 h-16 rounded-2xl bg-primary text-foreground border-2 border-foreground flex items-center justify-center mb-4 mx-auto shadow-[4px_4px_0_0_hsl(var(--foreground))]">
+                    <step.icon className="w-7 h-7" strokeWidth={2.5} />
+                  </div>
+                  <div className="text-sm font-bold text-center text-muted-foreground mb-2">STEP {step.number}</div>
+                  <h3 className="text-xl font-bold mb-3 text-center">{step.title}</h3>
+                  <p className="text-muted-foreground text-center">{step.description}</p>
+                </CardContent>
+              </Card>
+              {index < steps.length - 1 && (
+                <div className="hidden md:flex items-center justify-center px-2">
+                  <ArrowRight className="w-6 h-6 text-foreground/40" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-center">{step.title}</h3>
-                <p className="text-muted-foreground text-center">{step.description}</p>
-              </CardContent>
-            </Card>
+              )}
+            </div>
           ))}
         </div>
       </div>
