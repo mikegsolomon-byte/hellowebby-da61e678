@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { ClipboardList, Laptop, Rocket, ArrowRight } from "lucide-react";
+import { ClipboardList, Laptop, Rocket } from "lucide-react";
 
 const steps = [
   {
