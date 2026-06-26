@@ -1,14 +1,14 @@
-import { Scissors, Wrench, Coffee, Zap, Dumbbell, Baby, Calculator, Camera } from "lucide-react";
+import { Scissors, Wrench, Coffee, Zap, HardHat, Briefcase, HeartPulse, ShoppingBag } from "lucide-react";
 
 const businesses = [
-  { icon: Scissors, label: "Salons" },
   { icon: Wrench, label: "Plumbers" },
-  { icon: Coffee, label: "Cafés" },
+  { icon: Scissors, label: "Salons & Barbers" },
+  { icon: Coffee, label: "Cafés & Restaurants" },
   { icon: Zap, label: "Electricians" },
-  { icon: Dumbbell, label: "Personal Trainers" },
-  { icon: Baby, label: "Childminders" },
-  { icon: Calculator, label: "Accountants" },
-  { icon: Camera, label: "Photographers" },
+  { icon: HardHat, label: "Builders & Tradespeople" },
+  { icon: Briefcase, label: "Accountants & Solicitors" },
+  { icon: HeartPulse, label: "Therapists & Clinics" },
+  { icon: ShoppingBag, label: "Retail & Boutiques" },
 ];
 
 const WhoIsThisFor = () => {
@@ -17,9 +17,8 @@ const WhoIsThisFor = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
-            Built for businesses <span className="gradient-text">like yours</span>
+            Built for Irish small businesses <span className="gradient-text">like yours</span>
           </h2>
-          <p className="text-lg text-muted-foreground">Whatever you do, we've built a site for it.</p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {businesses.map((b, i) => (
