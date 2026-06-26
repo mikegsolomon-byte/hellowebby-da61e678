@@ -43,7 +43,7 @@ const Email = ({ name = 'Unknown', email = 'unknown@example.com' }: Props) => (
 export const template = {
   component: Email,
   subject: (data: Record<string, unknown>) =>
-    `New checklist lead \u2014 ${(data.name as string) || 'New subscriber'}`,
+    `New checklist lead — ${(data.name as string) || 'New subscriber'}`,
   displayName: 'Internal: checklist lead notification',
   to: 'hello@hellowebby.com',
   previewData: { name: 'Jane Doe', email: 'jane@acme.com' },
