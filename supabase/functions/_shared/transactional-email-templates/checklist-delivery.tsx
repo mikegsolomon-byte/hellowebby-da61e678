@@ -17,19 +17,19 @@ interface Props {
 }
 
 const items: { title: string; desc: string }[] = [
-  { title: 'Clear value proposition above the fold', desc: 'One sentence that tells visitors what you do, who it\u2019s for, and why they should care \u2014 visible without scrolling.' },
+  { title: 'Clear value proposition above the fold', desc: 'One sentence that tells visitors what you do, who it’s for, and why they should care — visible without scrolling.' },
   { title: 'Obvious primary call-to-action', desc: 'A single, high-contrast button (Book, Call, Buy, Enquire) repeated through the page.' },
-  { title: 'Mobile-first design', desc: 'Looks great on phones \u2014 readable text, tap-friendly buttons, fast load.' },
+  { title: 'Mobile-first design', desc: 'Looks great on phones — readable text, tap-friendly buttons, fast load.' },
   { title: 'Page speed under 3 seconds', desc: 'Compressed images, modern hosting, minimal heavy scripts.' },
   { title: 'Trust signals', desc: 'Real testimonials, reviews, logos, photos of your team or work.' },
   { title: 'Local SEO basics', desc: 'Town/region in your titles and headings, Google Business Profile linked, NAP (name, address, phone) consistent.' },
-  { title: 'Easy contact options', desc: 'Phone, email, WhatsApp or a short form \u2014 never hidden, never more than one click away.' },
+  { title: 'Easy contact options', desc: 'Phone, email, WhatsApp or a short form — never hidden, never more than one click away.' },
   { title: 'Services/products clearly listed', desc: 'Each service on its own section or page with pricing guidance where possible.' },
   { title: 'About page that builds trust', desc: 'Your story, your face, your why. People buy from people.' },
   { title: 'SEO meta titles & descriptions', desc: 'Every page has a unique title (<60 chars) and description (<160 chars) with the keyword you want to rank for.' },
-  { title: 'Analytics installed', desc: 'Google Analytics or similar so you can see what\u2019s actually working.' },
+  { title: 'Analytics installed', desc: 'Google Analytics or similar so you can see what’s actually working.' },
   { title: 'Secure (HTTPS) + working forms', desc: 'Padlock in the browser, forms tested monthly, spam protection on.' },
-  { title: 'Ongoing updates & backups', desc: 'A plan for content updates, security patches and regular backups \u2014 sites that sit still slip in rankings.' },
+  { title: 'Ongoing updates & backups', desc: 'A plan for content updates, security patches and regular backups — sites that sit still slip in rankings.' },
 ]
 
 const Email = ({ name = 'there' }: Props) => {
@@ -41,12 +41,12 @@ const Email = ({ name = 'there' }: Props) => {
       <Body style={main}>
         <Container style={container}>
           <Section style={badge}>
-            <Text style={badgeText}>HELLOWEBBY \u2014 FREE CHECKLIST</Text>
+            <Text style={badgeText}>HELLOWEBBY — FREE CHECKLIST</Text>
           </Section>
-          <Heading style={h1}>Here\u2019s your website checklist, {firstName} 🎉</Heading>
+          <Heading style={h1}>Here's your website checklist, {firstName} 🎉</Heading>
           <Text style={lead}>
             A simple, no-nonsense guide to what every small business website needs
-            to actually win customers. Work through each item \u2014 if you\u2019re missing
+            to actually win customers. Work through each item — if you're missing
             more than a few, your site is likely leaving money on the table.
           </Text>
 
@@ -63,15 +63,15 @@ const Email = ({ name = 'there' }: Props) => {
           <Section style={ctaBox}>
             <Text style={ctaTitle}>Want us to handle all of this for you?</Text>
             <Text style={ctaText}>
-              HelloWebby builds and looks after small business websites from \u20AC49/mo \u2014
+              HelloWebby builds and looks after small business websites from €49/mo —
               no upfront cost, Irish support, cancel anytime. Just hit reply and
-              we\u2019ll take it from there.
+              we'll take it from there.
             </Text>
           </Section>
 
           <Hr style={hr} />
           <Text style={footer}>
-            HelloWebby \u00B7 hellowebby.com<br />
+            HelloWebby · hellowebby.com<br />
             Beautiful websites, looked after for you.
           </Text>
         </Container>
@@ -82,7 +82,7 @@ const Email = ({ name = 'there' }: Props) => {
 
 export const template = {
   component: Email,
-  subject: 'Your free small business website checklist \u2728',
+  subject: 'Your free small business website checklist ✨',
   displayName: 'Lead magnet: website checklist delivery',
   previewData: { name: 'Jane Doe' },
 } satisfies TemplateEntry
