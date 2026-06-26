@@ -1,21 +1,22 @@
 import { Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
+// PLACEHOLDER TESTIMONIALS — replace with real customer quotes when available
 const testimonials = [
   {
-    name: "Sarah",
-    business: "Nail Technician, Dublin",
-    quote: "Bookings went up within the first month. Customers can book themselves at 9pm — I just turn up.",
+    name: "Sarah M.",
+    business: "Beauty Salon, Co. Dublin",
+    quote: "We had our new website live within a week. The whole process was dead easy and we started getting enquiries through it straight away.",
   },
   {
-    name: "Liam",
-    business: "Plumber, Cork",
-    quote: "Phone calls easily doubled. The site shows up on Google for plumbers near me now — that was the game-changer.",
+    name: "Brendan K.",
+    business: "Electrician, Co. Cork",
+    quote: "I'd been putting off getting a proper website for years because of the cost. This was exactly what I needed — professional result without the big upfront bill.",
   },
   {
-    name: "Aoife",
-    business: "Café Owner, Galway",
-    quote: "Looks beautiful and brings in real customers. Anything I want changed gets done the same day.",
+    name: "Aoife R.",
+    business: "Accountant, Co. Galway",
+    quote: "The team sorted everything — design, SEO, the lot. I just answered a few questions and they handled it. Couldn't recommend it more.",
   },
 ];
 
@@ -25,9 +26,8 @@ const Testimonials = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
-            Loved by Irish <span className="gradient-text">small businesses</span>
+            Trusted by Irish <span className="gradient-text">small businesses</span>
           </h2>
-          <p className="text-lg text-muted-foreground">Real results from real owners.</p>
         </div>
         <div className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-4 px-4 md:mx-0 md:px-0">
           {testimonials.map((t, i) => (
