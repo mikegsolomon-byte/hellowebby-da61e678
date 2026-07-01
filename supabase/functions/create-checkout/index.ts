@@ -60,20 +60,20 @@ Deno.serve(async (req) => {
         (await stripe.customers.create({ email: customerEmail })).id;
     }
 
-    // Recurring plan goes in line_items (billed every period).
-    // Setup fee goes in subscription_data.add_invoice_items so it is
-    // added to ONLY the first invoice — never on renewals.
+    // Recurring plan + one-time setup fee both in line_items. In
+    // subscription mode, Stripe automatically adds the one-time price
+    // to the FIRST invoice only — it never repeats on renewals.
+    const lineItems: { price: string; quantity: number }[] = [
+      { price: planPrice.id, quantity: 1 },
+    ];
+    if (setupPrice) lineItems.push({ price: setupPrice.id, quantity: 1 });
+
     const session = await stripe.checkout.sessions.create({
-      line_items: [{ price: planPrice.id, quantity: 1 }],
+      line_items: lineItems,
       mode: "subscription",
       ui_mode: "embedded_page",
       return_url: returnUrl,
       ...(customerId && { customer: customerId }),
-      ...(setupPrice && {
-        subscription_data: {
-          add_invoice_items: [{ price: setupPrice.id, quantity: 1 }],
-        },
-      }),
     });
 
     return new Response(JSON.stringify({ clientSecret: session.client_secret }), {
