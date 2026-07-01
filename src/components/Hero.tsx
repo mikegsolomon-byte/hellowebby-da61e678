@@ -28,7 +28,7 @@ const Hero = () => {
           No €3,000 upfront cost. No waiting weeks. Just a professional website built for you — from €49/month.
         </p>
         <p className="text-base text-foreground/70 max-w-2xl mx-auto mb-8">
-          Most web agencies charge €2,000 to €5,000 before they lift a finger. With hellowebby, you pay €49/month — and we build your entire website in days. Hosting, SEO, and support included. Cancel anytime.
+          Most web agencies in Ireland charge €2,000 to €5,000 before they lift a finger. With hellowebby, you pay €49/month — and we build your entire website in days. Hosting, SEO, and support included. Cancel anytime.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
