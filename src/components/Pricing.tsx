@@ -112,7 +112,7 @@ const Pricing = () => {
         <Card className="glass border-border/40">
           <CardContent className="p-8 text-center">
             <p className="text-base md:text-lg leading-relaxed">
-              💡 <strong>A typical web agency charges €2,000–€5,000 upfront</strong> — plus €100–€200/month for hosting and maintenance. With hellowebby, your first year on the Growth plan costs <strong>€1,147 total</strong> (€79 setup + €89 × 12). That's it.
+              💡 <strong>A typical Irish web agency charges €2,000–€5,000 upfront</strong> — plus €100–€200/month for hosting and maintenance. With hellowebby, your first year on the Growth plan costs <strong>€1,147 total</strong> (€79 setup + €89 × 12). That's it.
             </p>
             <div className="mt-6 pt-6 border-t border-border/40 flex flex-col sm:flex-row items-center justify-center gap-4">
               <span className="text-sm text-muted-foreground">Not sure which plan is right?</span>
