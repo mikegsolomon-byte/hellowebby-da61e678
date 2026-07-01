@@ -12,11 +12,11 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 gap-8 mb-8 items-start">
           <div>
             <div className="flex items-center gap-2.5 mb-3">
-              <img src={logoMark} alt="hellowebby — small business websites Ireland" className="h-10 w-auto" />
+              <img src={logoMark} alt="hellowebby — small business websites" className="h-10 w-auto" />
               <span className="font-extrabold text-xl tracking-tight text-foreground">hellowebby</span>
             </div>
             <p className="text-sm text-foreground/80 font-medium max-w-md">
-              Professional websites for Irish small businesses. Built in days, not months.
+              Professional websites for small businesses. Built in days, not months.
             </p>
             <a href="mailto:hello@hellowebby.com" className="mt-3 inline-block text-sm text-foreground/80 hover:text-foreground font-semibold">
               hello@hellowebby.com
@@ -31,7 +31,7 @@ const Footer = () => {
           </nav>
         </div>
         <div className="border-t border-foreground/20 pt-6 flex flex-col md:flex-row gap-3 md:justify-between md:items-center text-sm text-foreground/80 font-medium">
-          <div>🇮🇪 Irish-owned &nbsp;|&nbsp; GDPR compliant &nbsp;|&nbsp; Irish support</div>
+          <div>GDPR compliant &nbsp;|&nbsp; Irish support</div>
           <div>© 2025 hellowebby. All rights reserved.</div>
         </div>
       </div>
