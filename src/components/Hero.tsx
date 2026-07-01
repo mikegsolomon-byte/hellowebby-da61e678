@@ -18,7 +18,7 @@ const Hero = () => {
 
       <div className="container relative mx-auto max-w-5xl text-center z-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full border-2 border-foreground bg-background/70 backdrop-blur text-xs md:text-sm font-semibold">
-          Irish-owned · Irish support · Built in days
+          Irish support · Built in days
         </div>
         <h1 className="text-[48px] md:text-6xl lg:text-7xl font-extrabold leading-[1.05] mb-6">
           Your business deserves a{" "}
@@ -42,9 +42,9 @@ const Hero = () => {
             size="lg"
             variant="outline"
             className="rounded-2xl text-base px-8 bg-background border-2 border-foreground text-foreground hover:bg-muted shadow-[6px_6px_0_0_hsl(var(--foreground))] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_hsl(var(--foreground))] transition-all"
-            onClick={() => scrollToSection("pricing")}
+            onClick={() => setFormOpen(true)}
           >
-            See pricing
+            Ask a question first
           </Button>
         </div>
 
@@ -52,10 +52,19 @@ const Hero = () => {
           <span className="inline-flex items-center gap-1.5"><Check className="w-4 h-4" /> No upfront cost</span>
           <span className="inline-flex items-center gap-1.5"><Check className="w-4 h-4" /> Built in days</span>
           <span className="inline-flex items-center gap-1.5"><Check className="w-4 h-4" /> Cancel anytime</span>
-          <span className="inline-flex items-center gap-1.5"><Check className="w-4 h-4" /> Irish-owned</span>
         </div>
+        <p className="mt-4 text-sm text-muted-foreground">
+          Not ready to buy?{" "}
+          <button
+            type="button"
+            onClick={() => setFormOpen(true)}
+            className="underline underline-offset-4 hover:text-foreground transition-colors"
+          >
+            Get in touch and we'll help you choose
+          </button>
+        </p>
       </div>
-      <IntakeFormDialog open={formOpen} onOpenChange={setFormOpen} />
+      <IntakeFormDialog open={formOpen} onOpenChange={setFormOpen} selectedPlan="General enquiry" />
     </section>
   );
 };
