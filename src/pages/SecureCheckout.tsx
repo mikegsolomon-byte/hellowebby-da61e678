@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { StripeEmbeddedCheckout } from "@/components/StripeEmbeddedCheckout";
 import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
 import { Check, Lock, Mail, ShieldCheck, CreditCard, Sparkles } from "lucide-react";
+import PageMeta from "@/components/PageMeta";
 
 type PlanKey = "starter" | "growth" | "pro";
 
@@ -51,6 +52,12 @@ export default function SecureCheckout() {
 
   return (
     <>
+      <PageMeta
+        title="Secure checkout | hellowebby"
+        description="Choose your hellowebby plan and pay securely to get your small business website started."
+        path="/secure-checkout"
+        noindex
+      />
       <PaymentTestModeBanner />
       <main className="min-h-screen bg-background py-16 px-4 relative overflow-hidden">
         <div className="glow-orb absolute -top-32 -left-32 w-96 h-96 bg-primary/30 rounded-full pointer-events-none" />

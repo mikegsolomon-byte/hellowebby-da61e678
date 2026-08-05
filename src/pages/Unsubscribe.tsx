@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Loader2, CheckCircle2, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
+import PageMeta from "@/components/PageMeta";
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL as string;
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string;
@@ -44,6 +45,13 @@ const Unsubscribe = () => {
   };
 
   return (
+    <>
+    <PageMeta
+      title="Unsubscribe | hellowebby"
+      description="Manage your hellowebby email preferences and unsubscribe from our small business website newsletter."
+      path="/unsubscribe"
+      noindex
+    />
     <main className="min-h-screen flex items-center justify-center px-6 bg-background">
       <div className="max-w-md w-full bg-card border border-border rounded-3xl p-8 text-center shadow-sm">
         {state === "checking" && (
@@ -99,6 +107,7 @@ const Unsubscribe = () => {
         )}
       </div>
     </main>
+    </>
   );
 };
 

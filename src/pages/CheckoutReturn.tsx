@@ -3,6 +3,7 @@ import { useSearchParams, Link } from "react-router-dom";
 import { CheckCircle2, Loader2, AlertCircle, Mail, Calendar, FileText, Sparkles } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { getStripeEnvironment } from "@/lib/stripe";
+import PageMeta from "@/components/PageMeta";
 
 interface LineItem {
   description: string;
@@ -90,6 +91,13 @@ export default function CheckoutReturn() {
   const paid = data?.paymentStatus === "paid" || data?.paymentStatus === "no_payment_required";
 
   return (
+    <>
+    <PageMeta
+      title="Order confirmation | hellowebby"
+      description="Your hellowebby order status and what happens next with your new small business website."
+      path="/checkout/return"
+      noindex
+    />
     <main className="min-h-screen bg-background py-16 px-4 relative overflow-hidden">
       <div className="glow-orb absolute -top-32 -left-32 w-96 h-96 bg-primary/30 rounded-full pointer-events-none" />
       <div className="glow-orb absolute -bottom-32 -right-32 w-96 h-96 bg-accent/30 rounded-full pointer-events-none" />
@@ -231,5 +239,6 @@ export default function CheckoutReturn() {
         )}
       </div>
     </main>
+    </>
   );
 }
