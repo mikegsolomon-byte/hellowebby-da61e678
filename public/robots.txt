@@ -12,3 +12,8 @@ Allow: /
 
 User-agent: *
 Allow: /
+Disallow: /secure-checkout
+Disallow: /checkout/
+Disallow: /unsubscribe
+
+Sitemap: https://www.hellowebby.com/sitemap.xml
