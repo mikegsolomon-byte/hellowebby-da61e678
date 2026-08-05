@@ -11,7 +11,7 @@ export function PaymentTestModeBanner() {
         rel="noopener noreferrer"
         className="underline font-medium"
       >
-        Read more
+        Read the Lovable payments test &amp; live environments guide
       </a>
     </div>
   );
