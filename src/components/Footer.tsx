@@ -28,6 +28,8 @@ const Footer = () => {
             <button onClick={() => scrollToSection("how-it-works")} className="text-foreground/80 hover:text-foreground">How it works</button>
             <button onClick={() => scrollToSection("faq")} className="text-foreground/80 hover:text-foreground">FAQ</button>
             <a href="mailto:hello@hellowebby.com" className="text-foreground/80 hover:text-foreground">Contact</a>
+            <a href="/privacy" className="text-foreground/80 hover:text-foreground">Privacy Policy</a>
+            <a href="/terms" className="text-foreground/80 hover:text-foreground">Terms of Service</a>
           </nav>
         </div>
         <div className="border-t border-foreground/20 pt-6 flex flex-col md:flex-row gap-3 md:justify-between md:items-center text-sm text-foreground/80 font-medium">

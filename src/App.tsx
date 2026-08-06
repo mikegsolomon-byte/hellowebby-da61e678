@@ -9,6 +9,8 @@ import NotFound from "./pages/NotFound";
 import SecureCheckout from "./pages/SecureCheckout";
 import CheckoutReturn from "./pages/CheckoutReturn";
 import Unsubscribe from "./pages/Unsubscribe";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +26,8 @@ const App = () => (
           <Route path="/secure-checkout" element={<SecureCheckout />} />
           <Route path="/checkout/return" element={<CheckoutReturn />} />
           <Route path="/unsubscribe" element={<Unsubscribe />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

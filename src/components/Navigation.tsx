@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import logoMark from "@/assets/hellowebby-mark.png";
+import IntakeFormDialog from "./IntakeFormDialog";
 
 const Navigation = () => {
+  const [formOpen, setFormOpen] = useState(false);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: "smooth" });
@@ -41,17 +45,18 @@ const Navigation = () => {
             >
               FAQ
             </button>
-            <a
-              href="mailto:hello@hellowebby.com"
+            <button
+              onClick={() => setFormOpen(true)}
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Contact
-            </a>
+            </button>
           </div>
 
           <Button className="rounded-full px-5 border-2 border-foreground shadow-[4px_4px_0_0_hsl(var(--foreground))] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_hsl(var(--foreground))] transition-all" onClick={() => scrollToSection("pricing")}>Get My Website Started</Button>
         </div>
       </div>
+      <IntakeFormDialog open={formOpen} onOpenChange={setFormOpen} selectedPlan="General enquiry" />
     </nav>
   );
 };

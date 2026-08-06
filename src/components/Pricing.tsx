@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Check } from "lucide-react";
@@ -7,6 +8,7 @@ import IntakeFormDialog from "./IntakeFormDialog";
 const plans = [
   {
     name: "Starter",
+    key: "starter",
     description: "Perfect for getting online fast",
     price: "€49",
     features: [
@@ -16,11 +18,11 @@ const plans = [
       "On-page SEO setup",
       "Contact & lead capture form",
       "Google Analytics connected",
-      "Cancel anytime after month 1",
     ],
   },
   {
     name: "Growth",
+    key: "growth",
     description: "The most popular choice for Irish SMEs",
     price: "€89",
     popular: true,
@@ -32,11 +34,11 @@ const plans = [
       "Monthly content updates (just email us)",
       "Google Analytics + Search Console connected",
       "Priority support",
-      "Cancel anytime after month 1",
     ],
   },
   {
     name: "Pro",
+    key: "pro",
     description: "For businesses ready to grow faster",
     price: "€149",
     features: [
@@ -47,7 +49,6 @@ const plans = [
       "Email marketing integration",
       "Monthly strategy call (30 mins)",
       "Dedicated account manager",
-      "Cancel anytime after month 1",
     ],
   },
 ];
@@ -55,11 +56,7 @@ const plans = [
 const Pricing = () => {
   const [formOpen, setFormOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState("");
-
-  const handleGetStarted = (planName: string) => {
-    setSelectedPlan(planName);
-    setFormOpen(true);
-  };
+  const navigate = useNavigate();
 
   return (
     <section id="pricing" className="relative px-4 section-light overflow-hidden py-[36px]">
@@ -73,7 +70,7 @@ const Pricing = () => {
             One monthly fee. No hidden costs. No contracts after month one.
           </p>
           <p className="inline-block text-sm font-medium px-4 py-2 rounded-full border-2 border-foreground/15 bg-background/60 backdrop-blur">
-            All plans include a once-off €79 setup fee — this covers your initial design consultation and website build.
+            €79 once-off setup — covers your design consultation and full build. Agencies charge €2,000+ for this.
           </p>
         </div>
 
@@ -92,9 +89,11 @@ const Pricing = () => {
                   <span className="text-5xl font-extrabold">{plan.price}</span>
                   <span className="text-muted-foreground">/month</span>
                 </div>
-                <p className="text-xs text-muted-foreground mb-4">+ €79 once-off setup fee</p>
-                <Button className={`w-full rounded-xl ${plan.popular ? 'ring-glow' : ''}`} variant={plan.popular ? 'default' : 'outline'} onClick={() => handleGetStarted(plan.name)}>
-                  Get started
+                <p className="text-xs text-muted-foreground mb-3">Cancel anytime after month 1</p>
+                <p className="text-xs text-muted-foreground">+ €79 once-off setup fee</p>
+                <p className="text-xs text-muted-foreground mb-4">14-day money-back guarantee on your setup fee.</p>
+                <Button className={`w-full rounded-xl ${plan.popular ? 'ring-glow' : ''}`} variant={plan.popular ? 'default' : 'outline'} onClick={() => navigate(`/secure-checkout?plan=${plan.key}`)}>
+                  Start my website
                 </Button>
               </CardHeader>
               <CardContent className="space-y-3">
