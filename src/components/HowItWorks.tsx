@@ -12,7 +12,7 @@ const steps = [
     number: "2",
     icon: Laptop,
     title: "We build it for you",
-    description: "Our team designs and builds your website in days. You'll get a preview to review and request any changes before we go live."
+    description: "Our team designs and builds your website in 3–5 working days. You'll get a preview to review and request any changes before we go live."
   },
   {
     number: "3",

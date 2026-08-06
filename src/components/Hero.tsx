@@ -21,14 +21,11 @@ const Hero = () => {
           Irish support · Built in days
         </div>
         <h1 className="text-[48px] md:text-6xl lg:text-7xl font-extrabold leading-[1.05] mb-6">
-          Your business deserves a{" "}
-          <span className="gradient-text">proper website</span>
+          A professional website for your business — from{" "}
+          <span className="gradient-text">€49/month</span>
         </h1>
-        <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-5">
-          No €3,000 upfront cost. No waiting weeks. Just a professional website built for you — from €49/month.
-        </p>
-        <p className="text-base text-foreground/70 max-w-2xl mx-auto mb-8">
-          Most web agencies in Ireland charge €2,000 to €5,000 before they lift a finger. With hellowebby, you pay €49/month — and we build your entire website in days. Hosting, SEO, and support included. Cancel anytime.
+        <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-8">
+          We design, build, host and update it for you. No €3,000 agency bill, no DIY website builder. Live in days. Cancel anytime.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button

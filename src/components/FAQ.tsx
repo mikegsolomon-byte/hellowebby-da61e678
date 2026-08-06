@@ -38,6 +38,26 @@ const faqs = [
     question: "Do you handle SEO?",
     answer: "Yes. Every plan includes on-page SEO setup — proper page titles, meta descriptions, structured data, and Google indexing. The Growth and Pro plans include more advanced SEO work including keyword targeting and Google Business Profile optimisation.",
   },
+  {
+    question: "Can I see examples of your websites?",
+    answer: (
+      <>
+        Yes — you can{" "}
+        <a href="#recent-work" className="underline underline-offset-4 font-semibold hover:text-primary transition-colors">
+          see our recent work
+        </a>{" "}
+        further up this page. Each example shows the kind of site we build for that type of business.
+      </>
+    ),
+  },
+  {
+    question: "Who writes the text and takes the photos?",
+    answer: "We write your website copy from your form answers. You can supply your own photos, or we'll use high-quality stock images that fit your business.",
+  },
+  {
+    question: "Can I use my existing domain?",
+    answer: "Yes — if you already own a domain, we'll connect it for you at no extra cost. If not, we'll sort one out for you.",
+  },
 ];
 
 const FAQ = () => {
