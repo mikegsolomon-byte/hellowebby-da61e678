@@ -46,7 +46,6 @@ const Hero = () => {
         </div>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm font-medium text-foreground/80">
-          <span className="inline-flex items-center gap-1.5"><Check className="w-4 h-4" /> No upfront cost</span>
           <span className="inline-flex items-center gap-1.5"><Check className="w-4 h-4" /> Built in days</span>
           <span className="inline-flex items-center gap-1.5"><Check className="w-4 h-4" /> Cancel anytime</span>
         </div>
