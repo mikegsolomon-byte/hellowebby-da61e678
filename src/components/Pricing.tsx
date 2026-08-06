@@ -48,6 +48,7 @@ const plans = [
       "Advanced SEO with monthly ranking report",
       "Live chat or WhatsApp widget",
       "Email marketing integration",
+      "Unlimited content updates",
       "Monthly strategy report",
     ],
   },
