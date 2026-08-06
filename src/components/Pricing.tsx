@@ -32,7 +32,7 @@ const plans = [
       "Online booking / appointment system",
       "Full SEO setup + keyword targeting",
       "Google Business Profile setup & optimisation",
-      "Monthly content updates (just email us)",
+      "Unlimited content updates",
       "Google Analytics + Search Console connected",
       "Priority support",
     ],
