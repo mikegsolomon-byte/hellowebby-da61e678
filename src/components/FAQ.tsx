@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     question: "What if I want to change something on my website?",
-    answer: "On the Growth and Pro plans, just email us what you need changed and we'll sort it. Starter plan customers can make content updates themselves through a simple dashboard, or request changes for a small fee.",
+    answer: "All plans include unlimited content updates. Just email us what you need changed and we'll sort it — no extra fees.",
   },
   {
     question: "Is there a contract?",
