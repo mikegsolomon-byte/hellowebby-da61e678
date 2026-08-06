@@ -3,10 +3,8 @@ import Hero from "@/components/Hero";
 import WhoIsThisFor from "@/components/WhoIsThisFor";
 import HowItWorks from "@/components/HowItWorks";
 import Pricing from "@/components/Pricing";
-import Testimonials from "@/components/Testimonials";
-import SmartWebsiteFeatures from "@/components/SmartWebsiteFeatures";
+import RecentWork from "@/components/RecentWork";
 import WhatYouGet from "@/components/WhatYouGet";
-import WhySubscription from "@/components/WhySubscription";
 import FAQ from "@/components/FAQ";
 import NewsletterCTA from "@/components/NewsletterCTA";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
@@ -18,12 +16,10 @@ const Index = () => {
       <Navigation />
       <Hero />
       <WhoIsThisFor />
+      <WhatYouGet />
       <HowItWorks />
       <Pricing />
-      <Testimonials />
-      <SmartWebsiteFeatures />
-      <WhatYouGet />
-      <WhySubscription />
+      <RecentWork />
       <FAQ />
       <NewsletterCTA />
       <Footer />

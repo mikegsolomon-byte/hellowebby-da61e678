@@ -1,36 +1,15 @@
-import { Zap, Calendar, Mail, TrendingUp, RefreshCw } from "lucide-react";
-
 const benefits = [
-  {
-    icon: "🚀",
-    title: "Fast, Mobile-Friendly Website",
-    description: "A fast, mobile-friendly website designed to convert"
-  },
-  {
-    icon: "📅",
-    title: "Booking & Contact Forms",
-    description: "Booking automation + contact forms"
-  },
-  {
-    icon: "✉️",
-    title: "Follow-up Sequences",
-    description: "Email/text follow-up sequences to close leads"
-  },
-  {
-    icon: "📈",
-    title: "SEO Setup",
-    description: "SEO setup so customers can find you on Google"
-  },
-  {
-    icon: "🔁",
-    title: "Unlimited Updates",
-    description: "Unlimited changes and updates — no extra fees"
-  }
+  { icon: "🎨", title: "Designed & built for you", description: "Answer a 10-minute form — we do the rest" },
+  { icon: "📱", title: "Fast and mobile-friendly", description: "Looks right on every phone" },
+  { icon: "🔍", title: "Set up to be found on Google", description: "Proper SEO on every page" },
+  { icon: "🔒", title: "Hosting, domain & SSL handled", description: "No tech admin, ever" },
+  { icon: "✉️", title: "Leads straight to your inbox", description: "Contact and enquiry forms included" },
+  { icon: "🛟", title: "Real support from Ireland", description: "Email us — a human replies" },
 ];
 
 const WhatYouGet = () => {
   return (
-    <section className="relative px-4 overflow-hidden py-[36px]">
+    <section id="features" className="relative px-4 overflow-hidden py-[36px]">
       <div className="glow-orb bg-accent/20 w-[400px] h-[400px] -bottom-20 -left-20 animate-float-slow" />
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16">
