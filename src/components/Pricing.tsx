@@ -17,6 +17,7 @@ const plans = [
       "Hosting, SSL certificate & domain connection",
       "On-page SEO setup",
       "Contact & lead capture form",
+      "Unlimited content updates",
       "Google Analytics connected",
     ],
   },
