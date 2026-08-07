@@ -1,24 +1,31 @@
 import { useState } from "react";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import logoMark from "@/assets/hellowebby-mark.png";
 import IntakeFormDialog from "./IntakeFormDialog";
 
 const Navigation = () => {
   const [formOpen, setFormOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: "smooth" });
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    } else if (location.pathname !== "/") {
+      navigate(`/#${id}`);
+    }
   };
 
   return (
     <nav className="fixed top-0 w-full bg-background/85 backdrop-blur-xl z-50 border-b-2 border-foreground">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2.5">
+          <Link to="/" className="flex items-center gap-2.5">
             <img src={logoMark} alt="HelloWebby" className="h-10 w-auto" />
             <span className="font-extrabold text-xl tracking-tight">HelloWebby</span>
-          </div>
+          </Link>
 
           <div className="hidden md:flex items-center gap-6">
             <button

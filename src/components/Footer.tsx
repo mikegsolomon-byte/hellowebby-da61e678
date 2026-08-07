@@ -1,11 +1,19 @@
+import { useLocation, useNavigate } from "react-router-dom";
 import logoMark from "@/assets/hellowebby-mark.png";
 
-const scrollToSection = (id: string) => {
-  const element = document.getElementById(id);
-  element?.scrollIntoView({ behavior: "smooth" });
-};
-
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    } else if (location.pathname !== "/") {
+      navigate(id === "hero" ? "/" : `/#${id}`);
+    }
+  };
+
   return (
     <footer id="contact" className="pt-12 pb-8 px-4 border-t-2 border-foreground bg-primary">
       <div className="container mx-auto max-w-6xl">
