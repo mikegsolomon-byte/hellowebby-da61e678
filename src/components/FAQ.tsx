@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     question: "What if I want to change something on my website?",
-    answer: "All plans include unlimited content updates. Just email us what you need changed and we'll sort it — no extra fees.",
+    answer: "Just email us what you need changed and we'll sort it — unlimited content updates are included on every plan at no extra cost. Most changes are live within 1–2 working days.",
   },
   {
     question: "Is there a contract?",
