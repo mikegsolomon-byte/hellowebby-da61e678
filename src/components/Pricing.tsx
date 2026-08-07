@@ -11,6 +11,8 @@ const plans = [
     key: "starter",
     description: "Perfect for getting online fast",
     price: "€49",
+    annualPrice: "€490",
+    annualEquivalent: "€40.83/mo",
     features: [
       "5-page professionally designed website",
       "Mobile-responsive design",
@@ -26,6 +28,8 @@ const plans = [
     key: "growth",
     description: "The most popular choice for Irish SMEs",
     price: "€89",
+    annualPrice: "€890",
+    annualEquivalent: "€74.17/mo",
     popular: true,
     features: [
       "Up to 10 pages, professionally designed",
@@ -42,14 +46,16 @@ const plans = [
     key: "pro",
     description: "For businesses ready to grow faster",
     price: "€149",
+    annualPrice: "€1,490",
+    annualEquivalent: "€124.17/mo",
     features: [
       "Unlimited pages, custom design",
-      "eCommerce / online shop (sell products or services)",
       "Advanced SEO with monthly ranking report",
       "Live chat or WhatsApp widget",
       "Email marketing integration",
       "Unlimited content updates included",
       "Monthly strategy report",
+      "Custom integrations & advanced features",
     ],
   },
 ];
@@ -57,6 +63,7 @@ const plans = [
 const Pricing = () => {
   const [formOpen, setFormOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState("");
+  const [billing, setBilling] = useState<"monthly" | "annual">("monthly");
   const navigate = useNavigate();
 
   return (
@@ -73,6 +80,27 @@ const Pricing = () => {
           <p className="inline-block text-sm font-medium px-4 py-2 rounded-full border-2 border-foreground/15 bg-background/60 backdrop-blur">
             €79 once-off setup — covers your design consultation and full build. Agencies charge €2,000+ for this.
           </p>
+
+          <div className="mt-8 flex justify-center">
+            <div className="inline-flex items-center gap-1 p-1 rounded-full border-2 border-foreground/15 bg-background/60 backdrop-blur">
+              {(["monthly", "annual"] as const).map((option) => (
+                <button
+                  key={option}
+                  type="button"
+                  aria-pressed={billing === option}
+                  onClick={() => setBilling(option)}
+                  className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${
+                    billing === option
+                      ? "bg-foreground text-primary border-2 border-foreground"
+                      : "text-muted-foreground hover:text-foreground border-2 border-transparent"
+                  }`}
+                >
+                  {option === "monthly" ? "Monthly" : "Annual"}
+                  {option === "annual" && <span className="ml-2 text-xs font-semibold">2 months free</span>}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -87,13 +115,26 @@ const Pricing = () => {
                 <h3 className="text-2xl font-extrabold mb-2">{plan.name}</h3>
                 <p className="text-sm text-muted-foreground mb-4">{plan.description}</p>
                 <div className="mb-4">
-                  <span className="text-5xl font-extrabold">{plan.price}</span>
-                  <span className="text-muted-foreground">/month</span>
+                  <span className="text-5xl font-extrabold">
+                    {billing === "monthly" ? plan.price : plan.annualPrice}
+                  </span>
+                  <span className="text-muted-foreground">{billing === "monthly" ? "/month" : "/year"}</span>
+                  {billing === "annual" && (
+                    <div className="mt-2">
+                      <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-primary text-foreground border-2 border-foreground">
+                        2 months free
+                      </span>
+                    </div>
+                  )}
                 </div>
-                <p className="text-xs text-muted-foreground mb-3">Cancel anytime after month 1</p>
+                {billing === "monthly" ? (
+                  <p className="text-xs text-muted-foreground mb-3">Cancel anytime after month 1</p>
+                ) : (
+                  <p className="text-xs text-muted-foreground mb-3">≈ {plan.annualEquivalent}, billed annually</p>
+                )}
                 <p className="text-xs text-muted-foreground">+ €79 once-off setup fee</p>
                 <p className="text-xs text-muted-foreground mb-4">14-day money-back guarantee on your setup fee.</p>
-                <Button className={`w-full rounded-xl ${plan.popular ? 'ring-glow' : ''}`} variant={plan.popular ? 'default' : 'outline'} onClick={() => navigate(`/secure-checkout?plan=${plan.key}`)}>
+                <Button className={`w-full rounded-xl ${plan.popular ? 'ring-glow' : ''}`} variant={plan.popular ? 'default' : 'outline'} onClick={() => navigate(`/secure-checkout?plan=${plan.key}&billing=${billing}`)}>
                   Start my website
                 </Button>
               </CardHeader>

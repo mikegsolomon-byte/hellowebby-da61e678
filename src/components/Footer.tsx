@@ -16,7 +16,7 @@ const Footer = () => {
               <span className="font-extrabold text-xl tracking-tight text-foreground">hellowebby</span>
             </div>
             <p className="text-sm text-foreground/80 font-medium max-w-md">
-              Professional websites for small businesses. Built in days, not months.
+              Professional websites for small businesses. Built in about a week, not months.
             </p>
             <a href="mailto:hello@hellowebby.com" className="mt-3 inline-block text-sm text-foreground/80 hover:text-foreground font-semibold">
               hello@hellowebby.com

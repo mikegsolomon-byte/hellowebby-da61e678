@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     question: "How long does it take to build my website?",
-    answer: "Most websites are live within 3–5 working days of receiving your content. We'll send you a simple form to fill in — once we have that, we get to work straight away.",
+    answer: "Most websites are live within about a week of receiving your content.",
   },
   {
     question: "Is the €79 setup fee charged every year?",
