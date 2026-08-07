@@ -9,11 +9,36 @@ import { Check, Lock, Mail, ShieldCheck, CreditCard, Sparkles } from "lucide-rea
 import PageMeta from "@/components/PageMeta";
 
 type PlanKey = "starter" | "growth" | "pro";
+type Billing = "monthly" | "annual";
 
-const PLANS: Record<PlanKey, { name: string; price: number; priceId: string; blurb: string }> = {
-  starter: { name: "Starter", price: 49, priceId: "starter_monthly", blurb: "Hosting, updates & support" },
-  growth:  { name: "Growth",  price: 89, priceId: "growth_monthly",  blurb: "Everything in Starter + priority updates" },
-  pro:     { name: "Pro",     price: 149, priceId: "pro_monthly",    blurb: "Everything in Growth + advanced features" },
+// TODO: annual recurring prices must be created in Stripe / Lovable payments config before this goes live — these IDs are placeholders.
+const PLANS: Record<
+  PlanKey,
+  {
+    name: string;
+    blurb: string;
+    monthly: { price: number; priceId: string };
+    annual: { price: number; priceId: string; equivalent: string };
+  }
+> = {
+  starter: {
+    name: "Starter",
+    blurb: "Hosting, updates & support",
+    monthly: { price: 49, priceId: "starter_monthly" },
+    annual: { price: 490, priceId: "starter_annual", equivalent: "€40.83/mo" },
+  },
+  growth: {
+    name: "Growth",
+    blurb: "Everything in Starter + priority updates",
+    monthly: { price: 89, priceId: "growth_monthly" },
+    annual: { price: 890, priceId: "growth_annual", equivalent: "€74.17/mo" },
+  },
+  pro: {
+    name: "Pro",
+    blurb: "Everything in Growth + advanced features",
+    monthly: { price: 149, priceId: "pro_monthly" },
+    annual: { price: 1490, priceId: "pro_annual", equivalent: "€124.17/mo" },
+  },
 };
 
 const SETUP_FEE = 79;
@@ -23,8 +48,11 @@ export default function SecureCheckout() {
   const [params] = useSearchParams();
   const queryPlan = params.get("plan") as PlanKey | null;
   const initialPlan: PlanKey = queryPlan && queryPlan in PLANS ? queryPlan : "growth";
+  const queryBilling = params.get("billing");
+  const initialBilling: Billing = queryBilling === "annual" ? "annual" : "monthly";
 
   const [plan, setPlan] = useState<PlanKey>(initialPlan);
+  const [billing, setBilling] = useState<Billing>(initialBilling);
   const [email, setEmail] = useState("");
   const [showCheckout, setShowCheckout] = useState(false);
   const [emailTouched, setEmailTouched] = useState(false);
@@ -33,7 +61,8 @@ export default function SecureCheckout() {
   const emailError = emailTouched && !emailValid ? "Enter a valid email so we can send your receipt & account details." : "";
 
   const selected = PLANS[plan];
-  const totalToday = useMemo(() => SETUP_FEE + selected.price, [selected.price]);
+  const period = billing === "annual" ? selected.annual : selected.monthly;
+  const totalToday = useMemo(() => SETUP_FEE + period.price, [period.price]);
 
   const returnUrl = `${window.location.origin}/checkout/return?session_id={CHECKOUT_SESSION_ID}`;
 
@@ -106,10 +135,31 @@ export default function SecureCheckout() {
                   </Label>
                   <span className="text-xs text-muted-foreground">Change anytime</span>
                 </div>
+                <div className="flex justify-center mb-4">
+                  <div className="inline-flex items-center gap-1 p-1 rounded-full border-2 border-foreground/15 bg-background/60 backdrop-blur">
+                    {(["monthly", "annual"] as const).map((option) => (
+                      <button
+                        key={option}
+                        type="button"
+                        aria-pressed={billing === option}
+                        onClick={() => setBilling(option)}
+                        className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
+                          billing === option
+                            ? "bg-foreground text-primary border-2 border-foreground"
+                            : "text-muted-foreground hover:text-foreground border-2 border-transparent"
+                        }`}
+                      >
+                        {option === "monthly" ? "Monthly" : "Annual"}
+                        {option === "annual" && <span className="ml-2 font-semibold">2 months free</span>}
+                      </button>
+                    ))}
+                  </div>
+                </div>
                 <div className="grid gap-3">
                   {(Object.keys(PLANS) as PlanKey[]).map((key) => {
                     const p = PLANS[key];
                     const active = plan === key;
+                    const pPeriod = billing === "annual" ? p.annual : p.monthly;
                     return (
                       <button
                         key={key}
@@ -135,8 +185,8 @@ export default function SecureCheckout() {
                             </div>
                           </div>
                           <div className="text-right">
-                            <div className="text-xl font-bold">€{p.price}</div>
-                            <div className="text-xs text-muted-foreground">/ month</div>
+                            <div className="text-xl font-bold">€{pPeriod.price}</div>
+                            <div className="text-xs text-muted-foreground">{billing === "annual" ? "/ year" : "/ month"}</div>
                           </div>
                         </div>
                       </button>
@@ -186,15 +236,25 @@ export default function SecureCheckout() {
                   <span>€{SETUP_FEE}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">First month ({selected.name})</span>
-                  <span>€{selected.price}</span>
+                  <span className="text-muted-foreground">
+                    {billing === "annual" ? "First year" : "First month"} ({selected.name})
+                  </span>
+                  <span>€{period.price}</span>
                 </div>
+                {billing === "annual" && (
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Annual saving</span>
+                    <span className="font-semibold">2 months free</span>
+                  </div>
+                )}
                 <div className="border-t border-border/40 pt-2 mt-2 flex justify-between font-semibold">
                   <span>Total today</span>
                   <span className="gradient-text text-lg">€{totalToday}</span>
                 </div>
                 <p className="text-xs text-muted-foreground pt-1">
-                  Then €{selected.price}/month, cancel anytime.
+                  {billing === "annual"
+                    ? `Then €${period.price}/year.`
+                    : `Then €${period.price}/month, cancel anytime.`}
                 </p>
               </section>
 
@@ -223,7 +283,7 @@ export default function SecureCheckout() {
                 ← Change plan
               </button>
               <StripeEmbeddedCheckout
-                planPriceId={selected.priceId}
+                planPriceId={period.priceId}
                 setupPriceId={SETUP_PRICE_ID}
                 customerEmail={email}
                 returnUrl={returnUrl}
