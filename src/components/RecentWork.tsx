@@ -11,7 +11,7 @@ const works = [
   },
   {
     label: "Retail shop",
-    outcome: "A simple online shop that started taking orders in week one.",
+    outcome: "A clean showcase of their products with enquiries landing by email.",
   },
 ];
 
