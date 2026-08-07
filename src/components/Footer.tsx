@@ -30,6 +30,12 @@ const Footer = () => {
             <a href="mailto:hello@hellowebby.com" className="text-foreground/80 hover:text-foreground">Contact</a>
             <a href="/privacy" className="text-foreground/80 hover:text-foreground">Privacy Policy</a>
             <a href="/terms" className="text-foreground/80 hover:text-foreground">Terms of Service</a>
+            <button
+              onClick={() => window.dispatchEvent(new Event("open-cookie-preferences"))}
+              className="text-foreground/80 hover:text-foreground"
+            >
+              Cookie preferences
+            </button>
           </nav>
         </div>
         <div className="border-t border-foreground/20 pt-6 flex flex-col md:flex-row gap-3 md:justify-between md:items-center text-sm text-foreground/80 font-medium">

@@ -11,6 +11,7 @@ import CheckoutReturn from "./pages/CheckoutReturn";
 import Unsubscribe from "./pages/Unsubscribe";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import CookieConsent from "./components/CookieConsent";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <CookieConsent />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
