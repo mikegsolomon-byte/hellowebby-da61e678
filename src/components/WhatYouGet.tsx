@@ -1,6 +1,6 @@
 const benefits = [
-  { icon: "🎨", title: "Designed & built for you", description: "Answer a 10-minute form — we do the rest" },
-  { icon: "📱", title: "Fast and mobile-friendly", description: "Looks right on every phone" },
+  { icon: "🎨", title: "Designed & built for you", description: "Answer a 10-minute form — we build a fast, mobile-friendly site" },
+  { icon: "🔁", title: "Unlimited updates included", description: "Email us any change — we make it, no extra fees" },
   { icon: "🔍", title: "Set up to be found on Google", description: "Proper SEO on every page" },
   { icon: "🔒", title: "Hosting, domain & SSL handled", description: "No tech admin, ever" },
   { icon: "✉️", title: "Leads straight to your inbox", description: "Contact and enquiry forms included" },

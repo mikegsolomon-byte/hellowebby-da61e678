@@ -21,11 +21,11 @@ const Hero = () => {
           Irish support · Built in days
         </div>
         <h1 className="text-[48px] md:text-6xl lg:text-7xl font-extrabold leading-[1.05] mb-6">
-          A professional website for your business — from{" "}
-          <span className="gradient-text">€49/month</span>
+          Your website. Built for you.{" "}
+          <span className="gradient-text">Unlimited changes.</span> €49/month.
         </h1>
         <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-8">
-          We design, build, host and update it for you. No €3,000 agency bill, no DIY website builder. Live in days. Cancel anytime.
+          The website subscription for Irish small businesses — we design it, host it and update it whenever you need. No upfront agency fees. Cancel anytime.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
@@ -46,7 +46,7 @@ const Hero = () => {
         </div>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm font-medium text-foreground/80">
-          <span className="inline-flex items-center gap-1.5"><Check className="w-4 h-4" /> Built in days</span>
+          <span className="inline-flex items-center gap-1.5"><Check className="w-4 h-4" /> Unlimited updates</span>
           <span className="inline-flex items-center gap-1.5"><Check className="w-4 h-4" /> Cancel anytime</span>
         </div>
         <p className="mt-4 text-sm text-muted-foreground">

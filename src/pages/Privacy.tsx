@@ -16,69 +16,117 @@ const Privacy = () => {
           <h1 className="text-4xl md:text-5xl font-extrabold mb-3">
             Privacy <span className="gradient-text">Policy</span>
           </h1>
-          <p className="text-sm text-muted-foreground mb-10">Last updated: 6 August 2026</p>
+          <p className="text-sm text-muted-foreground mb-10">Last updated: 7 August 2026</p>
 
           <div className="space-y-8 text-base leading-relaxed">
             <section>
-              <h2 className="text-2xl font-bold mb-3">Who we are</h2>
+              <h2 className="text-2xl font-bold mb-3">1. Data controller</h2>
               <p className="text-muted-foreground">
-                hellowebby builds and hosts websites for small businesses. If you have any question about this
-                policy or your data, email us at{" "}
+                hellowebby, Ireland, is the data controller for the personal data described in this policy. You can
+                contact us at any time at{" "}
                 <a href="mailto:hello@hellowebby.com" className="underline underline-offset-4 font-semibold hover:text-primary transition-colors">hello@hellowebby.com</a>.
               </p>
+              <p className="mt-3 font-bold">[TODO: registered business name, registered address, and CRO number]</p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-3">What we collect</h2>
+              <h2 className="text-2xl font-bold mb-3">2. What we collect and why</h2>
+              <div className="overflow-x-auto rounded-2xl border-2 border-foreground">
+                <table className="w-full text-sm text-left">
+                  <thead className="bg-primary text-foreground">
+                    <tr>
+                      <th className="p-3 font-bold border-b-2 border-foreground">Data</th>
+                      <th className="p-3 font-bold border-b-2 border-foreground">Purpose</th>
+                      <th className="p-3 font-bold border-b-2 border-foreground">Legal basis</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-muted-foreground">
+                    <tr className="border-b border-border/60">
+                      <td className="p-3 align-top">Contact &amp; enquiry form data — name, email, phone, company, message</td>
+                      <td className="p-3 align-top">To respond to your enquiry and take pre-contractual steps</td>
+                      <td className="p-3 align-top">Pre-contractual steps at your request (Art 6(1)(b) GDPR) and our legitimate interest in responding (Art 6(1)(f))</td>
+                    </tr>
+                    <tr className="border-b border-border/60">
+                      <td className="p-3 align-top">Checkout data — email; payment is handled entirely by Stripe and we never see or store your card details</td>
+                      <td className="p-3 align-top">To set up and manage your subscription</td>
+                      <td className="p-3 align-top">Performance of a contract (Art 6(1)(b))</td>
+                    </tr>
+                    <tr className="border-b border-border/60">
+                      <td className="p-3 align-top">Lead-magnet / newsletter signup — name, email</td>
+                      <td className="p-3 align-top">To send you the resource and occasional updates</td>
+                      <td className="p-3 align-top">
+                        Consent (Art 6(1)(a)), which you can withdraw anytime via the{" "}
+                        <a href="/unsubscribe" className="underline underline-offset-4 font-semibold hover:text-primary transition-colors">unsubscribe page</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 align-top">Basic analytics</td>
+                      <td className="p-3 align-top">To understand how the site is used and improve it</td>
+                      <td className="p-3 align-top">
+                        Consent or legitimate interest depending on the tool.{" "}
+                        <span className="font-bold text-foreground">[TODO: confirm analytics tooling in use]</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold mb-3">3. Who we share data with (processors)</h2>
               <p className="text-muted-foreground">
-                When you use our enquiry or contact form we collect your name, email address, and the business
-                details you choose to give us (business name, what you do, what you want your website to achieve).
-                If you subscribe to our checklist we collect your email address. We do not collect any special
-                category data, and we do not buy or sell personal data.
+                We share personal data with Supabase (database and email infrastructure), Stripe (payment
+                processing), and our hosting provider. Some of these processors may transfer data outside the EEA.
+                Where they do, those transfers are covered by the EU Standard Contractual Clauses.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-3">Where it's stored</h2>
+              <h2 className="text-2xl font-bold mb-3">4. How long we keep it (retention)</h2>
               <p className="text-muted-foreground">
-                Form submissions are stored securely in our backend database (hosted on Supabase infrastructure)
-                with access restricted to our team. We use this information only to reply to you, build and support
-                your website, and send you service emails you've asked for.
+                Enquiry data is kept for a maximum of 24 months. Customer account and billing data is kept for the
+                duration of the contract plus statutory retention periods (6 years for financial records under Irish
+                law). Newsletter data is kept until you unsubscribe.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-3">Payments</h2>
-              <p className="text-muted-foreground">
-                Payments are processed by Stripe. Your card details are entered directly with Stripe and are never
-                seen or stored by us. We keep only a record of your subscription, plan, and payment status.
+              <h2 className="text-2xl font-bold mb-3">5. Your rights</h2>
+              <ul className="text-muted-foreground list-disc pl-6 space-y-1">
+                <li>Access to the personal data we hold about you</li>
+                <li>Rectification of inaccurate data</li>
+                <li>Erasure of your data</li>
+                <li>Restriction of processing</li>
+                <li>Data portability</li>
+                <li>Objection to processing</li>
+                <li>Withdrawal of consent at any time</li>
+              </ul>
+              <p className="text-muted-foreground mt-3">
+                You can exercise any of these rights by emailing{" "}
+                <a href="mailto:hello@hellowebby.com" className="underline underline-offset-4 font-semibold hover:text-primary transition-colors">hello@hellowebby.com</a>.
+                You also have the right to lodge a complaint with the Data Protection Commission (dataprotection.ie).
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-3">Emails</h2>
+              <h2 className="text-2xl font-bold mb-3">6. Automated decision-making</h2>
               <p className="text-muted-foreground">
-                We send transactional emails (enquiry confirmations, receipts, checklist delivery). Marketing emails
-                always include an unsubscribe link, and you can opt out at any time.
+                We do not carry out automated decision-making or profiling.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-3">Your rights</h2>
+              <h2 className="text-2xl font-bold mb-3">7. Children</h2>
               <p className="text-muted-foreground">
-                Under GDPR you can ask us for a copy of the data we hold about you, ask us to correct it, or ask us
-                to delete it. Email{" "}
-                <a href="mailto:hello@hellowebby.com" className="underline underline-offset-4 font-semibold hover:text-primary transition-colors">hello@hellowebby.com</a>{" "}
-                and we'll action your request within 30 days. You also have the right to complain to the Irish Data
-                Protection Commission.
+                Our service is not aimed at children and we do not knowingly collect data from them.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-3">How long we keep it</h2>
-              <p className="text-muted-foreground">
-                Enquiries are kept for up to 24 months. Customer records are kept for as long as you're a customer,
-                plus the period we're required to keep financial records for tax purposes.
+              <h2 className="text-2xl font-bold mb-3">8. Cookies</h2>
+              <p className="font-bold">
+                [TODO: cookie audit — if the site sets only strictly necessary cookies, state that; if
+                analytics/marketing cookies are used, state that consent is collected via a cookie banner]
               </p>
             </section>
           </div>
