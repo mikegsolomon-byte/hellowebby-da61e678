@@ -60,11 +60,10 @@ const Privacy = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td className="p-3 align-top">Basic analytics</td>
-                      <td className="p-3 align-top">To understand how the site is used and improve it</td>
+                      <td className="p-3 align-top">Usage analytics, provided by our hosting platform (Lovable)</td>
+                      <td className="p-3 align-top">To understand how the site is used, in aggregate, and improve it</td>
                       <td className="p-3 align-top">
-                        Consent or legitimate interest depending on the tool.{" "}
-                        <span className="font-bold text-foreground">[TODO: confirm analytics tooling in use]</span>
+                        Our legitimate interest in maintaining and improving the site (Art 6(1)(f)). This is first-party analytics only — no advertising or cross-site tracking.
                       </td>
                     </tr>
                   </tbody>
@@ -124,9 +123,23 @@ const Privacy = () => {
 
             <section>
               <h2 className="text-2xl font-bold mb-3">8. Cookies</h2>
-              <p className="font-bold">
-                [TODO: cookie audit — if the site sets only strictly necessary cookies, state that; if
-                analytics/marketing cookies are used, state that consent is collected via a cookie banner]
+              <p className="text-muted-foreground">
+                We keep cookies to a minimum and use only the following:
+              </p>
+              <ul className="text-muted-foreground list-disc pl-6 space-y-1 mt-3">
+                <li>
+                  Strictly necessary / functional — set by our hosting platform (Lovable) to serve the site and keep your session working. These are required for the site to function, so no consent is needed.
+                </li>
+                <li>
+                  Payment — when you go to checkout, Stripe sets fraud-prevention cookies to keep your payment secure. These are strictly necessary for taking payment safely.
+                </li>
+                <li>
+                  Analytics — our hosting platform collects privacy-friendly, first-party usage analytics to help us improve the site.
+                </li>
+              </ul>
+              <p className="text-muted-foreground mt-3">
+                We do not use advertising cookies, and we do not track you across other websites. If you'd prefer we didn't count your visits in our analytics, email us at{" "}
+                <a href="mailto:hello@hellowebby.com" className="underline underline-offset-4 font-semibold hover:text-primary transition-colors">hello@hellowebby.com</a>.
               </p>
             </section>
           </div>
