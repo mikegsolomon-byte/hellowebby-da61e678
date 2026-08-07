@@ -5,19 +5,22 @@ const works = [
     label: "Medical equipment · Subscription",
     outcome: "Subscription defibrillator service with plans, training and an online product catalogue.",
     url: "https://www.smartdefibs.com",
-    image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.smartdefibs.com?w=1200",
+    image: "/recent-work/smart-defibs.png",
+    thumb: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.smartdefibs.com?w=1200",
   },
   {
     label: "SaaS · Invoicing",
     outcome: "A voice-to-invoice app that turns a spoken job description into a professional invoice in seconds.",
     url: "https://invoicepal.net",
-    image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Finvoicepal.net?w=1200",
+    image: "/recent-work/invoice-pal.png",
+    thumb: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Finvoicepal.net?w=1200",
   },
   {
     label: "Public-safety app",
     outcome: "A live map app that helps people find the nearest defibrillator and call for help in an emergency.",
     url: "https://emcall.ie",
-    image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Femcall.ie?w=1200",
+    image: "/recent-work/emcall.png",
+    thumb: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Femcall.ie?w=1200",
   },
 ];
 
