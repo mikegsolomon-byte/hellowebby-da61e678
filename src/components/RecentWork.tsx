@@ -48,10 +48,13 @@ const RecentWork = () => {
                 <div className="relative">
                   <img
                     src={work.image}
+                    data-stage="local"
                     alt={`${work.label} — website we built`}
                     loading="lazy"
                     onError={(e) => {
-                      (e.currentTarget as HTMLImageElement).src = "/placeholder.svg";
+                      const el = e.currentTarget as HTMLImageElement;
+                      if (el.dataset.stage === "local") { el.dataset.stage = "thumb"; el.src = work.thumb; }
+                      else if (el.dataset.stage === "thumb") { el.dataset.stage = "placeholder"; el.src = "/placeholder.svg"; }
                     }}
                     className="w-full h-44 object-cover border-b-2 border-foreground bg-muted"
                   />
