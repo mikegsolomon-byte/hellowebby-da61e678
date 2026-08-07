@@ -35,9 +35,8 @@ const Terms = () => {
                 Your subscription is a recurring monthly charge taken via Stripe from your signup date. The €79 setup
                 fee is charged once, at signup. All prices are in EUR.
               </p>
-              <p className="mt-3 font-bold">
-                [TODO: VAT status — state whether prices include/exclude VAT and the VAT registration number if
-                applicable]
+              <p className="text-muted-foreground mt-3">
+                hellowebby is not currently VAT registered, so no VAT is charged — the prices shown are the total amount payable.
               </p>
             </section>
 
