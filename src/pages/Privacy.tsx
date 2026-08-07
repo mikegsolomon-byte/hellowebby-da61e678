@@ -26,7 +26,7 @@ const Privacy = () => {
                 contact us at any time at{" "}
                 <a href="mailto:hello@hellowebby.com" className="underline underline-offset-4 font-semibold hover:text-primary transition-colors">hello@hellowebby.com</a>.
               </p>
-              <p className="mt-3 font-bold">[TODO: registered business name, registered address, and CRO number]</p>
+              
             </section>
 
             <section>
