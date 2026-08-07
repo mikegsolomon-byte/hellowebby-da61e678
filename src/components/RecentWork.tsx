@@ -2,16 +2,22 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const works = [
   {
-    label: "Café & restaurant",
-    outcome: "Menu, opening hours and online bookings in one tidy site.",
+    label: "Medical equipment · Subscription",
+    outcome: "Subscription defibrillator service with plans, training and an online product catalogue.",
+    url: "https://www.smartdefibs.com",
+    image: "/recent-work/smart-defibs.png",
   },
   {
-    label: "Trades & services",
-    outcome: "Quote-request form that sends jobs straight to their inbox.",
+    label: "SaaS · Invoicing",
+    outcome: "A voice-to-invoice app that turns a spoken job description into a professional invoice in seconds.",
+    url: "https://invoicepal.net",
+    image: "/recent-work/invoice-pal.png",
   },
   {
-    label: "Retail shop",
-    outcome: "A clean showcase of their products with enquiries landing by email.",
+    label: "Public-safety app",
+    outcome: "A live map app that helps people find the nearest defibrillator and call for help in an emergency.",
+    url: "https://emcall.ie",
+    image: "/recent-work/emcall.png",
   },
 ];
 
@@ -24,30 +30,38 @@ const RecentWork = () => {
           Websites <span className="gradient-text">we build</span>
         </h2>
         <p className="text-lg text-muted-foreground text-center mb-12">
-          Examples of the kind of sites we put together for small businesses.
+          A few of the sites we've designed and built for Irish businesses.
         </p>
         <div className="grid md:grid-cols-3 gap-8">
           {works.map((work, index) => (
-            <Card
+            <a
               key={index}
-              className="relative glass border-border/40 overflow-hidden hover:border-primary/40 hover:-translate-y-1 transition-all"
+              href={work.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-2xl"
             >
-              <div className="relative">
-                <img
-                  src="/placeholder.svg"
-                  alt={`${work.label} website example`}
-                  loading="lazy"
-                  className="w-full h-44 object-cover border-b-2 border-foreground bg-muted"
-                />
-                <span className="absolute top-3 left-3 bg-primary text-foreground text-xs font-bold px-3 py-1 rounded-full border-2 border-foreground">
-                  Demo build
-                </span>
-              </div>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-2">{work.label}</h3>
-                <p className="text-muted-foreground">{work.outcome}</p>
-              </CardContent>
-            </Card>
+              <Card className="relative glass border-border/40 overflow-hidden hover:border-primary/40 group-hover:-translate-y-1 transition-all h-full">
+                <div className="relative">
+                  <img
+                    src={work.image}
+                    alt={`${work.label} — website we built`}
+                    loading="lazy"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = "/placeholder.svg";
+                    }}
+                    className="w-full h-44 object-cover border-b-2 border-foreground bg-muted"
+                  />
+                </div>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold mb-2">{work.label}</h3>
+                  <p className="text-muted-foreground">{work.outcome}</p>
+                  <p className="mt-4 text-sm font-semibold text-primary inline-flex items-center gap-1">
+                    Visit site <span aria-hidden="true">↗</span>
+                  </p>
+                </CardContent>
+              </Card>
+            </a>
           ))}
         </div>
       </div>
