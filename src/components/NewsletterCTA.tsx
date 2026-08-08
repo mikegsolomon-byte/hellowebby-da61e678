@@ -29,18 +29,17 @@ const NewsletterCTA = () => {
     }
     setLoading(true);
     try {
-      const { data: inserted } = await supabase
+      const { error: dbError } = await supabase
         .from("form_submissions")
         .insert({
           name: parsed.data.name,
           email: parsed.data.email,
           message: "Requested the free website checklist (lead magnet).",
           pricing_plan: "Lead Magnet — Website Checklist",
-        })
-        .select("id")
-        .maybeSingle();
+        });
+      if (dbError) throw dbError;
 
-      const submissionId = inserted?.id ?? crypto.randomUUID();
+      const submissionId = crypto.randomUUID();
       const templateData = { name: parsed.data.name, email: parsed.data.email };
 
       const [delivery, notify] = await Promise.all([
