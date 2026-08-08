@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import emcallScreenshot from "@/assets/emcall-screenshot.png.asset.json";
 
 const works = [
   {
