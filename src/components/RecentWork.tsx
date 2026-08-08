@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import emcallScreenshot from "@/assets/emcall-screenshot.png.asset.json";
 
 const works = [
   {
@@ -22,7 +23,7 @@ const works = [
     category: "Public Safety",
     outcome: "A live map app that helps people find the nearest defibrillator and call for help in an emergency.",
     url: "https://emcall.ie",
-    image: "/recent-work/emcall.png",
+    image: emcallScreenshot.url,
     thumb: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Femcall.ie?w=1200",
   },
 ];
