@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logoMark from "@/assets/hellowebby-mark.png";
 
 const Footer = () => {
@@ -35,6 +35,7 @@ const Footer = () => {
             <button onClick={() => scrollToSection("pricing")} className="text-foreground/80 hover:text-foreground">Pricing</button>
             <button onClick={() => scrollToSection("how-it-works")} className="text-foreground/80 hover:text-foreground">How it works</button>
             <button onClick={() => scrollToSection("faq")} className="text-foreground/80 hover:text-foreground">FAQ</button>
+            <Link to="/industries" className="text-foreground/80 hover:text-foreground">Industries</Link>
             <a href="mailto:hello@hellowebby.com" className="text-foreground/80 hover:text-foreground">Contact</a>
             <a href="/privacy" className="text-foreground/80 hover:text-foreground">Privacy Policy</a>
             <a href="/terms" className="text-foreground/80 hover:text-foreground">Terms of Service</a>
