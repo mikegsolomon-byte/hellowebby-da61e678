@@ -80,17 +80,17 @@ const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan" }: I
     setLoading(true);
     try {
       const payload = parsed.data;
-      const { data: inserted, error: dbError } = await supabase.from("form_submissions").insert({
+      const { error: dbError } = await supabase.from("form_submissions").insert({
         name: payload.name,
         email: payload.email,
         phone: payload.phone || null,
         company: payload.company || null,
         message: payload.message,
         pricing_plan: selectedPlan,
-      }).select("id").maybeSingle();
+      });
       if (dbError) throw dbError;
 
-      const submissionId = inserted?.id ?? crypto.randomUUID();
+      const submissionId = crypto.randomUUID();
       const templateData = { ...payload, pricing_plan: selectedPlan };
 
       // Internal notification to the HelloWebby inbox
