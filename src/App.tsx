@@ -14,6 +14,7 @@ import Terms from "./pages/Terms";
 import Industries from "./pages/Industries";
 import IndustryPage from "./pages/IndustryPage";
 import CookieConsent from "./components/CookieConsent";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/secure-checkout" element={<SecureCheckout />} />
