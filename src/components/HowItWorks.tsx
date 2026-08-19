@@ -6,19 +6,19 @@ const steps = [
     number: "1",
     icon: ClipboardList,
     title: "Tell us about your business",
-    description: "Fill in a short form about your business — what you do, who your customers are, and what you want your website to achieve. Takes about 10 minutes."
+    description: "Two minutes, in your own words. What you do and who your customers are."
   },
   {
     number: "2",
     icon: Laptop,
-    title: "We build it for you",
-    description: "Our team designs and builds your website in around a week. You'll get a preview to review and request any changes before we go live."
+    title: "See your free preview",
+    description: "We design a real preview of your website and send you the link within 2 working days. You haven't paid anything."
   },
   {
     number: "3",
     icon: Rocket,
-    title: "Go live and get customers",
-    description: "Your website goes live on your domain. We handle hosting, security, and updates. You focus on running your business."
+    title: "Love it? Go live",
+    description: "Pay the €79 setup and pick your plan. Your finished site is live in about a week. Don't love it? Walk away — you were never charged."
   }
 ];
 

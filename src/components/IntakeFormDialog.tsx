@@ -16,20 +16,35 @@ interface IntakeFormDialogProps {
   selectedPlan?: string;
 }
 
-const schema = z.object({
+// Free-preview requests come through the same form but ask for a phone number,
+// so we can qualify the lead before spending time building a preview.
+export const FREE_PREVIEW_PLAN = "Free preview request";
+
+const baseFields = {
   name: z.string().trim().min(2, "Please enter your name").max(100),
   email: z.string().trim().email("Enter a valid email").max(255),
-  phone: z.string().trim().max(40).optional().or(z.literal("")),
-  company: z.string().trim().max(120).optional().or(z.literal("")),
+  company: z.string().trim().max(120),
   message: z.string().trim().min(10, "Tell us a little more (10+ chars)").max(1000),
+};
+
+const standardSchema = z.object({
+  ...baseFields,
+  phone: z.string().trim().max(40),
 });
 
-type FormData = z.infer<typeof schema>;
+const previewSchema = z.object({
+  ...baseFields,
+  phone: z.string().trim().min(7, "Please add a phone number so we can talk it through").max(40),
+});
+
+type FormData = z.infer<typeof standardSchema>;
 type Errors = Partial<Record<keyof FormData, string>>;
 
 const initial: FormData = { name: "", email: "", phone: "", company: "", message: "" };
 
 const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan" }: IntakeFormDialogProps) => {
+  const isPreview = selectedPlan === FREE_PREVIEW_PLAN;
+  const schema = isPreview ? previewSchema : standardSchema;
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [formData, setFormData] = useState<FormData>(initial);
@@ -143,8 +158,17 @@ const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan" }: I
             <DialogHeader className="space-y-2">
               <DialogTitle className="text-2xl text-center">You're in 🎉</DialogTitle>
               <DialogDescription className="text-center">
-                Thanks {formData.name.split(" ")[0]}! We've received your details for the{" "}
-                <span className="text-foreground font-medium">{selectedPlan}</span> and will be in touch within 24 hours.
+                {isPreview ? (
+                  <>
+                    Thanks {formData.name.split(" ")[0]}! We're on it — your preview link will land in your
+                    inbox within 2 working days.
+                  </>
+                ) : (
+                  <>
+                    Thanks {formData.name.split(" ")[0]}! We've received your details for the{" "}
+                    <span className="text-foreground font-medium">{selectedPlan}</span> and will be in touch within 24 hours.
+                  </>
+                )}
               </DialogDescription>
             </DialogHeader>
             <Button onClick={() => handleOpenChange(false)} className="rounded-full px-8 mt-2">
@@ -157,9 +181,13 @@ const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan" }: I
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-primary/80">
                 <Sparkles className="w-3.5 h-3.5" /> {selectedPlan}
               </div>
-              <DialogTitle className="text-2xl">Let's get you started</DialogTitle>
+              <DialogTitle className="text-2xl">
+                {isPreview ? "Get your free preview" : "Let's get you started"}
+              </DialogTitle>
               <DialogDescription>
-                Tell us a bit about your project — we'll reply within 24 hours.
+                {isPreview
+                  ? "Tell us about your business — takes two minutes. We'll build a preview of your website and send you the link. You pay nothing until you've seen it and want to go live."
+                  : "Tell us a bit about your project — we'll reply within 24 hours."}
               </DialogDescription>
             </DialogHeader>
 
@@ -200,7 +228,9 @@ const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan" }: I
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <Label htmlFor="phone" className="text-muted-foreground">Phone</Label>
+                  <Label htmlFor="phone" className={isPreview ? undefined : "text-muted-foreground"}>
+                    {isPreview ? "Phone *" : "Phone"}
+                  </Label>
                   <Input
                     id="phone"
                     type="tel"
@@ -209,7 +239,11 @@ const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan" }: I
                     onBlur={() => handleBlur("phone")}
                     placeholder="+353 …"
                     className={fieldClass("phone")}
+                    aria-invalid={!!(errors.phone && touched.phone)}
                   />
+                  {errors.phone && touched.phone && (
+                    <p className="text-xs text-destructive">{errors.phone}</p>
+                  )}
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="company" className="text-muted-foreground">Company</Label>
@@ -225,13 +259,19 @@ const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan" }: I
               </div>
 
               <div className="space-y-1.5">
-                <Label htmlFor="message">Tell us about your project *</Label>
+                <Label htmlFor="message">
+                  {isPreview ? "Tell us about your business *" : "Tell us about your project *"}
+                </Label>
                 <Textarea
                   id="message"
                   value={formData.message}
                   onChange={(e) => update("message", e.target.value)}
                   onBlur={() => handleBlur("message")}
-                  placeholder="What are you looking to build?"
+                  placeholder={
+                    isPreview
+                      ? "What do you do, and who are your customers?"
+                      : "What are you looking to build?"
+                  }
                   rows={4}
                   className={fieldClass("message")}
                   aria-invalid={!!(errors.message && touched.message)}

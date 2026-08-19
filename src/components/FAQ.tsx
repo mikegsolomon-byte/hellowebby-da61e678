@@ -7,6 +7,10 @@ import {
 
 const faqs = [
   {
+    question: "Do I really see my website before paying?",
+    answer: "Yes. Tell us about your business and we'll build a real preview and email you the link — no card details, no charge. If you want it, pay the once-off €79 setup and pick your monthly plan, and we'll finish and launch it. If you don't, you owe nothing.",
+  },
+  {
     question: "Do I own my website?",
     answer: "You own all of your content — your text, images, and business information are always yours. The website platform and hosting infrastructure are managed by us as part of your subscription, similar to how Shopify or Wix work. If you ever decide to move on, we'll give you a full export of your content.",
   },

@@ -1,10 +1,16 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import IntakeFormDialog from "./IntakeFormDialog";
+import IntakeFormDialog, { FREE_PREVIEW_PLAN } from "./IntakeFormDialog";
 import { Check } from "lucide-react";
 
 const Hero = () => {
   const [formOpen, setFormOpen] = useState(false);
+  const [formPlan, setFormPlan] = useState(FREE_PREVIEW_PLAN);
+
+  const openForm = (plan: string) => {
+    setFormPlan(plan);
+    setFormOpen(true);
+  };
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -31,21 +37,22 @@ const Hero = () => {
           <Button
             size="lg"
             className="rounded-2xl text-base px-8 bg-foreground text-primary hover:bg-foreground/90 border-2 border-foreground shadow-[6px_6px_0_0_hsl(var(--primary))] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_hsl(var(--primary))] transition-all"
-            onClick={() => scrollToSection("pricing")}
+            onClick={() => openForm(FREE_PREVIEW_PLAN)}
           >
-            Get My Website Started →
+            See my website first — free
           </Button>
           <Button
             size="lg"
             variant="outline"
             className="rounded-2xl text-base px-8 bg-background border-2 border-foreground text-foreground hover:bg-muted shadow-[6px_6px_0_0_hsl(var(--foreground))] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_hsl(var(--foreground))] transition-all"
-            onClick={() => setFormOpen(true)}
+            onClick={() => scrollToSection("pricing")}
           >
-            Ask a question first
+            I'm ready — start now
           </Button>
         </div>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm font-medium text-foreground/80">
+          <span className="inline-flex items-center gap-1.5"><Check className="w-4 h-4" /> See it before you pay</span>
           <span className="inline-flex items-center gap-1.5"><Check className="w-4 h-4" /> Unlimited updates</span>
           <span className="inline-flex items-center gap-1.5"><Check className="w-4 h-4" /> Cancel anytime</span>
         </div>
@@ -53,14 +60,14 @@ const Hero = () => {
           Not ready to buy?{" "}
           <button
             type="button"
-            onClick={() => setFormOpen(true)}
+            onClick={() => openForm("General enquiry")}
             className="underline underline-offset-4 hover:text-foreground transition-colors"
           >
             Get in touch and we'll help you choose
           </button>
         </p>
       </div>
-      <IntakeFormDialog open={formOpen} onOpenChange={setFormOpen} selectedPlan="General enquiry" />
+      <IntakeFormDialog open={formOpen} onOpenChange={setFormOpen} selectedPlan={formPlan} />
     </section>
   );
 };

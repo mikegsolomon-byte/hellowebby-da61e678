@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Check } from "lucide-react";
-import IntakeFormDialog from "./IntakeFormDialog";
+import IntakeFormDialog, { FREE_PREVIEW_PLAN } from "./IntakeFormDialog";
 
 const plans = [
   {
@@ -148,6 +148,24 @@ const Pricing = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        <div className="text-center mb-12">
+          <p className="text-base md:text-lg font-medium mb-4 max-w-2xl mx-auto">
+            Not sure? You don&apos;t have to be. Get a free preview of your website first — pay nothing
+            until you&apos;ve seen it.
+          </p>
+          <Button
+            size="lg"
+            variant="outline"
+            className="rounded-xl"
+            onClick={() => {
+              setSelectedPlan(FREE_PREVIEW_PLAN);
+              setFormOpen(true);
+            }}
+          >
+            Get my free preview
+          </Button>
         </div>
 
         <Card className="glass border-border/40">
