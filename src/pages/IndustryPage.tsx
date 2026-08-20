@@ -123,7 +123,7 @@ const IndustryPage = () => {
               <span className="gradient-text">wins you work?</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              We design, build, host and update it for you — from €49/month, live in about a week.
+              We design, build, host and update it for you — from €49/month, live within a few days.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button asChild size="lg" className="rounded-full ring-glow">

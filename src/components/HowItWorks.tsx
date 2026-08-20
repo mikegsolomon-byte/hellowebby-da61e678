@@ -12,13 +12,13 @@ const steps = [
     number: "2",
     icon: Laptop,
     title: "See your free preview",
-    description: "We design a real preview of your website and send you the link within 2 working days. You haven't paid anything."
+    description: "We design a real preview of your website and email you the link within a few days. You haven't paid anything."
   },
   {
     number: "3",
     icon: Rocket,
     title: "Love it? Go live",
-    description: "Pay the €79 setup and pick your plan. Your finished site is live in about a week. Don't love it? Walk away — you were never charged."
+    description: "Pay the €79 setup and pick your plan. Your finished site is live within a few days. Don't love it? Walk away — you were never charged."
   }
 ];
 

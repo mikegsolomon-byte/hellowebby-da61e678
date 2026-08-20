@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     question: "How long does it take to build my website?",
-    answer: "Most websites are live within about a week of receiving your content.",
+    answer: "Most websites are live within a few days of receiving your content.",
   },
   {
     question: "Is the €79 setup fee charged every year?",

@@ -35,7 +35,7 @@ export const industries: Industry[] = [
     emoji: "🔧",
     metaTitle: "Websites for Plumbers in Ireland | hellowebby",
     metaDescription:
-      "A professional website for your plumbing business from €49/month. We design, build, host and update it — so more local customers find you and get in touch. Live in about a week.",
+      "A professional website for your plumbing business from €49/month. We design, build, host and update it — so more local customers find you and get in touch. Live within a few days.",
     h1: "Websites for plumbers in Ireland",
     intro:
       "When a pipe bursts, people reach for their phone and search — and they call the plumber who looks trustworthy and turns up first in Google. hellowebby builds you a fast, professional plumbing website that shows your services, your areas covered and a clear way to get in touch, all on a simple monthly subscription with no big upfront bill.",
@@ -74,7 +74,7 @@ export const industries: Industry[] = [
       },
       {
         q: "How quickly can my plumbing website go live?",
-        a: "Most sites are live within about a week of you sending your details. Hosting, domain and SSL are all handled for you.",
+        a: "Most sites are live within a few days of you sending your details. Hosting, domain and SSL are all handled for you.",
       },
     ],
   },
@@ -84,7 +84,7 @@ export const industries: Industry[] = [
     emoji: "✂️",
     metaTitle: "Websites for Salons & Barbers in Ireland | hellowebby",
     metaDescription:
-      "A beautiful website for your salon or barbershop from €49/month, with online booking, your services and prices, and photos of your work. We build, host and update it. Live in about a week.",
+      "A beautiful website for your salon or barbershop from €49/month, with online booking, your services and prices, and photos of your work. We build, host and update it. Live within a few days.",
     h1: "Websites for salons & barbers in Ireland",
     intro:
       "Your work is visual, and your website should be too. hellowebby builds salons and barbershops a stylish, mobile-first site that shows off your look, lists your services and prices, and lets clients book in — all on a simple monthly subscription with no upfront cost.",
@@ -133,7 +133,7 @@ export const industries: Industry[] = [
     emoji: "☕",
     metaTitle: "Websites for Cafés & Restaurants in Ireland | hellowebby",
     metaDescription:
-      "A website for your café or restaurant from €49/month — menu, opening hours, location and bookings, all in one tidy place. We design, host and update it. Live in about a week.",
+      "A website for your café or restaurant from €49/month — menu, opening hours, location and bookings, all in one tidy place. We design, host and update it. Live within a few days.",
     h1: "Websites for cafés & restaurants in Ireland",
     intro:
       "Before someone visits, they check two things: your menu and your opening hours. hellowebby builds cafés and restaurants a clean, appetising website that puts those front and centre, with your location, photos and a way to book — all on a simple monthly subscription.",
@@ -172,7 +172,7 @@ export const industries: Industry[] = [
       },
       {
         q: "How fast can we go live?",
-        a: "Most sites are live within about a week of you sending your menu, hours and photos.",
+        a: "Most sites are live within a few days of you sending your menu, hours and photos.",
       },
     ],
   },
@@ -182,7 +182,7 @@ export const industries: Industry[] = [
     emoji: "⚡",
     metaTitle: "Websites for Electricians in Ireland | hellowebby",
     metaDescription:
-      "A professional website for your electrical business from €49/month. Services, areas covered and a clear way to get in touch — we build, host and update it. Live in about a week.",
+      "A professional website for your electrical business from €49/month. Services, areas covered and a clear way to get in touch — we build, host and update it. Live within a few days.",
     h1: "Websites for electricians in Ireland",
     intro:
       "Whether it’s a rewire, a fault or an EV charger install, customers want an electrician who looks qualified and is easy to reach. hellowebby builds a clean, professional website that lists your services and certifications, covers your areas, and makes getting a quote effortless — on a simple monthly subscription.",
@@ -231,7 +231,7 @@ export const industries: Industry[] = [
     emoji: "👷",
     metaTitle: "Websites for Builders & Tradespeople in Ireland | hellowebby",
     metaDescription:
-      "A website for your building or trades business from €49/month — showcase your projects, list your services and win more enquiries. We build, host and update it. Live in about a week.",
+      "A website for your building or trades business from €49/month — showcase your projects, list your services and win more enquiries. We build, host and update it. Live within a few days.",
     h1: "Websites for builders & tradespeople in Ireland",
     intro:
       "Your best salesperson is your last job. hellowebby builds builders and tradespeople a professional website that shows off your completed projects, lists what you do, and makes it easy for people to request a quote — all on a simple monthly subscription with no big upfront bill.",
@@ -270,7 +270,7 @@ export const industries: Industry[] = [
       },
       {
         q: "How soon can it be live?",
-        a: "Most sites go live within about a week of you sending your details and a few photos.",
+        a: "Most sites go live within a few days of you sending your details and a few photos.",
       },
     ],
   },
@@ -280,7 +280,7 @@ export const industries: Industry[] = [
     emoji: "💼",
     metaTitle: "Websites for Accountants & Solicitors in Ireland | hellowebby",
     metaDescription:
-      "A credible, professional website for your accountancy or law firm from €49/month. Services, expertise and easy enquiries — we build, host and update it. Live in about a week.",
+      "A credible, professional website for your accountancy or law firm from €49/month. Services, expertise and easy enquiries — we build, host and update it. Live within a few days.",
     h1: "Websites for accountants & solicitors in Ireland",
     intro:
       "In professional services, your website is your first impression — and it needs to signal expertise and trust. hellowebby builds accountants and solicitors a clean, credible website that clearly explains your services, establishes your authority, and makes it easy for the right clients to get in touch, all on a simple monthly subscription.",
@@ -329,7 +329,7 @@ export const industries: Industry[] = [
     emoji: "💗",
     metaTitle: "Websites for Therapists & Clinics in Ireland | hellowebby",
     metaDescription:
-      "A calm, professional website for your therapy practice or clinic from €49/month, with online booking and easy enquiries. We build, host and update it. Live in about a week.",
+      "A calm, professional website for your therapy practice or clinic from €49/month, with online booking and easy enquiries. We build, host and update it. Live within a few days.",
     h1: "Websites for therapists & clinics in Ireland",
     intro:
       "People choosing a therapist or clinic are looking for reassurance as much as information. hellowebby builds a calm, professional website that explains your treatments, introduces you, and lets clients book or enquire with confidence — all on a simple monthly subscription.",
@@ -368,7 +368,7 @@ export const industries: Industry[] = [
       },
       {
         q: "How long until it’s live?",
-        a: "Most clinic sites are live within about a week of you sending your details.",
+        a: "Most clinic sites are live within a few days of you sending your details.",
       },
     ],
   },
@@ -378,7 +378,7 @@ export const industries: Industry[] = [
     emoji: "🛍️",
     metaTitle: "Websites for Retail Shops & Boutiques in Ireland | hellowebby",
     metaDescription:
-      "A stylish website for your shop or boutique from €49/month — showcase your products, share your story and drive footfall. We build, host and update it. Live in about a week.",
+      "A stylish website for your shop or boutique from €49/month — showcase your products, share your story and drive footfall. We build, host and update it. Live within a few days.",
     h1: "Websites for retail shops & boutiques in Ireland",
     intro:
       "A great shop deserves a great shopfront online. hellowebby builds retailers and boutiques a stylish website that showcases your products, tells your story and gives people every reason to visit — with your location, opening hours and a way to get in touch, all on a simple monthly subscription.",
@@ -417,7 +417,7 @@ export const industries: Industry[] = [
       },
       {
         q: "How quickly can it go live?",
-        a: "Most shop sites are live within about a week of you sending your photos and details.",
+        a: "Most shop sites are live within a few days of you sending your photos and details.",
       },
     ],
   },
