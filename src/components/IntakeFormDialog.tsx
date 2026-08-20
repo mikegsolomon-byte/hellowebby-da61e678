@@ -161,7 +161,7 @@ const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan" }: I
                 {isPreview ? (
                   <>
                     Thanks {formData.name.split(" ")[0]}! We're on it — your preview link will land in your
-                    inbox within 2 working days.
+                    inbox within a few days.
                   </>
                 ) : (
                   <>
