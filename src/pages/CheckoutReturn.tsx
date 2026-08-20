@@ -198,7 +198,7 @@ export default function CheckoutReturn() {
                 },
                 {
                   icon: Sparkles,
-                  title: "Live in about a week",
+                  title: "Live in a few days",
                   body: "We design, build, and launch your website — then handle hosting, updates, and ongoing support on your monthly plan.",
                 },
               ].map((s, i) => (
