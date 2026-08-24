@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { ClipboardList, Laptop, Rocket } from "lucide-react";
+import { setupCopy } from "@/config/foundingOffer";
 
 const steps = [
   {
@@ -18,7 +19,7 @@ const steps = [
     number: "3",
     icon: Rocket,
     title: "Love it? Go live",
-    description: "Pay the €79 setup and pick your plan. Your finished site is live within a few days. Don't love it? Walk away — you were never charged."
+    description: setupCopy.howItWorksStep3
   }
 ];
 

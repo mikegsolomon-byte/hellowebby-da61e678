@@ -4,11 +4,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { FOUNDING_OFFER, STANDARD_SETUP_FEE } from "@/config/foundingOffer";
 
 const faqs = [
   {
     question: "Do I really see my website before paying?",
-    answer: "Yes. Tell us about your business and we'll build a real preview and email you the link — no card details, no charge. If you want it, pay the once-off €79 setup and pick your monthly plan, and we'll finish and launch it. If you don't, you owe nothing.",
+    answer: FOUNDING_OFFER
+      ? "Yes. Tell us about your business and we'll build a real preview and email you the link — no card details, no charge. If you want it, pick your monthly plan and we'll finish and launch it — with €0 setup as a founding customer. If you don't, you owe nothing."
+      : `Yes. Tell us about your business and we'll build a real preview and email you the link — no card details, no charge. If you want it, pay the once-off €${STANDARD_SETUP_FEE} setup and pick your monthly plan, and we'll finish and launch it. If you don't, you owe nothing.`,
   },
   {
     question: "Do I own my website?",
@@ -23,8 +26,10 @@ const faqs = [
     answer: "Most websites are live within a few days of receiving your content.",
   },
   {
-    question: "Is the €79 setup fee charged every year?",
-    answer: "No — it's a once-off fee charged when you first sign up. Your monthly subscription covers everything after that.",
+    question: "Is there a setup fee?",
+    answer: FOUNDING_OFFER
+      ? `Not right now — as a founding customer you pay €0 setup. Once our founding spots are gone, a once-off €${STANDARD_SETUP_FEE} setup fee applies to new customers. Your monthly subscription covers everything either way.`
+      : `Yes — a once-off €${STANDARD_SETUP_FEE} fee charged when you first sign up. Your monthly subscription covers everything after that.`,
   },
   {
     question: "Do you work with businesses outside Dublin?",
@@ -36,7 +41,9 @@ const faqs = [
   },
   {
     question: "Is there a contract?",
-    answer: "No long-term contract. You're committing to one month at a time after the first month. The €79 setup fee covers the cost of building your site, and after that you're free to stay or go.",
+    answer: FOUNDING_OFFER
+      ? "No long-term contract. You're committing to one month at a time after the first month. There's no setup fee for founding customers, so you're free to stay or go."
+      : `No long-term contract. You're committing to one month at a time after the first month. The €${STANDARD_SETUP_FEE} setup fee covers the cost of building your site, and after that you're free to stay or go.`,
   },
   {
     question: "Do you handle SEO?",

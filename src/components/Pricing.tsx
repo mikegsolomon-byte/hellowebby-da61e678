@@ -4,6 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Check } from "lucide-react";
 import IntakeFormDialog, { FREE_PREVIEW_PLAN } from "./IntakeFormDialog";
+// Founding-offer copy and figures live in one place — see src/config/foundingOffer.ts.
+import {
+  FOUNDING_OFFER,
+  GROWTH_FIRST_YEAR,
+  GROWTH_FIRST_YEAR_BREAKDOWN,
+  setupCopy,
+} from "@/config/foundingOffer";
 
 const plans = [
   {
@@ -77,8 +84,8 @@ const Pricing = () => {
           <p className="text-lg text-muted-foreground mb-4">
             One monthly fee. No hidden costs. No contracts after month one.
           </p>
-          <p className="inline-block text-sm font-medium px-4 py-2 rounded-full border-2 border-foreground/15 bg-background/60 backdrop-blur">
-            €79 once-off setup — covers your design consultation and full build. Agencies charge €2,000+ for this.
+          <p className="inline-block text-sm font-semibold px-4 py-2 rounded-full border-2 border-primary bg-primary/10 backdrop-blur">
+            {setupCopy.pricingBadge}
           </p>
 
           <div className="mt-8 flex justify-center">
@@ -132,8 +139,14 @@ const Pricing = () => {
                 ) : (
                   <p className="text-xs text-muted-foreground mb-3">≈ {plan.annualEquivalent}, billed annually</p>
                 )}
-                <p className="text-xs text-muted-foreground">+ €79 once-off setup fee</p>
-                <p className="text-xs text-muted-foreground mb-4">14-day money-back guarantee on your setup fee.</p>
+                <p className={`text-xs ${FOUNDING_OFFER ? "font-semibold text-foreground mb-4" : "text-muted-foreground"}`}>
+                  {setupCopy.pricingCard}
+                </p>
+                {/* While setup is €0 there is nothing to refund, so the setup-fee
+                    guarantee line only shows once the standard fee is back. */}
+                {!FOUNDING_OFFER && (
+                  <p className="text-xs text-muted-foreground mb-4">14-day money-back guarantee on your setup fee.</p>
+                )}
                 <Button className={`w-full rounded-xl ${plan.popular ? 'ring-glow' : ''}`} variant={plan.popular ? 'default' : 'outline'} onClick={() => navigate(`/secure-checkout?plan=${plan.key}&billing=${billing}`)}>
                   Start my website
                 </Button>
@@ -171,7 +184,7 @@ const Pricing = () => {
         <Card className="glass border-border/40">
           <CardContent className="p-8 text-center">
             <p className="text-base md:text-lg leading-relaxed">
-              💡 <strong>A typical Irish web agency charges €2,000–€5,000 upfront</strong> — plus €100–€200/month for hosting and maintenance. With hellowebby, your first year on the Growth plan costs <strong>€1,147 total</strong> (€79 setup + €89 × 12). That's it.
+              💡 <strong>A typical Irish web agency charges €2,000–€5,000 upfront</strong> — plus €100–€200/month for hosting and maintenance. With hellowebby, your first year on the Growth plan costs <strong>€{GROWTH_FIRST_YEAR.toLocaleString("en-IE")} total</strong> ({GROWTH_FIRST_YEAR_BREAKDOWN}). That's it.
             </p>
             <div className="mt-6 pt-6 border-t border-border/40 flex flex-col sm:flex-row items-center justify-center gap-4">
               <span className="text-sm text-muted-foreground">Not sure which plan is right?</span>

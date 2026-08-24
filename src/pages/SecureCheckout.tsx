@@ -7,6 +7,7 @@ import { StripeEmbeddedCheckout } from "@/components/StripeEmbeddedCheckout";
 import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
 import { Check, Lock, Mail, ShieldCheck, CreditCard, Sparkles } from "lucide-react";
 import PageMeta from "@/components/PageMeta";
+import { FOUNDING_OFFER, SETUP_FEE, setupCopy } from "@/config/foundingOffer";
 
 type PlanKey = "starter" | "growth" | "pro";
 type Billing = "monthly" | "annual";
@@ -41,7 +42,8 @@ const PLANS: Record<
   },
 };
 
-const SETUP_FEE = 79;
+// Founding offer: setup fee waived for the first customers. Flip FOUNDING_OFFER
+// in src/config/foundingOffer.ts to put the standard setup fee back everywhere.
 const SETUP_PRICE_ID = "setup_fee_once";
 
 export default function SecureCheckout() {
@@ -98,7 +100,7 @@ export default function SecureCheckout() {
               Let's <span className="gradient-text">get you live</span>
             </h1>
             <p className="text-muted-foreground">
-              One-time setup, then your monthly plan — cancel anytime.
+              {setupCopy.checkoutSubtitle}
             </p>
             <ol className="mt-6 flex items-center justify-center gap-2 text-xs text-muted-foreground">
               <li className={`flex items-center gap-1.5 ${!showCheckout ? "text-foreground font-semibold" : ""}`}>
@@ -232,8 +234,8 @@ export default function SecureCheckout() {
                   Order summary
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">One-time setup</span>
-                  <span>€{SETUP_FEE}</span>
+                  <span className="text-muted-foreground">{setupCopy.checkoutSummaryLabel}</span>
+                  <span className={FOUNDING_OFFER ? "font-semibold" : undefined}>€{SETUP_FEE}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-muted-foreground">
@@ -282,9 +284,12 @@ export default function SecureCheckout() {
               >
                 ← Change plan
               </button>
+              {/* TODO: verify in the Stripe / Lovable payments config that checkout
+                  works with the subscription price alone — while the founding offer
+                  is on we deliberately omit the one-off setup line item. */}
               <StripeEmbeddedCheckout
                 planPriceId={period.priceId}
-                setupPriceId={SETUP_PRICE_ID}
+                setupPriceId={FOUNDING_OFFER ? undefined : SETUP_PRICE_ID}
                 customerEmail={email}
                 returnUrl={returnUrl}
               />
