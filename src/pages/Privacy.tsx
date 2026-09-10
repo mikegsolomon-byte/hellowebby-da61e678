@@ -55,8 +55,8 @@ const Privacy = () => {
                       <td className="p-3 align-top">Lead-magnet / newsletter signup — name, email</td>
                       <td className="p-3 align-top">To send you the resource and occasional updates</td>
                       <td className="p-3 align-top">
-                        Consent (Art 6(1)(a)), which you can withdraw anytime via the{" "}
-                        <a href="/unsubscribe" className="underline underline-offset-4 font-semibold hover:text-primary transition-colors">unsubscribe page</a>
+                        Consent (Art 6(1)(a)), which you can withdraw anytime using the unsubscribe link in any
+                        email we send
                       </td>
                     </tr>
                     <tr>

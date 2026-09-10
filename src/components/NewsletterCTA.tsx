@@ -40,27 +40,15 @@ const NewsletterCTA = () => {
       if (dbError) throw dbError;
 
       const submissionId = crypto.randomUUID();
-      const templateData = { name: parsed.data.name, email: parsed.data.email };
 
-      const [delivery, notify] = await Promise.all([
-        supabase.functions.invoke("send-transactional-email", {
-          body: {
-            templateName: "checklist-delivery",
-            recipientEmail: parsed.data.email,
-            idempotencyKey: `checklist-deliver-${submissionId}`,
-            templateData,
-          },
-        }),
-        supabase.functions.invoke("send-transactional-email", {
-          body: {
-            templateName: "checklist-notification",
-            idempotencyKey: `checklist-notify-${submissionId}`,
-            templateData,
-          },
-        }),
-      ]);
-      if (delivery.error) console.error("Checklist delivery error:", delivery.error);
-      if (notify.error) console.error("Checklist notify error:", notify.error);
+      const { error: emailError } = await supabase.functions.invoke("send-checklist-emails", {
+        body: {
+          submissionId,
+          name: parsed.data.name,
+          email: parsed.data.email,
+        },
+      });
+      if (emailError) console.error("Checklist email error:", emailError);
 
       toast({
         title: "Checklist on the way! 🎉",
