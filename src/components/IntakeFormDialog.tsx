@@ -158,17 +158,9 @@ const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan" }: I
             <DialogHeader className="space-y-2">
               <DialogTitle className="text-2xl text-center">You're in 🎉</DialogTitle>
               <DialogDescription className="text-center">
-                {isPreview ? (
-                  <>
-                    Thanks {formData.name.split(" ")[0]}! We're on it — your preview link will land in your
-                    inbox within a few days.
-                  </>
-                ) : (
-                  <>
-                    Thanks {formData.name.split(" ")[0]}! We've received your details for the{" "}
-                    <span className="text-foreground font-medium">{selectedPlan}</span> and will be in touch within 24 hours.
-                  </>
-                )}
+                <>
+                  Thanks {formData.name.split(" ")[0]}! We've received your details and one of the team will be in touch within a few days.
+                </>
               </DialogDescription>
             </DialogHeader>
             <Button onClick={() => handleOpenChange(false)} className="rounded-full px-8 mt-2">
