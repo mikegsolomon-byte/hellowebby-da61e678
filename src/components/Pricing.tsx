@@ -163,23 +163,29 @@ const Pricing = () => {
           ))}
         </div>
 
-        <div className="text-center mb-12">
-          <p className="text-base md:text-lg font-medium mb-4 max-w-2xl mx-auto">
-            Not sure? You don&apos;t have to be. Get a free preview of your website first — pay nothing
-            until you&apos;ve seen it.
-          </p>
-          <Button
-            size="lg"
-            variant="outline"
-            className="rounded-xl"
-            onClick={() => {
-              setSelectedPlan(FREE_PREVIEW_PLAN);
-              setFormOpen(true);
-            }}
-          >
-            Get my free preview
-          </Button>
-        </div>
+        <Card className="glass border-2 border-foreground shadow-[6px_6px_0_0_hsl(var(--primary))] mb-12 overflow-hidden">
+          <CardContent className="p-8 md:p-10 text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-4 rounded-full border-2 border-primary bg-primary/10 text-xs md:text-sm font-bold">
+              No commitment · No payment required
+            </div>
+            <p className="text-xl md:text-2xl font-extrabold mb-3 max-w-2xl mx-auto">
+              Not sure? You don&apos;t have to be.
+            </p>
+            <p className="text-base md:text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+              Get a free preview of your website first — pay nothing until you&apos;ve seen it.
+            </p>
+            <Button
+              size="lg"
+              className="rounded-2xl text-base px-8 bg-foreground text-primary hover:bg-foreground/90 border-2 border-foreground shadow-[6px_6px_0_0_hsl(var(--primary))] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_hsl(var(--primary))] transition-all"
+              onClick={() => {
+                setSelectedPlan(FREE_PREVIEW_PLAN);
+                setFormOpen(true);
+              }}
+            >
+              Get my free preview
+            </Button>
+          </CardContent>
+        </Card>
 
         <Card className="glass border-border/40">
           <CardContent className="p-8 text-center">
