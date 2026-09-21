@@ -43,13 +43,6 @@ const RecentWork = () => {
               Websites <span className="gradient-text">we build</span>
             </h2>
           </div>
-          <div className="hidden md:flex">
-            <div className="w-32 h-32 border-4 border-foreground rounded-full items-center justify-center bg-primary shadow-[6px_6px_0px_0px_hsl(var(--foreground))] -rotate-12 hover:rotate-0 transition-transform">
-              <span className="font-bold text-primary-foreground text-center leading-none uppercase text-sm tracking-tight">
-                Handcrafted<br/>Experiences
-              </span>
-            </div>
-          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
