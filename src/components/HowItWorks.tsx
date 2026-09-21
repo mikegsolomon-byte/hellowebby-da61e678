@@ -7,7 +7,7 @@ const steps = [
     number: "1",
     icon: ClipboardList,
     title: "Tell us about your business",
-    description: "Two minutes, in your own words. What you do and who your customers are."
+    description: "In your own words, tell us what you do, who your customers are, the look you're after, and any links or examples you love — we'll take it from there."
   },
   {
     number: "2",
