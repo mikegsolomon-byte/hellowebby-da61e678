@@ -14,6 +14,8 @@ interface IntakeFormDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   selectedPlan?: string;
+  initialMessage?: string;
+  initialCompany?: string;
 }
 
 // Free-preview requests come through the same form but ask for a phone number,
