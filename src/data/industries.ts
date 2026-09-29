@@ -64,7 +64,7 @@ export const industries: Industry[] = [
       "Unlimited content updates — email us to add a service or town",
     ],
     localSeo:
-      "We optimise every page for the places you work — “plumber in Galway”, “boiler repair Roscommon”, and so on — with proper page titles, headings and meta descriptions, plus help getting your Google Business Profile pointing at your new site. That’s how local customers find you instead of the plumber two towns over.",
+      "We optimise every page for the places you work — “plumber in Galway”, “boiler repair Roscommon”, and so on — with proper page titles, headings and meta descriptions. That’s how local customers find you instead of the plumber two towns over.",
     faqs: [
       {
         q: "Do I need to write all the content myself?",
@@ -113,7 +113,7 @@ export const industries: Industry[] = [
       "Unlimited content updates — new prices or offers anytime",
     ],
     localSeo:
-      "We set your site up to be found for searches like “barber in Athlone” or “hair salon near me”, with local page titles and help connecting your Google Business Profile — so new clients in your area discover you first.",
+      "We set your site up to be found for searches like “barber in Athlone” or “hair salon near me”, with local page titles and service information that help new clients in your area discover you.",
     faqs: [
       {
         q: "Can you connect my existing booking system?",
@@ -162,7 +162,7 @@ export const industries: Industry[] = [
       "Unlimited content updates — swap the menu anytime",
     ],
     localSeo:
-      "We optimise your site for searches like “café in Sligo” or “restaurant near me”, with local page titles and help connecting your Google Business Profile — so you show up when someone nearby is deciding where to eat.",
+      "We optimise your site for searches like “café in Sligo” or “restaurant near me”, with local page titles and clear location information — so you show up when someone nearby is deciding where to eat.",
     faqs: [
       {
         q: "Can you put our full menu online?",
@@ -211,7 +211,7 @@ export const industries: Industry[] = [
       "Unlimited content updates — add a service anytime",
     ],
     localSeo:
-      "We optimise each page for the areas you serve — “electrician in Mullingar”, “EV charger installation Westmeath” — with local titles and Google Business Profile help, so nearby customers find you first.",
+      "We optimise each page for the areas you serve — “electrician in Mullingar”, “EV charger installation Westmeath” — with local titles and service-area content, so nearby customers find you first.",
     faqs: [
       {
         q: "Can I show the areas I cover?",
@@ -262,7 +262,7 @@ export const industries: Industry[] = [
       "Unlimited content updates — add new projects anytime",
     ],
     localSeo:
-      "We optimise your site for searches like “builder in Roscommon” or “extension builder near me”, with local page titles and Google Business Profile help — so you get found by people planning work in your area.",
+      "We optimise your site for searches like “builder in Roscommon” or “extension builder near me”, with local page titles and service-area content — so you get found by people planning work in your area.",
     faqs: [
       {
         q: "Can I add photos of my projects later?",
@@ -311,7 +311,7 @@ export const industries: Industry[] = [
       "Unlimited content updates — add services or news anytime",
     ],
     localSeo:
-      "We optimise your pages for searches like “accountant in Longford” or “conveyancing solicitor near me”, with local titles and Google Business Profile help — so nearby clients find your firm rather than a national directory.",
+      "We optimise your pages for searches like “accountant in Longford” or “conveyancing solicitor near me”, with local titles and service-focused content — so nearby clients find your firm rather than a national directory.",
     faqs: [
       {
         q: "Can the site reflect our firm’s tone?",
@@ -360,7 +360,7 @@ export const industries: Industry[] = [
       "Unlimited content updates — add treatments or hours anytime",
     ],
     localSeo:
-      "We optimise your site for searches like “physiotherapy in Carlow” or “counsellor near me”, with local titles and Google Business Profile help — so people seeking care in your area find you.",
+      "We optimise your site for searches like “physiotherapy in Carlow” or “counsellor near me”, with local titles and treatment-focused content — so people seeking care in your area find you.",
     faqs: [
       {
         q: "Can clients book appointments online?",
@@ -409,7 +409,7 @@ export const industries: Industry[] = [
       "Unlimited content updates — refresh products anytime",
     ],
     localSeo:
-      "We optimise your site for searches like “boutique in Kilkenny” or “gift shop near me”, with local titles and Google Business Profile help — so nearby shoppers discover you and drop in.",
+      "We optimise your site for searches like “boutique in Kilkenny” or “gift shop near me”, with local titles and clear shop information — so nearby shoppers discover you and drop in.",
     faqs: [
       {
         q: "Is this an online shop?",

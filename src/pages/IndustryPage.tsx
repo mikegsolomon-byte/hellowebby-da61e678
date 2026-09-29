@@ -4,6 +4,7 @@ import { Check, ArrowRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import ClinicBriefGenerator from "@/components/ClinicBriefGenerator";
 import { Button } from "@/components/ui/button";
 import { getIndustry } from "@/data/industries";
 import NotFound from "./NotFound";
@@ -97,6 +98,8 @@ const IndustryPage = () => {
             <p className="text-muted-foreground mt-8 leading-relaxed">{industry.localSeo}</p>
           </div>
         </section>
+
+        {industry.slug === "therapists-and-clinics" && <ClinicBriefGenerator />}
 
         {/* FAQ */}
         <section className="relative px-4 section-light overflow-hidden py-[36px]">

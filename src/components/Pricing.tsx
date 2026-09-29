@@ -42,7 +42,7 @@ const plans = [
       "Up to 10 pages, professionally designed",
       "Online booking / appointment system",
       "Full SEO setup + keyword targeting",
-      "Google Business Profile setup & optimisation",
+      "Local search setup & optimisation",
       "Unlimited content updates included",
       "Google Analytics + Search Console connected",
       "Priority support",
