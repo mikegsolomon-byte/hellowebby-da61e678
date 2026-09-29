@@ -16,6 +16,7 @@ interface IntakeFormDialogProps {
   selectedPlan?: string;
   initialMessage?: string;
   initialCompany?: string;
+  plannerContext?: string;
 }
 
 // Free-preview requests come through the same form but ask for a phone number,
@@ -44,7 +45,7 @@ type Errors = Partial<Record<keyof FormData, string>>;
 
 const initial: FormData = { name: "", email: "", phone: "", company: "", message: "" };
 
-const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan", initialMessage, initialCompany }: IntakeFormDialogProps) => {
+const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan", initialMessage, initialCompany, plannerContext }: IntakeFormDialogProps) => {
   const isPreview = selectedPlan === FREE_PREVIEW_PLAN;
   const schema = isPreview ? previewSchema : standardSchema;
   const [loading, setLoading] = useState(false);
@@ -131,6 +132,7 @@ const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan", ini
           company: payload.company || null,
           message: payload.message,
           pricing_plan: selectedPlan,
+          planner_context: plannerContext || null,
         },
       });
       if (emailError) console.error("Contact email error:", emailError);

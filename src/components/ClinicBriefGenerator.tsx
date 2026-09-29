@@ -198,6 +198,21 @@ const ClinicBriefGenerator = () => {
     .join("\n")
     .slice(0, 980);
 
+  // Full record for the lead email only (not shown in the form), so every answer
+  // and the generated plan reach hello@hellowebby.com.
+  const plannerContext = [
+    `Clinic name: ${clinicName || "Not given"}`,
+    `Location: ${location || "Not given"}`,
+    `Practice type: ${clinicType}`,
+    `How patients book today: ${bookingSystem}`,
+    `What matters most: ${priorities.length ? priorities.join(", ") : "Not given"}`,
+    `Notes: ${details || "Not given"}`,
+    brief ? `\n--- Plan the planner generated for them ---\n${brief}` : "",
+  ]
+    .filter(Boolean)
+    .join("\n")
+    .slice(0, 12000);
+
   return (
     <section id="clinic-brief" className="relative px-4 section-light overflow-hidden py-[36px]">
       <div className="glow-orb bg-primary/20 w-[520px] h-[520px] top-10 left-1/2 -translate-x-1/2 animate-pulse-glow" />
@@ -430,6 +445,7 @@ const ClinicBriefGenerator = () => {
         selectedPlan={FREE_PREVIEW_PLAN}
         initialMessage={briefSummary}
         initialCompany={clinicName || undefined}
+        plannerContext={plannerContext}
       />
     </section>
   );

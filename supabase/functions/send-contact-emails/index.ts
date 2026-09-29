@@ -13,6 +13,7 @@ const BodySchema = z.object({
   company: z.string().trim().max(150).optional().nullable(),
   message: z.string().trim().min(1).max(2000),
   pricing_plan: z.string().trim().max(150).optional().nullable(),
+  planner_context: z.string().trim().max(12000).optional().nullable(),
 })
 
 // Simple in-memory rate limit: this endpoint is public (contact form).
@@ -111,7 +112,7 @@ Deno.serve(async (req) => {
   await send(
     'contact-notification',
     INTERNAL_RECIPIENT,
-    templateData,
+    { ...templateData, planner_context: data.planner_context ?? undefined },
     `contact-notify-${data.submissionId}`,
     data.email,
   )
