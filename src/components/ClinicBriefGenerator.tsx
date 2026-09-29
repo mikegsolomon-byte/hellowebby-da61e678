@@ -182,6 +182,22 @@ const ClinicBriefGenerator = () => {
 
   const blocks = brief ? parseBrief(brief) : [];
 
+  // Summarise what they told the planner so it travels with their enquiry —
+  // the site owner sees it in the lead email and doesn't have to ask again.
+  // Capped to fit the form's 1000-character message limit.
+  const briefSummary = [
+    "I used the clinic website planner on your site. Here's what I told it:",
+    clinicName && `Clinic name: ${clinicName}`,
+    location && `Location: ${location}`,
+    `Practice type: ${clinicType}`,
+    `How patients book today: ${bookingSystem}`,
+    priorities.length > 0 && `What matters most: ${priorities.join(", ")}`,
+    details && `Notes: ${details}`,
+  ]
+    .filter(Boolean)
+    .join("\n")
+    .slice(0, 980);
+
   return (
     <section id="clinic-brief" className="relative px-4 section-light overflow-hidden py-[36px]">
       <div className="glow-orb bg-primary/20 w-[520px] h-[520px] top-10 left-1/2 -translate-x-1/2 animate-pulse-glow" />
@@ -408,7 +424,13 @@ const ClinicBriefGenerator = () => {
         </p>
       </div>
 
-      <IntakeFormDialog open={formOpen} onOpenChange={setFormOpen} selectedPlan={FREE_PREVIEW_PLAN} />
+      <IntakeFormDialog
+        open={formOpen}
+        onOpenChange={setFormOpen}
+        selectedPlan={FREE_PREVIEW_PLAN}
+        initialMessage={briefSummary}
+        initialCompany={clinicName || undefined}
+      />
     </section>
   );
 };
