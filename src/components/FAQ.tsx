@@ -47,7 +47,7 @@ const faqs = [
   },
   {
     question: "Do you handle SEO?",
-    answer: "Yes. Every plan includes on-page SEO setup — proper page titles, meta descriptions, structured data, and Google indexing. The Growth and Pro plans include more advanced SEO work including keyword targeting and Google Business Profile optimisation.",
+    answer: "Yes. Every plan includes on-page SEO setup — proper page titles, meta descriptions, structured data, and Google indexing. The Growth and Pro plans include more advanced SEO work, including local keyword targeting and search-performance tracking.",
   },
   {
     question: "Can I see examples of your websites?",

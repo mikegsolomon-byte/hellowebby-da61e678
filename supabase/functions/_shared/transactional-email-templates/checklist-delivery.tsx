@@ -22,7 +22,7 @@ const items: { title: string; desc: string }[] = [
   { title: 'Mobile-first design', desc: 'Looks great on phones — readable text, tap-friendly buttons, fast load.' },
   { title: 'Page speed under 3 seconds', desc: 'Compressed images, modern hosting, minimal heavy scripts.' },
   { title: 'Trust signals', desc: 'Real testimonials, reviews, logos, photos of your team or work.' },
-  { title: 'Local SEO basics', desc: 'Town/region in your titles and headings, Google Business Profile linked, NAP (name, address, phone) consistent.' },
+  { title: 'Local SEO basics', desc: 'Town or region in your titles and headings, with your business name, address and phone details kept consistent.' },
   { title: 'Easy contact options', desc: 'Phone, email, WhatsApp or a short form — never hidden, never more than one click away.' },
   { title: 'Services/products clearly listed', desc: 'Each service on its own section or page with pricing guidance where possible.' },
   { title: 'About page that builds trust', desc: 'Your story, your face, your why. People buy from people.' },

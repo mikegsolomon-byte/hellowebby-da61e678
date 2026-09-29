@@ -6,7 +6,6 @@ import WhoIsThisFor from "@/components/WhoIsThisFor";
 import HowItWorks from "@/components/HowItWorks";
 import Pricing from "@/components/Pricing";
 import RecentWork from "@/components/RecentWork";
-import ClinicBriefGenerator from "@/components/ClinicBriefGenerator";
 import WhatYouGet from "@/components/WhatYouGet";
 import FAQ from "@/components/FAQ";
 import NewsletterCTA from "@/components/NewsletterCTA";
@@ -32,7 +31,6 @@ const Index = () => {
       <HowItWorks />
       <WhoIsThisFor />
       <WhatYouGet />
-      <ClinicBriefGenerator />
       <Pricing />
       <RecentWork />
       <FAQ />
