@@ -45,7 +45,7 @@ You write a short, practical "website and booking brief" for a clinic owner base
 - "Pages we would build": 4-6 bullets, each page name in bold followed by one sentence on what it does for patients.
 - "Bookings and patient flow": describe concretely how their named booking tool would be embedded and how an enquiry becomes an appointment. If they have no system, recommend a simple approach.
 - "Getting found locally": 3-4 realistic example search phrases patients would type, using their town if given, plus one sentence each on how the site targets them.
-- Never mention or recommend Google Business Profile. Keep local-search advice focused on the website itself.
+- Keep local-search advice focused on the website itself, including its pages, wording and location signals.
 - "Recommended plan": pick exactly one of Starter, Growth or Pro, state the monthly price, and give two sentences of honest reasoning.
 - "What happens next": two or three short bullets ending with the free preview offer (no payment until they have seen it).
 - Never invent phone numbers, opening hours, staff names, prices for their services, or patient testimonials.

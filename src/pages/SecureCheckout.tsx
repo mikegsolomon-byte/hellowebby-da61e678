@@ -41,10 +41,6 @@ const PLANS: Record<
   },
 };
 
-// Founding offer: setup fee waived for the first customers. Flip FOUNDING_OFFER
-// in src/config/foundingOffer.ts to put the standard setup fee back everywhere.
-const SETUP_PRICE_ID = "setup_fee_once";
-
 export default function SecureCheckout() {
   const [params] = useSearchParams();
   const queryPlan = params.get("plan") as PlanKey | null;
@@ -277,9 +273,6 @@ export default function SecureCheckout() {
               >
                 ← Change plan
               </button>
-              {/* TODO: verify in the Stripe / Lovable payments config that checkout
-                  works with the subscription price alone — while the founding offer
-                  is on we deliberately omit the one-off setup line item. */}
               <StripeEmbeddedCheckout
                 planPriceId={period.priceId}
                 setupPriceId={undefined}

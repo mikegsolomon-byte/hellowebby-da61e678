@@ -60,9 +60,8 @@ Deno.serve(async (req) => {
         (await stripe.customers.create({ email: customerEmail })).id;
     }
 
-    // Recurring plan + one-time setup fee both in line_items. In
-    // subscription mode, Stripe automatically adds the one-time price
-    // to the FIRST invoice only — it never repeats on renewals.
+    // The recurring plan is required; an optional one-time line item can be
+    // included when requested by another checkout flow.
     const lineItems: { price: string; quantity: number }[] = [
       { price: planPrice.id, quantity: 1 },
     ];
