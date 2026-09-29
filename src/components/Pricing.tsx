@@ -5,12 +5,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Check } from "lucide-react";
 import IntakeFormDialog, { FREE_PREVIEW_PLAN } from "./IntakeFormDialog";
 // Founding-offer copy and figures live in one place — see src/config/foundingOffer.ts.
-import {
-  FOUNDING_OFFER,
-  GROWTH_FIRST_YEAR,
-  GROWTH_FIRST_YEAR_BREAKDOWN,
-  setupCopy,
-} from "@/config/foundingOffer";
+import { GROWTH_FIRST_YEAR, GROWTH_FIRST_YEAR_BREAKDOWN } from "@/config/foundingOffer";
 
 const plans = [
   {
@@ -84,10 +79,6 @@ const Pricing = () => {
           <p className="text-lg text-muted-foreground mb-4">
             One monthly fee. No hidden costs. No contracts after month one.
           </p>
-          <p className="inline-block text-sm font-semibold px-4 py-2 rounded-full border-2 border-primary bg-primary/10 backdrop-blur">
-            {setupCopy.pricingBadge}
-          </p>
-
           <div className="mt-8 flex justify-center">
             <div className="inline-flex items-center gap-1 p-1 rounded-full border-2 border-foreground/15 bg-background/60 backdrop-blur">
               {(["monthly", "annual"] as const).map((option) => (
@@ -138,14 +129,6 @@ const Pricing = () => {
                   <p className="text-xs text-muted-foreground mb-3">Cancel anytime after month 1</p>
                 ) : (
                   <p className="text-xs text-muted-foreground mb-3">≈ {plan.annualEquivalent}, billed annually</p>
-                )}
-                <p className={`text-xs ${FOUNDING_OFFER ? "font-semibold text-foreground mb-4" : "text-muted-foreground"}`}>
-                  {setupCopy.pricingCard}
-                </p>
-                {/* While setup is €0 there is nothing to refund, so the setup-fee
-                    guarantee line only shows once the standard fee is back. */}
-                {!FOUNDING_OFFER && (
-                  <p className="text-xs text-muted-foreground mb-4">14-day money-back guarantee on your setup fee.</p>
                 )}
                 <Button className={`w-full rounded-xl ${plan.popular ? 'ring-glow' : ''}`} variant={plan.popular ? 'default' : 'outline'} onClick={() => navigate(`/secure-checkout?plan=${plan.key}&billing=${billing}`)}>
                   Start my website

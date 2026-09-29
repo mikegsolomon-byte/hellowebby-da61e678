@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,7 +7,6 @@ import { StripeEmbeddedCheckout } from "@/components/StripeEmbeddedCheckout";
 import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
 import { Check, Lock, Mail, ShieldCheck, CreditCard, Sparkles } from "lucide-react";
 import PageMeta from "@/components/PageMeta";
-import { FOUNDING_OFFER, SETUP_FEE, setupCopy } from "@/config/foundingOffer";
 
 type PlanKey = "starter" | "growth" | "pro";
 type Billing = "monthly" | "annual";
@@ -64,7 +63,7 @@ export default function SecureCheckout() {
 
   const selected = PLANS[plan];
   const period = billing === "annual" ? selected.annual : selected.monthly;
-  const totalToday = useMemo(() => SETUP_FEE + period.price, [period.price]);
+  const totalToday = period.price;
 
   const returnUrl = `${window.location.origin}/checkout/return?session_id={CHECKOUT_SESSION_ID}`;
 
@@ -99,9 +98,7 @@ export default function SecureCheckout() {
             <h1 className="text-4xl md:text-5xl font-extrabold mb-3">
               Let's <span className="gradient-text">get you live</span>
             </h1>
-            <p className="text-muted-foreground">
-              {setupCopy.checkoutSubtitle}
-            </p>
+            <p className="text-muted-foreground">Choose your plan and get started — cancel anytime.</p>
             <ol className="mt-6 flex items-center justify-center gap-2 text-xs text-muted-foreground">
               <li className={`flex items-center gap-1.5 ${!showCheckout ? "text-foreground font-semibold" : ""}`}>
                 <span className={`w-5 h-5 rounded-full grid place-items-center text-[10px] ${!showCheckout ? "bg-primary text-primary-foreground" : "bg-muted"}`}>1</span>
@@ -234,10 +231,6 @@ export default function SecureCheckout() {
                   Order summary
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">{setupCopy.checkoutSummaryLabel}</span>
-                  <span className={FOUNDING_OFFER ? "font-semibold" : undefined}>€{SETUP_FEE}</span>
-                </div>
-                <div className="flex justify-between text-sm">
                   <span className="text-muted-foreground">
                     {billing === "annual" ? "First year" : "First month"} ({selected.name})
                   </span>
@@ -289,7 +282,7 @@ export default function SecureCheckout() {
                   is on we deliberately omit the one-off setup line item. */}
               <StripeEmbeddedCheckout
                 planPriceId={period.priceId}
-                setupPriceId={FOUNDING_OFFER ? undefined : SETUP_PRICE_ID}
+                setupPriceId={undefined}
                 customerEmail={email}
                 returnUrl={returnUrl}
               />

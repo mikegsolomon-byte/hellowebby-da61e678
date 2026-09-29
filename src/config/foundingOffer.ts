@@ -32,24 +32,24 @@ export const GROWTH_FIRST_YEAR_BREAKDOWN = FOUNDING_OFFER
 export const setupCopy = {
   /** Badge above the plan cards. */
   pricingBadge: FOUNDING_OFFER
-    ? `Founding offer: €0 setup fee for our first ${FOUNDING_SPOTS} customers. After that, the standard €${STANDARD_SETUP_FEE} setup applies.`
+    ? `Founding offer for our first ${FOUNDING_SPOTS} customers.`
     : `€${STANDARD_SETUP_FEE} once-off setup — covers your design consultation and full build. Agencies charge €2,000+ for this.`,
 
   /** Small line under the price on each pricing card. */
   pricingCard: FOUNDING_OFFER
-    ? "€0 setup — founding offer"
+    ? "Founding customer rate"
     : `+ €${STANDARD_SETUP_FEE} once-off setup fee`,
 
   /** Subtitle under the checkout page heading. */
   checkoutSubtitle: FOUNDING_OFFER
-    ? "€0 setup for founding customers, then your monthly plan — cancel anytime."
+    ? "Choose your monthly plan — cancel anytime."
     : "One-time setup, then your monthly plan — cancel anytime.",
 
   /** Label for the setup row in the checkout order summary. */
-  checkoutSummaryLabel: FOUNDING_OFFER ? "One-time setup (founding offer)" : "One-time setup",
+  checkoutSummaryLabel: "One-time setup",
 
   /** Step 3 of How It Works. */
   howItWorksStep3: FOUNDING_OFFER
-    ? "Pick your plan and go live — €0 setup as a founding customer. Your finished site is live within a few days. Don't love it? Walk away — you were never charged."
+    ? "Pick your plan and go live. Your finished site is live within a few days. Don't love it? Walk away — you were never charged."
     : `Pay the €${STANDARD_SETUP_FEE} setup and pick your plan. Your finished site is live within a few days. Don't love it? Walk away — you were never charged.`,
 };
