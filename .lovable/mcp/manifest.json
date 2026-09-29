@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "sdk_version": "3.0.4",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "oauth",
+    "issuer": "https://zrqqptlzinowiwzxnbit.supabase.co/auth/v1",
+    "accepted_audiences": [
+      "authenticated"
+    ]
+  },
+  "mcp": {
+    "server": {
+      "name": "hellowebby",
+      "version": "0.1.0",
+      "title": "hellowebby"
+    },
+    "tools": [
+      {
+        "name": "get_website_plans",
+        "title": "Get website plans",
+        "description": "List hellowebby's current website subscription plans, prices and included features.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": null,
+        "outputSchema": null
+      },
+      {
+        "name": "submit_website_enquiry",
+        "title": "Submit website enquiry",
+        "description": "Send a website enquiry to hellowebby for the signed-in caller after they confirm the details.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": false,
+          "openWorldHint": true
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 100,
+              "description": "Contact name"
+            },
+            "phone": {
+              "type": "string",
+              "maxLength": 40,
+              "description": "Contact phone number"
+            },
+            "company": {
+              "type": "string",
+              "maxLength": 120,
+              "description": "Business or company name"
+            },
+            "message": {
+              "type": "string",
+              "minLength": 10,
+              "maxLength": 1000,
+              "description": "Website requirements and questions"
+            },
+            "plan": {
+              "type": "string",
+              "maxLength": 150,
+              "description": "Plan of interest, if known"
+            }
+          },
+          "required": [
+            "name",
+            "message"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
