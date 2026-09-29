@@ -19,6 +19,7 @@ interface Props {
   company?: string
   message?: string
   pricing_plan?: string
+  planner_context?: string
 }
 
 const Email = ({
@@ -28,6 +29,7 @@ const Email = ({
   company,
   message = '',
   pricing_plan = 'Not specified',
+  planner_context,
 }: Props) => (
   <Html lang="en" dir="ltr">
     <Head />
@@ -51,6 +53,15 @@ const Email = ({
         <Section style={messageBox}>
           <Text style={messageText}>{message}</Text>
         </Section>
+
+        {planner_context ? (
+          <>
+            <Heading as="h2" style={h2}>Clinic website planner — all answers &amp; generated plan</Heading>
+            <Section style={messageBox}>
+              <Text style={messageText}>{planner_context}</Text>
+            </Section>
+          </>
+        ) : null}
 
         <Hr style={hr} />
         <Text style={footer}>
