@@ -184,6 +184,7 @@ const ClinicBriefGenerator = () => {
 
   // Summarise what they told the planner so it travels with their enquiry —
   // the site owner sees it in the lead email and doesn't have to ask again.
+  // Capped to fit the form's 1000-character message limit.
   const briefSummary = [
     "I used the clinic website planner on your site. Here's what I told it:",
     clinicName && `Clinic name: ${clinicName}`,
@@ -194,7 +195,8 @@ const ClinicBriefGenerator = () => {
     details && `Notes: ${details}`,
   ]
     .filter(Boolean)
-    .join("\n");
+    .join("\n")
+    .slice(0, 980);
 
   return (
     <section id="clinic-brief" className="relative px-4 section-light overflow-hidden py-[36px]">
