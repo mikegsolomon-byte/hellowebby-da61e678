@@ -44,7 +44,7 @@ type Errors = Partial<Record<keyof FormData, string>>;
 
 const initial: FormData = { name: "", email: "", phone: "", company: "", message: "" };
 
-const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan" }: IntakeFormDialogProps) => {
+const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan", initialMessage, initialCompany }: IntakeFormDialogProps) => {
   const isPreview = selectedPlan === FREE_PREVIEW_PLAN;
   const schema = isPreview ? previewSchema : standardSchema;
   const [loading, setLoading] = useState(false);
@@ -52,6 +52,18 @@ const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan" }: I
   const [formData, setFormData] = useState<FormData>(initial);
   const [errors, setErrors] = useState<Errors>({});
   const [touched, setTouched] = useState<Partial<Record<keyof FormData, boolean>>>({});
+
+  // Prefill from the clinic plan (or any caller) the first time the dialog opens
+  const prefilled = useRef(false);
+  if (open && !prefilled.current && (initialMessage || initialCompany)) {
+    prefilled.current = true;
+    setFormData((p) => ({
+      ...p,
+      message: initialMessage || p.message,
+      company: initialCompany || p.company,
+    }));
+  }
+  if (!open && prefilled.current) prefilled.current = false;
 
   const validateField = (name: keyof FormData, value: string) => {
     const fieldSchema = (schema.shape as any)[name];
