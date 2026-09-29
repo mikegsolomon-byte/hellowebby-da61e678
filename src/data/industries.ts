@@ -4,7 +4,6 @@
 // from €49/month, hosting/domain/SSL, on-page SEO, contact & enquiry forms,
 // unlimited content updates, Irish support). No e-commerce / online-shop claims.
 
-import { FOUNDING_OFFER, STANDARD_SETUP_FEE } from "@/config/foundingOffer";
 
 export interface IndustryFAQ {
   q: string;
@@ -223,9 +222,7 @@ export const industries: Industry[] = [
       },
       {
         q: "What does it cost?",
-        a: FOUNDING_OFFER
-          ? "Plans start at €49/month, and founding customers pay €0 setup. That covers design, build, hosting, SSL and ongoing updates."
-          : `Plans start at €49/month with a once-off €${STANDARD_SETUP_FEE} setup fee. That covers design, build, hosting, SSL and ongoing updates.`,
+        a: "Plans start at €49/month. That covers design, build, hosting, SSL and ongoing updates.",
       },
     ],
   },

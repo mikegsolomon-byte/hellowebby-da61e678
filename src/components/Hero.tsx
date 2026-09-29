@@ -23,9 +23,6 @@ const Hero = () => {
       <div className="glow-orb animate-pulse-glow bg-primary/40 w-[600px] h-[600px] -bottom-40 -right-32" />
 
       <div className="container relative mx-auto max-w-5xl text-center z-10">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full border-2 border-foreground bg-background/70 backdrop-blur text-xs md:text-sm font-semibold">
-          Founding offer · €0 setup fee
-        </div>
         <h1 className="text-[48px] md:text-6xl lg:text-7xl font-extrabold leading-[1.05] mb-6">
           Your website. Built for you.{" "}
           <span className="gradient-text">Unlimited changes.</span> €49/month.

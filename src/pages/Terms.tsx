@@ -1,14 +1,13 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
-import { FOUNDING_OFFER, FOUNDING_SPOTS, STANDARD_SETUP_FEE } from "@/config/foundingOffer";
 
 const Terms = () => {
   return (
     <div className="min-h-screen">
       <PageMeta
         title="Terms of Service | hellowebby"
-        description="The terms that apply to hellowebby website subscriptions, setup fees and cancellations."
+        description="The terms that apply to hellowebby website subscriptions, billing and cancellations."
         path="/terms"
       />
       <Navigation />
@@ -25,15 +24,7 @@ const Terms = () => {
               <p className="text-muted-foreground">
                 These terms are an agreement between hellowebby ("we", "us") and you, the customer ("you"). "Service"
                 means the website subscription described here. hellowebby designs, builds, hosts and updates a
-                website for your business under a monthly subscription (Starter, Growth, or Pro){" "}
-                {FOUNDING_OFFER ? (
-                  <>
-                    plus a once-off setup fee, which is currently waived under our founding-customer offer (see
-                    section 2).
-                  </>
-                ) : (
-                  <>plus a once-off €{STANDARD_SETUP_FEE} setup fee.</>
-                )}
+                website for your business under a monthly subscription (Starter, Growth, or Pro).
               </p>
             </section>
 
@@ -43,18 +34,6 @@ const Terms = () => {
                 Your subscription is a recurring monthly charge taken via Stripe from your signup date. All prices are
                 in EUR.
               </p>
-              {FOUNDING_OFFER ? (
-                <p className="text-muted-foreground mt-3">
-                  The once-off setup fee is currently waived under our founding-customer offer, which is limited to
-                  the first {FOUNDING_SPOTS} customers. Founding customers pay €0 setup and are charged their monthly
-                  plan only. Once those places are taken, the standard once-off setup fee of €{STANDARD_SETUP_FEE}{" "}
-                  applies to new customers and is charged at signup.
-                </p>
-              ) : (
-                <p className="text-muted-foreground mt-3">
-                  The €{STANDARD_SETUP_FEE} setup fee is charged once, at signup.
-                </p>
-              )}
               <p className="text-muted-foreground mt-3">
                 hellowebby is not currently VAT registered, so no VAT is charged — the prices shown are the total amount payable.
               </p>
@@ -63,10 +42,7 @@ const Terms = () => {
             <section>
               <h2 className="text-2xl font-bold mb-3">3. 14-day money-back guarantee &amp; right of withdrawal</h2>
               <p className="text-muted-foreground">
-                {FOUNDING_OFFER
-                  ? `Founding customers pay no setup fee, so there is nothing to refund. Where the standard €${STANDARD_SETUP_FEE} setup fee is charged, we offer a 14-day money-back guarantee on it.`
-                  : `We offer a 14-day money-back guarantee on the €${STANDARD_SETUP_FEE} setup fee.`}{" "}
-                In addition, as a consumer you have a
+                As a consumer you have a
                 statutory 14-day right of withdrawal from distance contracts. By asking us to begin building your
                 website within the 14-day withdrawal period, you expressly consent to work starting during that
                 period and you acknowledge that once the service has been fully performed you lose the right of
