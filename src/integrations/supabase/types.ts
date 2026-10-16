@@ -206,6 +206,42 @@ export type Database = {
         }
         Relationships: []
       }
+      terms_acceptances: {
+        Row: {
+          accepted_at: string
+          customer_email: string | null
+          environment: string | null
+          id: string
+          ip_address: string | null
+          plan_price_id: string
+          stripe_session_id: string | null
+          terms_version: string
+          user_agent: string | null
+        }
+        Insert: {
+          accepted_at?: string
+          customer_email?: string | null
+          environment?: string | null
+          id?: string
+          ip_address?: string | null
+          plan_price_id: string
+          stripe_session_id?: string | null
+          terms_version: string
+          user_agent?: string | null
+        }
+        Update: {
+          accepted_at?: string
+          customer_email?: string | null
+          environment?: string | null
+          id?: string
+          ip_address?: string | null
+          plan_price_id?: string
+          stripe_session_id?: string | null
+          terms_version?: string
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
