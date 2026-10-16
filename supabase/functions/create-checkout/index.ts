@@ -1,5 +1,6 @@
 import { type StripeEnv, createStripeClient } from "../_shared/stripe.ts";
 import { hasValidTermsAcceptance, termsAcceptanceMetadata } from "../_shared/checkout-consent.ts";
+import { createClient } from "npm:@supabase/supabase-js@2";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -86,6 +87,20 @@ Deno.serve(async (req) => {
       subscription_data: { metadata: consentMetadata },
       ...(customerId && { customer: customerId }),
     });
+
+    // Audit log of the terms agreement (server-timestamped).
+    const admin = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
+    const { error: logError } = await admin.from("terms_acceptances").insert({
+      customer_email: customerEmail ?? null,
+      plan_price_id: planPriceId,
+      terms_version: consentMetadata.terms_version,
+      accepted_at: consentMetadata.terms_accepted_at,
+      stripe_session_id: session.id,
+      environment,
+      ip_address: req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? null,
+      user_agent: req.headers.get("user-agent"),
+    });
+    if (logError) console.error("terms acceptance log failed", logError);
 
     return new Response(JSON.stringify({ clientSecret: session.client_secret }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
