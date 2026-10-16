@@ -7,7 +7,7 @@ const Terms = () => {
   return (
     <div className="min-h-screen">
       <PageMeta
-        title="Terms of Service | hellowebby"
+        title="Terms and Conditions | hellowebby"
         description="The terms that apply to hellowebby website subscriptions, billing and cancellations."
         path="/terms"
       />
@@ -15,7 +15,7 @@ const Terms = () => {
       <main className="relative px-4 pt-32 pb-16 overflow-hidden">
         <div className="container relative mx-auto max-w-3xl">
           <h1 className="text-4xl md:text-5xl font-extrabold mb-3">
-            Terms of <span className="gradient-text">Service</span>
+            Terms and <span className="gradient-text">Conditions</span>
           </h1>
           <p className="text-sm text-muted-foreground mb-10">Last updated: 16 October 2026 · Version {TERMS_VERSION}</p>
 
