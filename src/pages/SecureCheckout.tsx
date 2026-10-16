@@ -3,6 +3,8 @@ import { useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
+import { TERMS_VERSION, hasValidTermsAcceptance } from "../../supabase/functions/_shared/checkout-consent";
 import { StripeEmbeddedCheckout } from "@/components/StripeEmbeddedCheckout";
 import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
 import { Check, Lock, Mail, ShieldCheck, CreditCard, Sparkles } from "lucide-react";
@@ -53,6 +55,8 @@ export default function SecureCheckout() {
   const [email, setEmail] = useState("");
   const [showCheckout, setShowCheckout] = useState(false);
   const [emailTouched, setEmailTouched] = useState(false);
+  const [termsAccepted, setTermsAccepted] = useState(false);
+  const [termsTouched, setTermsTouched] = useState(false);
 
   const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
   const emailError = emailTouched && !emailValid ? "Enter a valid email so we can send your receipt & account details." : "";
@@ -118,7 +122,8 @@ export default function SecureCheckout() {
               onSubmit={(e) => {
                 e.preventDefault();
                 setEmailTouched(true);
-                if (emailValid) setShowCheckout(true);
+                setTermsTouched(true);
+                if (emailValid && hasValidTermsAcceptance(termsAccepted, TERMS_VERSION)) setShowCheckout(true);
               }}
               className="glass rounded-2xl p-6 md:p-8 space-y-8"
             >
@@ -250,9 +255,33 @@ export default function SecureCheckout() {
               </section>
 
               <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <Checkbox
+                    id="terms-accepted"
+                    checked={termsAccepted}
+                    onCheckedChange={(checked) => { setTermsAccepted(checked === true); setTermsTouched(true); }}
+                    required
+                    aria-invalid={termsTouched && !termsAccepted}
+                    aria-describedby={termsTouched && !termsAccepted ? "terms-error" : undefined}
+                    className="mt-1 h-5 w-5"
+                  />
+                  <div className="text-sm leading-relaxed">
+                    <Label htmlFor="terms-accepted" className="font-normal cursor-pointer">
+                      I have read, understood and agree to the
+                    </Label>{" "}
+                    <a href="/terms" target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-4 hover:text-primary">
+                      Terms and Conditions<span className="sr-only"> (opens in a new tab)</span>
+                    </a>
+                    , including recurring billing and cancellation terms.
+                  </div>
+                </div>
+                {termsTouched && !termsAccepted && (
+                  <p id="terms-error" role="alert" className="text-sm text-destructive">Please read and agree to the Terms and Conditions to continue.</p>
+                )}
                 <Button
                   type="submit"
                   size="lg"
+                  disabled={!termsAccepted}
                   className="w-full rounded-full ring-glow h-12 text-base"
                 >
                   <Lock className="w-4 h-4" />
@@ -277,6 +306,7 @@ export default function SecureCheckout() {
                 planPriceId={period.priceId}
                 setupPriceId={undefined}
                 customerEmail={email}
+                termsAccepted={termsAccepted}
                 returnUrl={returnUrl}
               />
             </div>

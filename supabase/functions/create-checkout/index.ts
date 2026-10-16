@@ -1,4 +1,5 @@
 import { type StripeEnv, createStripeClient } from "../_shared/stripe.ts";
+import { hasValidTermsAcceptance, termsAcceptanceMetadata } from "../_shared/checkout-consent.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -12,6 +13,8 @@ interface Body {
   customerEmail?: string;
   returnUrl: string;
   environment: StripeEnv;
+  termsAccepted?: boolean;
+  termsVersion?: string;
 }
 
 Deno.serve(async (req) => {
@@ -26,6 +29,13 @@ Deno.serve(async (req) => {
   try {
     const body = (await req.json()) as Body;
     const { planPriceId, setupPriceId, customerEmail, returnUrl, environment } = body;
+    if (!hasValidTermsAcceptance(body.termsAccepted, body.termsVersion)) {
+      return new Response(JSON.stringify({ error: "Please read and accept the current Terms and Conditions before payment." }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+    const consentMetadata = termsAcceptanceMetadata(body.termsAccepted, body.termsVersion, new Date());
 
     if (!planPriceId || !returnUrl || !environment) {
       return new Response(JSON.stringify({ error: "Missing required fields" }), {
@@ -72,6 +82,8 @@ Deno.serve(async (req) => {
       mode: "subscription",
       ui_mode: "embedded_page",
       return_url: returnUrl,
+      metadata: consentMetadata,
+      subscription_data: { metadata: consentMetadata },
       ...(customerId && { customer: customerId }),
     });
 
