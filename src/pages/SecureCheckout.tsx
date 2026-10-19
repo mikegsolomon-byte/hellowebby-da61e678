@@ -98,7 +98,7 @@ export default function SecureCheckout() {
             <h1 className="text-4xl md:text-5xl font-extrabold mb-3">
               Let's <span className="gradient-text">get you live</span>
             </h1>
-            <p className="text-muted-foreground">Choose your plan and get started — cancel anytime.</p>
+            <p className="text-muted-foreground">Choose your plan and get started — cancel after your first month with 30 days’ notice.</p>
             <ol className="mt-6 flex items-center justify-center gap-2 text-xs text-muted-foreground">
               <li className={`flex items-center gap-1.5 ${!showCheckout ? "text-foreground font-semibold" : ""}`}>
                 <span className={`w-5 h-5 rounded-full grid place-items-center text-[10px] ${!showCheckout ? "bg-primary text-primary-foreground" : "bg-muted"}`}>1</span>
@@ -250,7 +250,7 @@ export default function SecureCheckout() {
                 <p className="text-xs text-muted-foreground pt-1">
                   {billing === "annual"
                     ? `Then €${period.price}/year.`
-                    : `Then €${period.price}/month, cancel anytime.`}
+                    : `Then €${period.price}/month. Cancel after month 1 with 30 days’ notice.`}
                 </p>
               </section>
 

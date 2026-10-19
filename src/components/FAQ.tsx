@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     question: "What happens if I cancel?",
-    answer: "You can cancel anytime after your first month with 30 days' notice. We'll give you plenty of time to make alternative arrangements. There are no cancellation fees.",
+    answer: "Monthly plans can be cancelled after your first month with 30 days' notice; annual plans just need notice at least 30 days before renewal. There are no cancellation fees. You keep your domain name and all the content you gave us, plus the text and images we created for you, and on request we'll send a full export of your content within 30 days. When the subscription ends, hosting stops and the site goes offline, because our platform, templates and code stay with us.",
   },
   {
     question: "How long does it take to build my website?",

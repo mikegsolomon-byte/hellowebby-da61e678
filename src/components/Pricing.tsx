@@ -126,7 +126,7 @@ const Pricing = () => {
                   )}
                 </div>
                 {billing === "monthly" ? (
-                  <p className="text-xs text-muted-foreground mb-3">Cancel anytime after month 1</p>
+                  <p className="text-xs text-muted-foreground mb-3">Cancel after month 1 · 30 days’ notice · No exit fees</p>
                 ) : (
                   <p className="text-xs text-muted-foreground mb-3">≈ {plan.annualEquivalent}, billed annually</p>
                 )}
