@@ -320,7 +320,7 @@ export const industries: Industry[] = [
       },
       {
         q: "What’s the ongoing commitment?",
-        a: "It’s a monthly subscription from €49/month you can cancel anytime after the first month — no long lock-in.",
+        a: "It’s a monthly subscription from €49/month you can cancel after the first month with 30 days’ notice. No exit fees, and you keep your domain and content.",
       },
     ],
   },
