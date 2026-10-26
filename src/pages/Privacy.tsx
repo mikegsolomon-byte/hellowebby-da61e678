@@ -82,7 +82,7 @@ const Privacy = () => {
               <h2 className="text-2xl font-bold mb-3">3. Who we share data with (processors)</h2>
               <p className="text-muted-foreground">
                 We share personal data with Supabase (database and email infrastructure), Stripe (payment
-                processing), and our hosting provider. Some of these processors may transfer data outside the EEA.
+                processing), Google (analytics, only if you accept analytics cookies), and our hosting provider. Some of these processors may transfer data outside the EEA.
                 Where they do, those transfers are covered by the EU Standard Contractual Clauses.
               </p>
             </section>
