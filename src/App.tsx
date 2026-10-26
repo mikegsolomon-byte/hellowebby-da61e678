@@ -14,6 +14,7 @@ import Industries from "./pages/Industries";
 import IndustryPage from "./pages/IndustryPage";
 import CookieConsent from "./components/CookieConsent";
 import ScrollToTop from "./components/ScrollToTop";
+import AnalyticsPageViews from "./components/AnalyticsPageViews";
 import OAuthLogin from "./pages/OAuthLogin";
 import OAuthConsent from "./pages/OAuthConsent";
 
@@ -27,6 +28,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <AnalyticsPageViews />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/pricing" element={<Navigate to="/#pricing" replace />} />

@@ -59,11 +59,18 @@ const Privacy = () => {
                         email we send
                       </td>
                     </tr>
-                    <tr>
+                    <tr className="border-b border-border/60">
                       <td className="p-3 align-top">Usage analytics, provided by our hosting platform (Lovable)</td>
                       <td className="p-3 align-top">To understand how the site is used, in aggregate, and improve it</td>
                       <td className="p-3 align-top">
                         Our legitimate interest in maintaining and improving the site (Art 6(1)(f)). This is first-party analytics only — no advertising or cross-site tracking.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 align-top">Google Analytics — pages visited, device and browser type, approximate location, collected via cookies</td>
+                      <td className="p-3 align-top">To measure visits and improve the site</td>
+                      <td className="p-3 align-top">
+                        Consent (Art 6(1)(a)), given through our cookie banner. Only collected if you click "Accept", and you can withdraw consent anytime.
                       </td>
                     </tr>
                   </tbody>
@@ -136,9 +143,12 @@ const Privacy = () => {
                 <li>
                   Analytics — our hosting platform collects privacy-friendly, first-party usage analytics to help us improve the site.
                 </li>
+                <li>
+                  Google Analytics (optional) — only if you click "Accept" in our cookie banner, Google Analytics sets cookies (such as _ga) to measure how visitors use the site. Google may process this data outside the EEA under the EU Standard Contractual Clauses. If you reject, Google Analytics is never loaded.
+                </li>
               </ul>
               <p className="text-muted-foreground mt-3">
-                We do not use advertising cookies, and we do not track you across other websites. If you'd prefer we didn't count your visits in our analytics, email us at{" "}
+                We do not use advertising cookies. You can change your choice anytime using "Cookie preferences" in the footer. If you have questions about our analytics, email us at{" "}
                 <a href="mailto:hello@hellowebby.com" className="underline underline-offset-4 font-semibold hover:text-primary transition-colors">hello@hellowebby.com</a>.
               </p>
             </section>
