@@ -64,7 +64,7 @@ const groups: FaqGroup[] = [
       {
         question: "What will it cost me in total?",
         answer:
-          "The price you see is the price you pay. Plans are €49, €89 or €149 a month, or €490, €890 or €1,490 a year if you pay annually. There is no setup fee and there are no hidden extras. hellowebby is not VAT registered, so no VAT is added on top — the monthly or annual figure is the total amount payable. If you need a new domain name, we register it and cover the cost as part of your plan.",
+          "The price you see is the price you pay. Plans are €49, €89 or €149 a month, or €490, €890 or €1,490 a year if you pay annually. There is no setup fee and there are no hidden extras. hellowebby is not VAT registered, so no VAT is added on top — the monthly or annual figure is the total amount payable. If you need a new domain name, we register it and cover the standard cost as part of your plan.",
       },
       {
         question: "Is there a contract or minimum term?",
@@ -89,7 +89,7 @@ const groups: FaqGroup[] = [
       {
         question: "Can I use my existing domain — and who registers it?",
         answer:
-          "Either way it's covered. If you already own a domain we'll connect it at no extra cost. If you need a new one, we'll register it for you and the cost is included in your plan — there's nothing extra to pay. The domain is yours: if you ever leave you keep it, and there's no charge to transfer it away.",
+          "Either way it's covered. If you already own a domain we'll connect it at no extra cost. If you need a new one, we'll register it for you and standard registration and renewals are included in your plan while you're subscribed. The domain is yours: if you ever leave you keep it, there's no charge to transfer it away, and renewals are then down to you.",
       },
       {
         question: "Do you handle SEO?",

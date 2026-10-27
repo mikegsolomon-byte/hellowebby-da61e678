@@ -17,7 +17,7 @@ const Terms = () => {
           <h1 className="text-4xl md:text-5xl font-extrabold mb-3">
             Terms and <span className="gradient-text">Conditions</span>
           </h1>
-          <p className="text-sm text-muted-foreground mb-10">Last updated: 16 October 2026 · Version {TERMS_VERSION}</p>
+          <p className="text-sm text-muted-foreground mb-10">Last updated: 27 October 2026 · Version {TERMS_VERSION}</p>
 
           <div className="space-y-8 text-base leading-relaxed">
             <section>
@@ -28,7 +28,7 @@ const Terms = () => {
             <section>
               <h2 className="text-2xl font-bold mb-3">2. Billing and renewal</h2>
               <p className="text-muted-foreground mt-3">{"Prices are in EUR. Your chosen monthly or annual subscription is paid in advance through Stripe, with the first payment due at purchase. It renews automatically at the amount and interval shown at checkout until cancelled in accordance with section 4. Annual billing is one payment for a year, not monthly instalments. We will not charge for additional work without your prior agreement."}</p>
-              <p className="text-muted-foreground mt-3">{"hellowebby is not currently VAT registered, so no VAT is charged — the prices shown are the total amount payable."}</p>
+              <p className="text-muted-foreground mt-3">{"hellowebby is not currently VAT registered, so no VAT is charged — the prices shown are the total amount payable. There is no separate setup fee, and standard domain registration and renewal are included in your subscription, so the plan price is the total cost of keeping your website online."}</p>
               <p className="text-muted-foreground mt-3">{"You must keep your payment details current. If a payment fails, we will contact you and give a reasonable opportunity to resolve it before suspending the service. Any change to your subscription price will be notified at least 30 days before it takes effect at a future renewal; you can cancel before that renewal."}</p>
             </section>
             <section>
@@ -40,12 +40,13 @@ const Terms = () => {
             <section>
               <h2 className="text-2xl font-bold mb-3">4. Cancellation and service closure</h2>
               <p className="text-muted-foreground mt-3">{"For monthly plans, you may cancel after the first month by emailing hello@hellowebby.com with 30 days’ notice. There are no cancellation fees. We will confirm your final payment and service end date in writing. For annual plans, you can give notice to stop the next annual renewal; please do so at least 30 days before renewal. The service remains available for the paid annual period unless we agree otherwise or you have a legal right to end it sooner."}</p>
-              <p className="text-muted-foreground mt-3">{"Cancellation does not normally refund a paid billing period, except where required by law or agreed in writing. These subscription notice rules do not restrict statutory consumer cancellation or remedies. At service closure the hosted website is taken offline. On request, we provide a full export of your content within 30 days; this is a content export, not a transfer of our hosting platform or underlying code."}</p>
+              <p className="text-muted-foreground mt-3">{"Cancellation does not normally refund a paid billing period, except where required by law or agreed in writing. These subscription notice rules do not restrict statutory consumer cancellation or remedies. At service closure the hosted website is taken offline. On request, we provide a full export of your content within 30 days; this is a content export, not a transfer of our hosting platform or underlying code. Your domain is not affected by service closure and remains yours, as set out in section 5."}</p>
             </section>
             <section>
               <h2 className="text-2xl font-bold mb-3">5. Content, intellectual property and domains</h2>
               <p className="text-muted-foreground mt-3">{"You own content you supply and original text and images we create specifically for you. Third-party materials, stock images, fonts, software and integrations remain subject to their owners’ licences; we cannot transfer rights we do not hold. hellowebby retains ownership of its underlying platform, templates, reusable tools and code. You may use these as part of the active subscription, but they are not sold or transferred to you."}</p>
-              <p className="text-muted-foreground mt-3">{"You keep your domain. You authorise us to use your supplied materials only as needed to provide the service. You must ensure you have permission to use supplied content, branding and images and to share any personal data. Domain registration and renewal arrangements, including responsibility for renewals, will be confirmed with you in writing."}</p>
+              <p className="text-muted-foreground mt-3">{"You keep your domain. You authorise us to use your supplied materials only as needed to provide the service. You must ensure you have permission to use supplied content, branding and images and to share any personal data."}</p>
+              <p className="text-muted-foreground mt-3">{"Domains: if you already own a domain, we connect it at no additional cost and it remains registered to you. If you need a new domain, we register it on your behalf and the standard registration fee and subsequent renewals are included in your subscription while it remains active. We will confirm the chosen domain with you before purchase; a premium or unusually priced domain will be quoted for your approval first. If your subscription ends, the domain remains yours, responsibility for future renewals passes to you, and we will not charge a fee to release or transfer it."}</p>
             </section>
             <section>
               <h2 className="text-2xl font-bold mb-3">6. Scope, approvals and unlimited content updates</h2>
