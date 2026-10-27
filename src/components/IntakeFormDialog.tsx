@@ -23,6 +23,9 @@ interface IntakeFormDialogProps {
 // so we can qualify the lead before spending time building a preview.
 export const FREE_PREVIEW_PLAN = "Free preview request";
 
+/** Question-first enquiries: someone who wants clarity before committing to anything. */
+export const QUESTION_PLAN = "Question";
+
 const baseFields = {
   name: z.string().trim().min(2, "Please enter your name").max(100),
   email: z.string().trim().email("Enter a valid email").max(255),
@@ -47,6 +50,7 @@ const initial: FormData = { name: "", email: "", phone: "", company: "", message
 
 const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan", initialMessage, initialCompany, plannerContext }: IntakeFormDialogProps) => {
   const isPreview = selectedPlan === FREE_PREVIEW_PLAN;
+  const isQuestion = selectedPlan === QUESTION_PLAN;
   const schema = isPreview ? previewSchema : standardSchema;
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -167,7 +171,7 @@ const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan", ini
               <DialogTitle className="text-2xl text-center">You're in 🎉</DialogTitle>
               <DialogDescription className="text-center">
                 <>
-                  Thanks {formData.name.split(" ")[0]}! We've received your details and one of the team will be in touch within a few days.
+                  Thanks {formData.name.split(" ")[0]}! {isQuestion ? "Your question is with us and we'll come back to you with a straight answer, usually the same working day." : "We've received your details and one of the team will be in touch within a few days."}
                 </>
               </DialogDescription>
             </DialogHeader>
@@ -182,12 +186,18 @@ const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan", ini
                 <Sparkles className="w-3.5 h-3.5" /> {selectedPlan}
               </div>
               <DialogTitle className="text-2xl">
-                {isPreview ? "Get your free preview" : "Let's get you started"}
+                {isPreview
+                  ? "Get your free preview"
+                  : isQuestion
+                    ? "Ask us anything"
+                    : "Let's get you started"}
               </DialogTitle>
               <DialogDescription>
                 {isPreview
                   ? "Tell us about your business — takes two minutes. We'll build a preview of your website and send you the link. You pay nothing until you've seen it and want to go live."
-                  : "Tell us a bit about your project — we'll reply within 24 hours."}
+                  : isQuestion
+                    ? "Ask about pricing, what's included, ownership, GDPR — anything at all. No obligation and no sales pitch, just a straight answer from a real person."
+                    : "Tell us a bit about your project — we'll reply within 24 hours."}
               </DialogDescription>
             </DialogHeader>
 
@@ -260,7 +270,11 @@ const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan", ini
 
               <div className="space-y-1.5">
                 <Label htmlFor="message">
-                  {isPreview ? "Tell us about your business *" : "Tell us about your project *"}
+                  {isPreview
+                    ? "Tell us about your business *"
+                    : isQuestion
+                      ? "What would you like to know? *"
+                      : "Tell us about your project *"}
                 </Label>
                 <Textarea
                   id="message"
@@ -270,7 +284,9 @@ const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan", ini
                   placeholder={
                     isPreview
                       ? "What do you do, and who are your customers?"
-                      : "What are you looking to build?"
+                      : isQuestion
+                        ? "e.g. What does it cost in total? Can you use my own logo and colours? What happens if I leave?"
+                        : "What are you looking to build?"
                   }
                   rows={4}
                   className={fieldClass("message")}
@@ -292,7 +308,7 @@ const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan", ini
                     <Loader2 className="w-4 h-4 animate-spin" /> Sending…
                   </>
                 ) : (
-                  "Send my details"
+                  isQuestion ? "Send my question" : "Send my details"
                 )}
               </Button>
               <p className="text-[11px] text-muted-foreground text-center">

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import IntakeFormDialog, { FREE_PREVIEW_PLAN } from "./IntakeFormDialog";
+import IntakeFormDialog, { FREE_PREVIEW_PLAN, QUESTION_PLAN } from "./IntakeFormDialog";
 import { Check } from "lucide-react";
 
 const Hero = () => {
@@ -42,9 +42,9 @@ const Hero = () => {
             size="lg"
             variant="outline"
             className="rounded-2xl text-base px-8 bg-background border-2 border-foreground text-foreground hover:bg-muted shadow-[6px_6px_0_0_hsl(var(--foreground))] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_hsl(var(--foreground))] transition-all"
-            onClick={() => scrollToSection("pricing")}
+            onClick={() => openForm(QUESTION_PLAN)}
           >
-            I'm ready — start now
+            Ask a question first
           </Button>
         </div>
 
@@ -53,14 +53,31 @@ const Hero = () => {
           <span className="inline-flex items-center gap-1.5"><Check className="w-4 h-4" /> Unlimited updates</span>
           <span className="inline-flex items-center gap-1.5"><Check className="w-4 h-4" /> No exit fees · you keep your domain</span>
         </div>
-        <p className="mt-4 text-sm text-muted-foreground">
-          Not ready to buy?{" "}
+        <p className="mt-5 text-sm text-muted-foreground flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+          <span>
+            Prefer email?{" "}
+            <a
+              href="mailto:hello@hellowebby.com"
+              className="font-semibold underline underline-offset-4 hover:text-foreground transition-colors"
+            >
+              hello@hellowebby.com
+            </a>
+          </span>
+          <span aria-hidden="true" className="opacity-40">·</span>
           <button
             type="button"
-            onClick={() => openForm("General enquiry")}
+            onClick={() => scrollToSection("faq")}
             className="underline underline-offset-4 hover:text-foreground transition-colors"
           >
-            Get in touch and we'll help you choose
+            Read common questions
+          </button>
+          <span aria-hidden="true" className="opacity-40">·</span>
+          <button
+            type="button"
+            onClick={() => scrollToSection("pricing")}
+            className="underline underline-offset-4 hover:text-foreground transition-colors"
+          >
+            See pricing
           </button>
         </p>
       </div>

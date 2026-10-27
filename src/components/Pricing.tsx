@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Check } from "lucide-react";
-import IntakeFormDialog, { FREE_PREVIEW_PLAN } from "./IntakeFormDialog";
+import IntakeFormDialog, { FREE_PREVIEW_PLAN, QUESTION_PLAN } from "./IntakeFormDialog";
 // Founding-offer copy and figures live in one place — see src/config/foundingOffer.ts.
 import { GROWTH_FIRST_YEAR, GROWTH_FIRST_YEAR_BREAKDOWN } from "@/config/foundingOffer";
 
@@ -180,12 +180,20 @@ const Pricing = () => {
               <button
                 type="button"
                 onClick={() => {
-                  setSelectedPlan("General enquiry");
+                  setSelectedPlan(QUESTION_PLAN);
                   setFormOpen(true);
                 }}
                 className="text-sm font-semibold underline underline-offset-4 hover:text-primary transition-colors"
               >
                 Ask a question first
+              </button>
+              <span aria-hidden="true" className="hidden sm:inline text-muted-foreground opacity-40">·</span>
+              <button
+                type="button"
+                onClick={() => document.getElementById("faq")?.scrollIntoView({ behavior: "smooth" })}
+                className="text-sm font-semibold underline underline-offset-4 hover:text-primary transition-colors"
+              >
+                Read the FAQ
               </button>
             </div>
           </CardContent>
