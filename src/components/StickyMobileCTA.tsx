@@ -1,5 +1,5 @@
 import { useState } from "react";
-import IntakeFormDialog, { FREE_PREVIEW_PLAN } from "./IntakeFormDialog";
+import IntakeFormDialog, { START_PLAN } from "./IntakeFormDialog";
 
 const StickyMobileCTA = () => {
   const [formOpen, setFormOpen] = useState(false);
@@ -14,10 +14,10 @@ const StickyMobileCTA = () => {
           onClick={() => setFormOpen(true)}
           className="flex-1 max-w-[60%] bg-foreground text-primary font-bold py-3 rounded-xl text-sm"
         >
-          Free preview →
+          Get my website →
         </button>
       </div>
-      <IntakeFormDialog open={formOpen} onOpenChange={setFormOpen} selectedPlan={FREE_PREVIEW_PLAN} />
+      <IntakeFormDialog open={formOpen} onOpenChange={setFormOpen} selectedPlan={START_PLAN} />
     </>
   );
 };

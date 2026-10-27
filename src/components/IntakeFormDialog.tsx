@@ -26,6 +26,12 @@ export const FREE_PREVIEW_PLAN = "Free preview request";
 /** Question-first enquiries: someone who wants clarity before committing to anything. */
 export const QUESTION_PLAN = "Question";
 
+/** Main CTA: lets the person choose a free preview or going straight to a paid plan. */
+export const START_PLAN = "Get started";
+
+/** Recorded against submissions from someone ready to buy. */
+export const READY_TO_START_PLAN = "Ready to start — paid plan";
+
 const baseFields = {
   name: z.string().trim().min(2, "Please enter your name").max(100),
   email: z.string().trim().email("Enter a valid email").max(255),
@@ -49,8 +55,17 @@ type Errors = Partial<Record<keyof FormData, string>>;
 const initial: FormData = { name: "", email: "", phone: "", company: "", message: "" };
 
 const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan", initialMessage, initialCompany, plannerContext }: IntakeFormDialogProps) => {
-  const isPreview = selectedPlan === FREE_PREVIEW_PLAN;
   const isQuestion = selectedPlan === QUESTION_PLAN;
+  const isChoice = selectedPlan === START_PLAN;
+  const [intent, setIntent] = useState<"preview" | "paid">("preview");
+  // Preview rules (incl. required phone) apply whenever a preview is what they want.
+  const wantsPreview = selectedPlan === FREE_PREVIEW_PLAN || (isChoice && intent === "preview");
+  const submittedPlan = isChoice
+    ? intent === "preview"
+      ? FREE_PREVIEW_PLAN
+      : READY_TO_START_PLAN
+    : selectedPlan;
+  const isPreview = wantsPreview;
   const schema = isPreview ? previewSchema : standardSchema;
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -91,6 +106,7 @@ const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan", ini
     setErrors({});
     setTouched({});
     setSuccess(false);
+    setIntent("preview");
   };
 
   const handleOpenChange = (o: boolean) => {
@@ -120,7 +136,7 @@ const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan", ini
         phone: payload.phone || null,
         company: payload.company || null,
         message: payload.message,
-        pricing_plan: selectedPlan,
+        pricing_plan: submittedPlan,
       });
       if (dbError) throw dbError;
 
@@ -135,7 +151,7 @@ const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan", ini
           phone: payload.phone || null,
           company: payload.company || null,
           message: payload.message,
-          pricing_plan: selectedPlan,
+          pricing_plan: submittedPlan,
           planner_context: plannerContext || null,
         },
       });
@@ -171,7 +187,12 @@ const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan", ini
               <DialogTitle className="text-2xl text-center">You're in 🎉</DialogTitle>
               <DialogDescription className="text-center">
                 <>
-                  Thanks {formData.name.split(" ")[0]}! {isQuestion ? "Your question is with us and we'll come back to you with a straight answer, usually the same working day." : "We've received your details and one of the team will be in touch within a few days."}
+                  Thanks {formData.name.split(" ")[0]}!{" "}
+                  {isQuestion
+                    ? "Your question is with us and we'll come back to you with a straight answer within 24 hours."
+                    : isPreview
+                      ? "We'll be in touch within 24 hours, and your preview link will follow in a few days."
+                      : "We've received your details and one of the team will be in touch within 24 hours."}
                 </>
               </DialogDescription>
             </DialogHeader>
@@ -183,25 +204,64 @@ const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan", ini
           <div className="relative">
             <DialogHeader className="space-y-2">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-primary/80">
-                <Sparkles className="w-3.5 h-3.5" /> {selectedPlan}
+                <Sparkles className="w-3.5 h-3.5" /> {submittedPlan}
               </div>
               <DialogTitle className="text-2xl">
-                {isPreview
-                  ? "Get your free preview"
-                  : isQuestion
-                    ? "Ask us anything"
-                    : "Let's get you started"}
+                {isChoice
+                  ? "Get your website"
+                  : isPreview
+                    ? "Get your free preview"
+                    : isQuestion
+                      ? "Ask us anything"
+                      : "Let's get you started"}
               </DialogTitle>
               <DialogDescription>
-                {isPreview
-                  ? "Tell us about your business — takes two minutes. We'll build a preview of your website and send you the link. You pay nothing until you've seen it and want to go live."
-                  : isQuestion
-                    ? "Ask about pricing, what's included, ownership, GDPR — anything at all. No obligation and no sales pitch, just a straight answer from a real person."
+                {isChoice
+                  ? "Choose how you'd like to start. Most people take the free preview first — but if you already know you want it, go straight to getting set up."
+                  : isPreview
+                    ? "Tell us about your business — takes two minutes. We'll build a preview of your website and send you the link. You pay nothing until you've seen it and want to go live."
+                    : isQuestion
+                      ? "Ask about pricing, what's included, ownership, GDPR — anything at all. No obligation and no sales pitch, just a straight answer from a real person."
                     : "Tell us a bit about your project — we'll reply within 24 hours."}
               </DialogDescription>
             </DialogHeader>
 
             <form onSubmit={handleSubmit} className="space-y-4 mt-6" noValidate>
+              {isChoice && (
+                <div className="space-y-2">
+                  <Label>How would you like to start?</Label>
+                  <div className="grid gap-3">
+                    {([
+                      {
+                        key: "preview" as const,
+                        title: "See a free preview first",
+                        blurb: "We build a real preview of your site and email you the link. You pay nothing until you've seen it.",
+                      },
+                      {
+                        key: "paid" as const,
+                        title: "I'm ready to get started",
+                        blurb: "Skip the preview — we'll help you pick a plan and get your site live.",
+                      },
+                    ]).map((option) => (
+                      <button
+                        key={option.key}
+                        type="button"
+                        onClick={() => setIntent(option.key)}
+                        aria-pressed={intent === option.key}
+                        className={`text-left p-4 rounded-xl border-2 transition ${
+                          intent === option.key
+                            ? "border-primary bg-primary/10"
+                            : "border-border/40 hover:border-border"
+                        }`}
+                      >
+                        <div className="font-semibold">{option.title}</div>
+                        <div className="text-sm text-muted-foreground">{option.blurb}</div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <Label htmlFor="name">Name *</Label>

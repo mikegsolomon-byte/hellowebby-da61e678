@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import IntakeFormDialog, { FREE_PREVIEW_PLAN, QUESTION_PLAN } from "./IntakeFormDialog";
+import IntakeFormDialog, { QUESTION_PLAN, START_PLAN } from "./IntakeFormDialog";
 import { Check } from "lucide-react";
 
 const Hero = () => {
   const [formOpen, setFormOpen] = useState(false);
-  const [formPlan, setFormPlan] = useState(FREE_PREVIEW_PLAN);
+  const [formPlan, setFormPlan] = useState(START_PLAN);
 
   const openForm = (plan: string) => {
     setFormPlan(plan);
@@ -34,9 +34,9 @@ const Hero = () => {
           <Button
             size="lg"
             className="rounded-2xl text-base px-8 bg-foreground text-primary hover:bg-foreground/90 border-2 border-foreground shadow-[6px_6px_0_0_hsl(var(--primary))] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_hsl(var(--primary))] transition-all"
-            onClick={() => openForm(FREE_PREVIEW_PLAN)}
+            onClick={() => openForm(START_PLAN)}
           >
-            See my website first — free
+            Get my website
           </Button>
           <Button
             size="lg"
