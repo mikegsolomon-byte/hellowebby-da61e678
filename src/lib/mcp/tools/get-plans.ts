@@ -9,7 +9,7 @@ const plans = [
     features: [
       "5-page professionally designed website",
       "Mobile-responsive design",
-      "Hosting, SSL certificate and domain connection",
+      "Hosting, SSL certificate and domain included",
       "On-page SEO setup",
       "Contact and lead capture form",
       "Unlimited content updates",

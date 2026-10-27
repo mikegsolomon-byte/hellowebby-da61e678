@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Check, ArrowRight } from "lucide-react";
@@ -8,10 +9,17 @@ import ClinicBriefGenerator from "@/components/ClinicBriefGenerator";
 import { Button } from "@/components/ui/button";
 import { getIndustry } from "@/data/industries";
 import NotFound from "./NotFound";
+import IntakeFormDialog, { START_PLAN, QUESTION_PLAN } from "@/components/IntakeFormDialog";
 
 const IndustryPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const industry = getIndustry(slug);
+  const [formOpen, setFormOpen] = useState(false);
+  const [formPlan, setFormPlan] = useState<string>(START_PLAN);
+  const openForm = (plan: string) => {
+    setFormPlan(plan);
+    setFormOpen(true);
+  };
 
   if (!industry) return <NotFound />;
 
@@ -49,10 +57,8 @@ const IndustryPage = () => {
             </h1>
             <p className="text-lg text-muted-foreground mb-8">{industry.intro}</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button asChild size="lg" className="rounded-full ring-glow">
-                <a href="/secure-checkout?plan=growth&billing=monthly">
-                  Get started from €49/month <ArrowRight className="w-4 h-4" />
-                </a>
+              <Button size="lg" className="rounded-full ring-glow" onClick={() => openForm(START_PLAN)}>
+                Get my website <ArrowRight className="w-4 h-4" />
               </Button>
               <Button asChild size="lg" variant="outline" className="rounded-full">
                 <a href="/#pricing">See plans &amp; pricing</a>
@@ -129,20 +135,24 @@ const IndustryPage = () => {
               We design, build, host and update it for you — from €49/month, live within a few days.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button asChild size="lg" className="rounded-full ring-glow">
-                <a href="/secure-checkout?plan=growth&billing=monthly">
-                  Get your website <ArrowRight className="w-4 h-4" />
-                </a>
+              <Button size="lg" className="rounded-full ring-glow" onClick={() => openForm(START_PLAN)}>
+                Get my website <ArrowRight className="w-4 h-4" />
               </Button>
-              <Button asChild size="lg" variant="outline" className="rounded-full">
-                <Link to="/industries">See all industries</Link>
+              <Button size="lg" variant="outline" className="rounded-full" onClick={() => openForm(QUESTION_PLAN)}>
+                Ask a question first
               </Button>
             </div>
+            <p className="mt-5 text-sm text-muted-foreground">
+              <Link to="/industries" className="underline underline-offset-4 hover:text-foreground transition-colors">
+                See all industries
+              </Link>
+            </p>
           </div>
         </section>
       </main>
 
       <Footer />
+      <IntakeFormDialog open={formOpen} onOpenChange={setFormOpen} selectedPlan={formPlan} />
     </div>
   );
 };
