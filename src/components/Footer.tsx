@@ -49,7 +49,7 @@ const Footer = () => {
         </div>
         <div className="border-t border-foreground/20 pt-6 flex flex-col md:flex-row gap-3 md:justify-between md:items-center text-sm text-foreground/80 font-medium">
           <div>GDPR compliant &nbsp;|&nbsp; Irish support</div>
-          <div>© 2025 hellowebby. All rights reserved.</div>
+          <div>© 2026 hellowebby. All rights reserved.</div>
         </div>
       </div>
     </footer>
