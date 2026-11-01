@@ -1,3 +1,4 @@
+import { trackRedditEvent } from "@/lib/analytics";
 import { useRef, useState } from "react";
 import { z } from "zod";
 import { Loader2, CheckCircle2, Sparkles } from "lucide-react";
@@ -157,6 +158,7 @@ const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan", ini
       });
       if (emailError) console.error("Contact email error:", emailError);
 
+      trackRedditEvent("Lead", { conversionId: submissionId });
       setSuccess(true);
     } catch (error: any) {
       console.error("Error submitting form:", error);

@@ -73,6 +73,13 @@ const Privacy = () => {
                         Consent (Art 6(1)(a)), given through our cookie banner. Only collected if you click "Accept", and you can withdraw consent anytime.
                       </td>
                     </tr>
+                    <tr>
+                      <td className="p-3 align-top">Reddit Pixel — pages visited, enquiry, checklist sign-up and purchase events (with order value), device and browser info, collected via cookies (such as _rdt_uuid)</td>
+                      <td className="p-3 align-top">To measure whether our Reddit ads lead to visits, enquiries and purchases</td>
+                      <td className="p-3 align-top">
+                        Consent (Art 6(1)(a)), given through our cookie banner. Only collected if you click "Accept", and you can withdraw consent anytime via "Cookie settings" in the footer.
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -145,6 +152,9 @@ const Privacy = () => {
                 </li>
                 <li>
                   Google Analytics (optional) — only if you click "Accept" in our cookie banner, Google Analytics sets cookies (such as _ga) to measure how visitors use the site. Google may process this data outside the EEA under the EU Standard Contractual Clauses. If you reject, Google Analytics is never loaded.
+                </li>
+                <li>
+                  Reddit Pixel (optional, advertising measurement) — only if you click "Accept" in our cookie banner, Reddit Inc. sets cookies (such as _rdt_uuid) so we can see whether our Reddit ads lead to visits, enquiries, checklist sign-ups and purchases. We never send your name, email or phone number to Reddit. Reddit may process this data outside the EEA under the EU Standard Contractual Clauses. If you reject, the Reddit Pixel is never loaded.
                 </li>
               </ul>
               <p className="text-muted-foreground mt-3">

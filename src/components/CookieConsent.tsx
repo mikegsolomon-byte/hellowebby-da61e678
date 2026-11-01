@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { CONSENT_KEY, disableAnalytics, initAnalytics } from "@/lib/analytics";
+import { CONSENT_KEY, disableAnalytics, disableRedditPixel, initAnalytics, initRedditPixel, saveConsentRecord } from "@/lib/analytics";
 
 const CookieConsent = () => {
   const [visible, setVisible] = useState(false);
@@ -13,7 +13,10 @@ const CookieConsent = () => {
       stored = null;
     }
 
-    if (stored === "accepted") initAnalytics();
+    if (stored === "accepted") {
+      initAnalytics();
+      initRedditPixel();
+    }
     if (!stored) setVisible(true);
 
     const reopen = () => setVisible(true);
@@ -27,8 +30,14 @@ const CookieConsent = () => {
     } catch {
       /* storage unavailable — respect the choice for this session only */
     }
-    if (value === "accepted") initAnalytics();
-    else disableAnalytics();
+    saveConsentRecord(value);
+    if (value === "accepted") {
+      initAnalytics();
+      initRedditPixel();
+    } else {
+      disableAnalytics();
+      disableRedditPixel();
+    }
     setVisible(false);
   };
 
@@ -49,8 +58,8 @@ const CookieConsent = () => {
             </h2>
             <p className="text-sm text-muted-foreground">
               We use essential cookies to run the site and keep payments secure — these are always on.
-              We'd also like to use optional analytics cookies to understand how the site is used and
-              improve it. You can accept or reject the optional ones. See our{" "}
+              We'd also like to use optional cookies for analytics (Google Analytics) and advertising
+              measurement (Reddit Ads), to understand how the site is used and whether our ads work. You can accept or reject the optional ones. See our{" "}
               <a href="/privacy" className="font-semibold text-foreground underline underline-offset-4">
                 Privacy Policy
               </a>{" "}

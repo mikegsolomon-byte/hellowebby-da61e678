@@ -89,3 +89,82 @@ export function disableAnalytics(): void {
     }
   });
 }
+
+/* ---------------------------------------------------------------------------
+ * Reddit Pixel — loaded ONLY after the visitor accepts optional cookies.
+ * ------------------------------------------------------------------------- */
+const REDDIT_PIXEL_ID = "a2_hf8cylfdt45l";
+const REDDIT_SCRIPT_ID = "reddit-pixel-script";
+export const CONSENT_META_KEY = "hw-cookie-consent-meta";
+/** Bump when the banner wording or the list of tools changes. */
+export const CONSENT_NOTICE_VERSION = "2026-11-01";
+
+let redditReady = false;
+
+type RdtFn = ((...args: unknown[]) => void) & { callQueue?: unknown[]; sendEvent?: (...a: unknown[]) => void };
+declare global {
+  interface Window {
+    rdt?: RdtFn;
+  }
+}
+
+/** Record when the choice was made and which notice version was shown. */
+export function saveConsentRecord(value: ConsentValue): void {
+  try {
+    window.localStorage.setItem(
+      CONSENT_META_KEY,
+      JSON.stringify({ choice: value, at: new Date().toISOString(), notice: CONSENT_NOTICE_VERSION }),
+    );
+  } catch {
+    /* ignore */
+  }
+}
+
+export function initRedditPixel(): void {
+  if (!hasAnalyticsConsent() || typeof window === "undefined" || redditReady) return;
+  redditReady = true;
+  if (!window.rdt) {
+    const rdt: RdtFn = function (...args: unknown[]) {
+      if (rdt.sendEvent) rdt.sendEvent(...args);
+      else rdt.callQueue!.push(args);
+    };
+    rdt.callQueue = [];
+    window.rdt = rdt;
+  }
+  if (!document.getElementById(REDDIT_SCRIPT_ID)) {
+    const s = document.createElement("script");
+    s.id = REDDIT_SCRIPT_ID;
+    s.async = true;
+    s.src = "https://www.redditstatic.com/ads/pixel.js";
+    document.head.appendChild(s);
+  }
+  window.rdt("init", REDDIT_PIXEL_ID);
+  window.rdt("track", "PageVisit");
+}
+
+type RedditEvent = "Lead" | "SignUp" | "Purchase";
+/** Send a Reddit conversion. No-op without consent. Never pass personal data. */
+export function trackRedditEvent(event: RedditEvent, data?: { value?: number; currency?: string; itemCount?: number; conversionId?: string }): void {
+  if (!redditReady || !window.rdt || !hasAnalyticsConsent()) return;
+  window.rdt("track", event, data ?? {});
+}
+
+export function trackRedditPageVisit(): void {
+  if (!redditReady || !window.rdt || !hasAnalyticsConsent()) return;
+  window.rdt("track", "PageVisit");
+}
+
+/** Stop Reddit tracking and clear its first-party cookie. */
+export function disableRedditPixel(): void {
+  redditReady = false;
+  if (typeof window === "undefined") return;
+  window.rdt = undefined;
+  document.getElementById(REDDIT_SCRIPT_ID)?.remove();
+  const host = window.location.hostname;
+  const domains = ["", host, `.${host}`, `.${host.replace(/^www\./, "")}`];
+  ["_rdt_uuid", "_rdt_em"].forEach((name) =>
+    domains.forEach((d) => {
+      document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/${d ? `; domain=${d}` : ""}`;
+    }),
+  );
+}

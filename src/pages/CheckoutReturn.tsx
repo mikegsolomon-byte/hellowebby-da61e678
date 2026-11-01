@@ -1,3 +1,4 @@
+import { trackRedditEvent } from "@/lib/analytics";
 import { useEffect, useState } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { CheckCircle2, Loader2, AlertCircle, Mail, Calendar, FileText, Sparkles } from "lucide-react";
@@ -62,6 +63,19 @@ export default function CheckoutReturn() {
         if (err || !res) throw new Error(err?.message || "Failed to load order");
         if (res.error) throw new Error(res.error);
         setData(res as SessionData);
+        const d = res as SessionData;
+        if (d.paymentStatus === "paid" && sessionId) {
+          const key = `rdt-purchase-${sessionId}`;
+          if (!sessionStorage.getItem(key)) {
+            sessionStorage.setItem(key, "1");
+            trackRedditEvent("Purchase", {
+              value: d.amountTotal != null ? d.amountTotal / 100 : undefined,
+              currency: (d.currency ?? "eur").toUpperCase(),
+              itemCount: 1,
+              conversionId: sessionId,
+            });
+          }
+        }
         // The internal payment alert is sent by the verified Stripe webhook,
         // not from the browser.
       } catch (e) {
