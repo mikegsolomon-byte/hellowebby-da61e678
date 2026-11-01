@@ -1,3 +1,4 @@
+import { trackRedditEvent } from "@/lib/analytics";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -49,6 +50,8 @@ const NewsletterCTA = () => {
         },
       });
       if (emailError) console.error("Checklist email error:", emailError);
+
+      trackRedditEvent("SignUp", { conversionId: submissionId });
 
       toast({
         title: "Checklist on the way! 🎉",

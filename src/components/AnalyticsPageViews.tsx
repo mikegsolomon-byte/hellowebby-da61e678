@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import { trackPageView } from "@/lib/analytics";
+import { trackPageView, trackRedditPageVisit } from "@/lib/analytics";
 
 // gtag only records the first page load on its own. This sends a page view on
 // every later in-app navigation (only when the visitor has accepted analytics).
@@ -14,6 +14,7 @@ const AnalyticsPageViews = () => {
       return;
     }
     trackPageView(pathname + search);
+    trackRedditPageVisit();
   }, [pathname, search]);
 
   return null;
