@@ -135,7 +135,7 @@ export function initRedditPixel(): void {
     const s = document.createElement("script");
     s.id = REDDIT_SCRIPT_ID;
     s.async = true;
-    s.src = "https://www.redditstatic.com/ads/pixel.js";
+    s.src = `https://www.redditstatic.com/ads/pixel.js?pixel_id=${REDDIT_PIXEL_ID}`;
     document.head.appendChild(s);
   }
   window.rdt("init", REDDIT_PIXEL_ID);
