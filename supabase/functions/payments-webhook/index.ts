@@ -1,5 +1,70 @@
 import { createClient } from "npm:@supabase/supabase-js@2";
-import { type StripeEnv, verifyWebhook } from "../_shared/stripe.ts";
+import { type StripeEnv, createStripeClient, verifyWebhook } from "../_shared/stripe.ts";
+import { sendTemplateEmail } from "../_shared/transactional-email-templates/send-email.ts";
+import { logEmailSend } from "../_shared/email-send-log.ts";
+
+const PAYMENT_ALERT_RECIPIENT = "hello@hellowebby.com";
+
+function formatMoney(amount: number | null | undefined, currency: string | null | undefined) {
+  if (amount == null) return "—";
+  const code = (currency ?? "eur").toUpperCase();
+  try {
+    return new Intl.NumberFormat("en-IE", { style: "currency", currency: code }).format(amount / 100);
+  } catch {
+    return `${(amount / 100).toFixed(2)} ${code}`;
+  }
+}
+
+// Sends the internal "new payment" alert. Only called from verified Stripe
+// events; details are re-read from Stripe, never taken from the browser.
+async function notifyPayment(sessionId: string, env: StripeEnv) {
+  try {
+    const stripe = createStripeClient(env);
+    const session = await stripe.checkout.sessions.retrieve(sessionId, {
+      expand: ["line_items", "line_items.data.price.product"],
+    });
+    const lineItems = (session.line_items?.data ?? []).map((li: any) => {
+      const price = li.price;
+      const product = price && typeof price.product !== "string" ? price.product : null;
+      const rec = price?.recurring;
+      return {
+        description: li.description ?? product?.name ?? "Item",
+        amountTotal: formatMoney(li.amount_total, session.currency),
+        recurringLabel: rec
+          ? `every ${rec.interval_count > 1 ? `${rec.interval_count} ` : ""}${rec.interval}${rec.interval_count > 1 ? "s" : ""}`
+          : null,
+      };
+    });
+    const customerEmail = session.customer_details?.email ?? session.customer_email ?? null;
+
+    const result = await sendTemplateEmail("payment-notification", PAYMENT_ALERT_RECIPIENT, {
+      templateData: {
+        customerEmail,
+        total: formatMoney(session.amount_total, session.currency),
+        lineItems,
+        sessionId: session.id,
+        environment: env,
+      },
+      // Stripe retries webhooks; one alert per checkout session.
+      idempotencyKey: `payment-notification-${session.id}`,
+      replyTo: customerEmail ?? undefined,
+    });
+    await logEmailSend({
+      templateName: "payment-notification",
+      recipientEmail: PAYMENT_ALERT_RECIPIENT,
+      status: result.sent ? "sent" : "suppressed",
+    });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.error("Payment notification failed", { sessionId, message });
+    await logEmailSend({
+      templateName: "payment-notification",
+      recipientEmail: PAYMENT_ALERT_RECIPIENT,
+      status: "failed",
+      errorMessage: message,
+    });
+  }
+}
 
 let _supabase: ReturnType<typeof createClient> | null = null;
 function getSupabase() {
@@ -57,8 +122,18 @@ async function handleWebhook(req: Request, env: StripeEnv) {
         .eq("stripe_subscription_id", event.data.object.id)
         .eq("environment", env);
       break;
-    case "checkout.session.completed":
+    case "checkout.session.completed": {
+      // Delayed methods (SEPA etc.) report "unpaid" until they settle; wait for
+      // async_payment_succeeded in that case.
+      const session = event.data.object;
+      if (session.payment_status !== "unpaid") {
+        await notifyPayment(session.id, env);
+      }
+      break;
+    }
     case "checkout.session.async_payment_succeeded":
+      await notifyPayment(event.data.object.id, env);
+      break;
     case "invoice.paid":
       console.log("Payment event:", event.type);
       break;
