@@ -16,7 +16,7 @@ var plans = [
     features: [
       "5-page professionally designed website",
       "Mobile-responsive design",
-      "Hosting, SSL certificate and domain connection",
+      "Hosting, SSL certificate and domain included",
       "On-page SEO setup",
       "Contact and lead capture form",
       "Unlimited content updates",
@@ -54,14 +54,30 @@ var plans = [
     ]
   }
 ];
+var pricing = {
+  currency: "EUR",
+  setupFee: "None. There is no setup fee.",
+  vat: "hellowebby is not VAT registered, so no VAT is added. The monthly or annual price shown is the total amount payable.",
+  annualSaving: "Two months free",
+  includedInThePrice: [
+    "Design and build of the website",
+    "Hosting and SSL certificate",
+    "One standard domain, including registration and renewals while the subscription is active",
+    "All maintenance and security updates",
+    "Unlimited content updates",
+    "Email support"
+  ],
+  domainNote: "Included domain cover applies to an ordinary domain at a reasonable price. Premium or aftermarket names, specialist extensions with higher registry fees, and any additional domain are quoted in advance and are never purchased without the customer's approval.",
+  noHiddenExtras: "There are no other charges required to keep the website online."
+};
 var get_plans_default = defineTool({
   name: "get_website_plans",
   title: "Get website plans",
-  description: "List hellowebby's current website subscription plans, prices and included features.",
+  description: "List hellowebby's current website subscription plans, prices and included features, plus the total-cost facts: no setup fee, no VAT, and what the price covers.",
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => ({
-    content: [{ type: "text", text: JSON.stringify({ plans, annualSaving: "Two months free" }) }],
-    structuredContent: { plans, annualSaving: "Two months free" }
+    content: [{ type: "text", text: JSON.stringify({ plans, pricing, annualSaving: "Two months free" }) }],
+    structuredContent: { plans, pricing, annualSaving: "Two months free" }
   })
 });
 
