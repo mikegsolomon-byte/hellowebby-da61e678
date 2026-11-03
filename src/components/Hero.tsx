@@ -33,7 +33,7 @@ const Hero = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
             size="lg"
-            className="rounded-2xl text-base px-8 bg-foreground text-primary hover:bg-foreground/90 border-2 border-foreground shadow-[6px_6px_0_0_hsl(var(--primary))] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_hsl(var(--primary))] transition-all"
+            className="rounded-2xl text-base px-8 bg-primary text-foreground hover:bg-primary/90 border-0 ring-glow hover:-translate-y-0.5 transition-all"
             onClick={() => openForm(START_PLAN)}
           >
             Get my website
@@ -41,7 +41,7 @@ const Hero = () => {
           <Button
             size="lg"
             variant="outline"
-            className="rounded-2xl text-base px-8 bg-background border-2 border-foreground text-foreground hover:bg-muted shadow-[6px_6px_0_0_hsl(var(--foreground))] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_hsl(var(--foreground))] transition-all"
+            className="rounded-2xl text-base px-8 bg-background border border-border text-foreground hover:bg-muted elev-1 hover:-translate-y-0.5 transition-all"
             onClick={() => openForm(QUESTION_PLAN)}
           >
             Ask a question first

@@ -14,7 +14,7 @@ const businesses = [
 
 const WhoIsThisFor = () => {
   return (
-    <section className="relative px-4 section-light overflow-hidden py-[36px]">
+    <section className="relative px-4 section-light overflow-hidden py-20">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
@@ -31,7 +31,7 @@ const WhoIsThisFor = () => {
               to={`/industries/${b.slug}`}
               className="group glass rounded-2xl p-6 flex flex-col items-center text-center hover:-translate-y-1 hover:border-primary/40 transition-all"
             >
-              <div className="w-14 h-14 rounded-xl bg-primary border-2 border-foreground flex items-center justify-center mb-3 shadow-[3px_3px_0_0_hsl(var(--foreground))] group-hover:scale-105 transition-transform">
+              <div className="w-14 h-14 rounded-xl bg-primary border border-border flex items-center justify-center mb-3 elev-1 group-hover:scale-105 transition-transform">
                 <b.icon className="w-7 h-7 text-foreground" strokeWidth={2.5} />
               </div>
               <p className="font-bold">{b.label}</p>

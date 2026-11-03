@@ -31,7 +31,7 @@ const Privacy = () => {
 
             <section>
               <h2 className="text-2xl font-bold mb-3">2. What we collect and why</h2>
-              <div className="overflow-x-auto rounded-2xl border-2 border-foreground">
+              <div className="overflow-x-auto rounded-2xl border border-border">
                 <table className="w-full text-sm text-left">
                   <thead className="bg-primary text-foreground">
                     <tr>

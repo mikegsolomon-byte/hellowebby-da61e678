@@ -60,7 +60,7 @@ const Navigation = () => {
             </button>
           </div>
 
-          <Button className="rounded-full px-5 border-2 border-foreground shadow-[4px_4px_0_0_hsl(var(--foreground))] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_hsl(var(--foreground))] transition-all" onClick={() => scrollToSection("pricing")}>Get My Website Started</Button>
+          <Button className="rounded-full px-5 border border-border elev-1 hover:-translate-y-0.5 transition-all" onClick={() => scrollToSection("pricing")}>Get My Website Started</Button>
         </div>
       </div>
       <IntakeFormDialog open={formOpen} onOpenChange={setFormOpen} selectedPlan="General enquiry" />

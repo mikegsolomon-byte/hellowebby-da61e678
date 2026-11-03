@@ -156,7 +156,7 @@ const FAQ = () => {
   const [formOpen, setFormOpen] = useState(false);
 
   return (
-    <section id="faq" className="relative px-4 overflow-hidden py-[36px]">
+    <section id="faq" className="relative px-4 overflow-hidden py-20">
       <div className="glow-orb bg-primary/15 w-[500px] h-[500px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse-glow" />
       <div className="container relative mx-auto max-w-3xl">
         <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4">
@@ -184,7 +184,7 @@ const FAQ = () => {
           ))}
         </div>
 
-        <div className="mt-12 glass border-2 border-foreground rounded-2xl p-6 md:p-8 text-center">
+        <div className="mt-12 glass border border-border rounded-2xl p-6 md:p-8 text-center">
           <h3 className="text-xl font-extrabold mb-2">Still have a question?</h3>
           <p className="text-muted-foreground mb-5">
             Ask us anything before you decide — no obligation, no sales pitch.

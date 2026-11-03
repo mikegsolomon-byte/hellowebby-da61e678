@@ -24,7 +24,7 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="relative px-4 section-light overflow-hidden py-[36px]">
+    <section id="how-it-works" className="relative px-4 section-light overflow-hidden py-20">
       <div className="glow-orb bg-primary/20 w-[500px] h-[500px] top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 animate-pulse-glow" />
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
@@ -37,7 +37,7 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <Card key={index} className="relative glass border-border/40 hover:border-primary/40 hover:-translate-y-1 transition-all">
               <CardContent className="p-8">
-                <div className="relative w-16 h-16 rounded-2xl bg-primary text-foreground border-2 border-foreground flex items-center justify-center mb-4 mx-auto shadow-[4px_4px_0_0_hsl(var(--foreground))]">
+                <div className="relative w-16 h-16 rounded-2xl bg-primary text-foreground border border-border flex items-center justify-center mb-4 mx-auto elev-1">
                   <step.icon className="w-7 h-7" strokeWidth={2.5} />
                 </div>
                 <div className="text-sm font-bold text-center text-muted-foreground mb-2">STEP {step.number}</div>

@@ -72,7 +72,7 @@ const NewsletterCTA = () => {
   };
 
   return (
-    <section className="relative px-4 overflow-hidden py-[36px]">
+    <section className="relative px-4 overflow-hidden py-20">
       <div className="container mx-auto max-w-3xl">
         <div className="glass rounded-3xl p-8 md:p-12 text-center">
           <h2 className="text-3xl md:text-4xl font-extrabold mb-3">
@@ -87,7 +87,7 @@ const NewsletterCTA = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-              className="border-2 border-foreground rounded-xl"
+              className="border border-border rounded-xl"
             />
             <Input
               type="email"
@@ -95,12 +95,12 @@ const NewsletterCTA = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="border-2 border-foreground rounded-xl"
+              className="border border-border rounded-xl"
             />
             <Button
               type="submit"
               disabled={loading}
-              className="rounded-xl border-2 border-foreground shadow-[4px_4px_0_0_hsl(var(--foreground))] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_hsl(var(--foreground))] transition-all whitespace-nowrap"
+              className="rounded-xl border border-border elev-1 hover:-translate-y-0.5 transition-all whitespace-nowrap"
             >
               {loading ? (
                 <><Loader2 className="w-4 h-4 animate-spin mr-2" />Sending…</>

@@ -136,7 +136,7 @@ export default function SecureCheckout() {
                   <span className="text-xs text-muted-foreground">Change anytime</span>
                 </div>
                 <div className="flex justify-center mb-4">
-                  <div className="inline-flex items-center gap-1 p-1 rounded-full border-2 border-foreground/15 bg-background/60 backdrop-blur">
+                  <div className="inline-flex items-center gap-1 p-1 rounded-full border border-border bg-background/60 backdrop-blur">
                     {(["monthly", "annual"] as const).map((option) => (
                       <button
                         key={option}
@@ -145,7 +145,7 @@ export default function SecureCheckout() {
                         onClick={() => setBilling(option)}
                         className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
                           billing === option
-                            ? "bg-foreground text-primary border-2 border-foreground"
+                            ? "bg-foreground text-primary border border-border"
                             : "text-muted-foreground hover:text-foreground border-2 border-transparent"
                         }`}
                       >

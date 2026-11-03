@@ -50,7 +50,7 @@ const CookieConsent = () => {
       aria-labelledby="cookie-consent-title"
       className="fixed inset-x-4 bottom-24 md:bottom-4 z-50"
     >
-      <div className="container mx-auto max-w-3xl bg-background/90 backdrop-blur-md border-2 border-foreground rounded-2xl shadow-[6px_6px_0px_0px_hsl(var(--foreground))] p-5 md:p-6">
+      <div className="container mx-auto max-w-3xl bg-background/90 backdrop-blur-md border border-border rounded-2xl elev-2 p-5 md:p-6">
         <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
           <div className="flex-1">
             <h2 id="cookie-consent-title" className="font-extrabold text-lg tracking-tight mb-1">

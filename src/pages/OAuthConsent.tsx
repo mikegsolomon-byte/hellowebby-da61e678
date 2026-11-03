@@ -65,7 +65,7 @@ export default function OAuthConsent() {
       <PageMeta title="Connect an assistant | hellowebby" description="Approve secure assistant access to hellowebby." path="/.lovable/oauth/consent" noindex />
       <section className="glass w-full max-w-lg p-6 md:p-8">
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-12 h-12 rounded-xl bg-primary border-2 border-foreground grid place-items-center"><Bot className="w-6 h-6" /></div>
+          <div className="w-12 h-12 rounded-xl bg-primary border border-border grid place-items-center"><Bot className="w-6 h-6" /></div>
           <div><p className="text-sm text-muted-foreground">Secure connection</p><h1 className="text-2xl font-extrabold">Connect an assistant</h1></div>
         </div>
         {error ? (
@@ -75,7 +75,7 @@ export default function OAuthConsent() {
         ) : (
           <>
             <p className="text-lg mb-5"><strong>{details.client.name}</strong> wants to connect to your hellowebby account.</p>
-            <div className="rounded-md border-2 border-foreground bg-muted p-4 mb-6 space-y-3">
+            <div className="rounded-md border border-border bg-muted p-4 mb-6 space-y-3">
               <p className="flex gap-2"><ShieldCheck className="w-5 h-5 text-primary shrink-0" /> It can view current website plans and submit enquiries after you confirm them.</p>
               <p className="text-sm text-muted-foreground">Signed in as {details.user.email}</p>
             </div>

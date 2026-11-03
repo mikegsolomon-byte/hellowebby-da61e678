@@ -69,7 +69,7 @@ const Pricing = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="pricing" className="relative px-4 section-light overflow-hidden py-[36px]">
+    <section id="pricing" className="relative px-4 section-light overflow-hidden py-20">
       <div className="glow-orb bg-primary/25 w-[600px] h-[600px] top-10 left-1/2 -translate-x-1/2 animate-pulse-glow" />
       <div className="container relative mx-auto max-w-7xl">
         <div className="text-center mb-10">
@@ -80,7 +80,7 @@ const Pricing = () => {
             One monthly fee. No hidden costs. No contracts after month one.
           </p>
           <div className="mt-8 flex justify-center">
-            <div className="inline-flex items-center gap-1 p-1 rounded-full border-2 border-foreground/15 bg-background/60 backdrop-blur">
+            <div className="inline-flex items-center gap-1 p-1 rounded-full border border-border bg-background/60 backdrop-blur">
               {(["monthly", "annual"] as const).map((option) => (
                 <button
                   key={option}
@@ -89,7 +89,7 @@ const Pricing = () => {
                   onClick={() => setBilling(option)}
                   className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${
                     billing === option
-                      ? "bg-foreground text-primary border-2 border-foreground"
+                      ? "bg-foreground text-primary border border-border"
                       : "text-muted-foreground hover:text-foreground border-2 border-transparent"
                   }`}
                 >
@@ -103,9 +103,9 @@ const Pricing = () => {
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {plans.map((plan, index) => (
-            <Card key={index} className={`relative glass transition-all hover:-translate-y-1 ${plan.popular ? 'border-primary/60 ring-glow scale-[1.02]' : 'border-border/40 hover:border-primary/40'}`}>
+            <Card key={index} className={`relative glass transition-all hover:-translate-y-1 ${plan.popular ? 'border-foreground border-t-[5px] border-t-primary elev-2 scale-[1.02]' : 'hover:border-primary/40'}`}>
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-foreground text-primary px-4 py-1 rounded-full text-sm font-bold border-2 border-foreground">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-foreground text-primary px-4 py-1 rounded-full text-sm font-bold border border-border">
                   Most Popular
                 </div>
               )}
@@ -119,7 +119,7 @@ const Pricing = () => {
                   <span className="text-muted-foreground">{billing === "monthly" ? "/month" : "/year"}</span>
                   {billing === "annual" && (
                     <div className="mt-2">
-                      <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-primary text-foreground border-2 border-foreground">
+                      <span className="inline-block text-xs font-bold px-3 py-1 rounded-full bg-primary text-foreground border border-border">
                         2 months free
                       </span>
                     </div>
@@ -146,7 +146,7 @@ const Pricing = () => {
           ))}
         </div>
 
-        <Card className="glass border-2 border-foreground shadow-[6px_6px_0_0_hsl(var(--primary))] mb-12 overflow-hidden">
+        <Card className="glass border border-border elev-2 mb-12 overflow-hidden">
           <CardContent className="p-8 md:p-10 text-center">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-4 rounded-full border-2 border-primary bg-primary/10 text-xs md:text-sm font-bold">
               No commitment · No payment required
@@ -159,7 +159,7 @@ const Pricing = () => {
             </p>
             <Button
               size="lg"
-              className="rounded-2xl text-base px-8 bg-foreground text-primary hover:bg-foreground/90 border-2 border-foreground shadow-[6px_6px_0_0_hsl(var(--primary))] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_hsl(var(--primary))] transition-all"
+              className="rounded-2xl text-base px-8 bg-foreground text-primary hover:bg-foreground/90 border border-border elev-2 hover:-translate-y-0.5 transition-all"
               onClick={() => {
                 setSelectedPlan(FREE_PREVIEW_PLAN);
                 setFormOpen(true);

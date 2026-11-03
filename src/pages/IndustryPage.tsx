@@ -68,7 +68,7 @@ const IndustryPage = () => {
         </section>
 
         {/* Benefits */}
-        <section className="relative px-4 section-light overflow-hidden py-[36px]">
+        <section className="relative px-4 section-light overflow-hidden py-20">
           <div className="container mx-auto max-w-6xl">
             <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-10">
               Why {industry.name.toLowerCase()} need a{" "}
@@ -86,7 +86,7 @@ const IndustryPage = () => {
         </section>
 
         {/* What's included */}
-        <section className="relative px-4 overflow-hidden py-[36px]">
+        <section className="relative px-4 overflow-hidden py-20">
           <div className="container mx-auto max-w-3xl">
             <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-8">
               What&apos;s included
@@ -108,7 +108,7 @@ const IndustryPage = () => {
         {industry.slug === "therapists-and-clinics" && <ClinicBriefGenerator />}
 
         {/* FAQ */}
-        <section className="relative px-4 section-light overflow-hidden py-[36px]">
+        <section className="relative px-4 section-light overflow-hidden py-20">
           <div className="container mx-auto max-w-3xl">
             <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-8">
               Frequently asked questions

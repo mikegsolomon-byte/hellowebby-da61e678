@@ -35,7 +35,7 @@ const RecentWork = () => {
       <div className="container relative mx-auto max-w-7xl">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-20 gap-8">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 border-2 border-foreground bg-primary text-primary-foreground font-bold text-xs uppercase tracking-widest mb-6 shadow-[4px_4px_0px_0px_hsl(var(--foreground))]">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-border bg-primary text-primary-foreground font-bold text-xs uppercase tracking-widest mb-6 elev-1">
               <span className="w-2 h-2 bg-foreground rounded-full animate-pulse" />
               Our Portfolio
             </div>
@@ -54,8 +54,8 @@ const RecentWork = () => {
               rel="noopener noreferrer"
               className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-2xl"
             >
-              <Card className="relative bg-card/30 backdrop-blur-xl border-4 border-foreground rounded-2xl p-3 shadow-[12px_12px_0px_0px_hsl(var(--foreground))] transition-all duration-300 group-hover:-translate-x-1.5 group-hover:-translate-y-1.5 group-hover:shadow-[18px_18px_0px_0px_hsl(var(--primary))] h-full overflow-hidden">
-                <div className="aspect-[4/3] bg-muted border-2 border-foreground overflow-hidden relative mb-6">
+              <Card className="relative bg-card/30 backdrop-blur-xl border-4 border-foreground rounded-2xl p-3 elev-2 transition-all duration-300 group-hover:-translate-x-1.5 group-hover:-translate-y-1.5 group-hover:elev-2 h-full overflow-hidden">
+                <div className="aspect-[4/3] bg-muted border border-border overflow-hidden relative mb-6">
                   <img
                     src={work.image}
                     data-stage="local"
@@ -68,7 +68,7 @@ const RecentWork = () => {
                     }}
                     className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 scale-105 group-hover:scale-100"
                   />
-                  <div className="absolute top-3 right-3 bg-foreground text-primary font-bold text-xs uppercase px-3 py-1 border-2 border-foreground">
+                  <div className="absolute top-3 right-3 bg-foreground text-primary font-bold text-xs uppercase px-3 py-1 border border-border">
                     {work.category}
                   </div>
                 </div>
@@ -77,12 +77,12 @@ const RecentWork = () => {
                   <p className="text-muted-foreground text-sm mb-8 leading-relaxed font-medium">{work.outcome}</p>
                   <div className="flex items-center justify-between">
                     <div className="flex gap-2">
-                      <div className="w-8 h-8 rounded-full border-2 border-foreground bg-primary" />
-                      <div className="w-8 h-8 rounded-full border-2 border-foreground bg-card" />
+                      <div className="w-8 h-8 rounded-full border border-border bg-primary" />
+                      <div className="w-8 h-8 rounded-full border border-border bg-card" />
                     </div>
                     <span className="flex items-center gap-2 font-bold text-foreground uppercase text-sm group/btn">
                       Visit site
-                      <span className="inline-block p-1 border-2 border-foreground group-hover:bg-primary transition-colors">
+                      <span className="inline-block p-1 border border-border group-hover:bg-primary transition-colors">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>

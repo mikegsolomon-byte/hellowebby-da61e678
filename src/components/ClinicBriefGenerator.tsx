@@ -214,11 +214,11 @@ const ClinicBriefGenerator = () => {
     .slice(0, 12000);
 
   return (
-    <section id="clinic-brief" className="relative px-4 section-light overflow-hidden py-[36px]">
+    <section id="clinic-brief" className="relative px-4 section-light overflow-hidden py-20">
       <div className="glow-orb bg-primary/20 w-[520px] h-[520px] top-10 left-1/2 -translate-x-1/2 animate-pulse-glow" />
       <div className="container relative mx-auto max-w-5xl">
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-4 rounded-full border-2 border-foreground bg-primary text-xs md:text-sm font-bold">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-4 rounded-full border border-border bg-primary text-xs md:text-sm font-bold">
             <Stethoscope className="w-4 h-4" strokeWidth={2.5} />
             For clinics &amp; practices
           </div>
@@ -231,7 +231,7 @@ const ClinicBriefGenerator = () => {
           </p>
         </div>
 
-        <Card className="glass border-2 border-foreground shadow-[6px_6px_0_0_hsl(var(--primary))]">
+        <Card className="glass border border-border elev-2">
           <CardContent className="p-6 md:p-10 space-y-8">
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-2">
@@ -349,7 +349,7 @@ const ClinicBriefGenerator = () => {
                 size="lg"
                 onClick={generate}
                 disabled={loading}
-                className="rounded-2xl text-base px-8 bg-foreground text-primary hover:bg-foreground/90 border-2 border-foreground shadow-[6px_6px_0_0_hsl(var(--primary))] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_hsl(var(--primary))] transition-all"
+                className="rounded-2xl text-base px-8 bg-foreground text-primary hover:bg-foreground/90 border border-border elev-2 hover:-translate-y-0.5 transition-all"
               >
                 {loading ? (
                   <>
@@ -385,7 +385,7 @@ const ClinicBriefGenerator = () => {
               )}
 
               {brief && (
-                <div className="mt-2 rounded-2xl border-2 border-foreground bg-background/70 p-6 md:p-8">
+                <div className="mt-2 rounded-2xl border border-border bg-background/70 p-6 md:p-8">
                   <div className="space-y-3">
                     {blocks.map((block, i) => {
                       if (block.kind === "heading")
@@ -422,7 +422,7 @@ const ClinicBriefGenerator = () => {
                       <Button
                         size="lg"
                         onClick={() => setFormOpen(true)}
-                        className="rounded-2xl text-base px-8 bg-primary text-foreground hover:bg-primary/90 border-2 border-foreground shadow-[4px_4px_0_0_hsl(var(--foreground))] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0_0_hsl(var(--foreground))] transition-all"
+                        className="rounded-2xl text-base px-8 bg-primary text-foreground hover:bg-primary/90 border border-border elev-1 hover:elev-1 transition-all"
                       >
                         Get my free preview
                       </Button>

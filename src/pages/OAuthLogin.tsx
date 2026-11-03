@@ -61,7 +61,7 @@ export default function OAuthLogin() {
     <main className="min-h-screen bg-background px-4 py-16 grid place-items-center">
       <PageMeta title="Sign in | hellowebby" description="Sign in securely to connect hellowebby." path="/login" noindex />
       <section className="glass w-full max-w-md p-6 md:p-8">
-        <div className="w-12 h-12 rounded-xl bg-primary border-2 border-foreground grid place-items-center mb-6">
+        <div className="w-12 h-12 rounded-xl bg-primary border border-border grid place-items-center mb-6">
           <LockKeyhole className="w-6 h-6" />
         </div>
         <h1 className="text-3xl font-extrabold mb-2">{creating ? "Create your account" : "Sign in to hellowebby"}</h1>
