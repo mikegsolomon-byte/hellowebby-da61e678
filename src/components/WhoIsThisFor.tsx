@@ -1,4 +1,4 @@
-import { Scissors, Wrench, Coffee, Zap, HardHat, Briefcase, HeartPulse, ShoppingBag, ArrowRight } from "lucide-react";
+import { Scissors, Wrench, Coffee, Zap, HardHat, Briefcase, HeartPulse, ShoppingBag } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const businesses = [
@@ -25,31 +25,18 @@ const WhoIsThisFor = () => {
           </p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {businesses.map((b, i) => {
-            const filled = (i + Math.floor(i / 4)) % 2 === 0;
-            return (
-              <Link
-                key={i}
-                to={`/industries/${b.slug}`}
-                className={`group rounded-2xl p-6 flex flex-col items-start text-left transition-all hover:-translate-y-1 ${
-                  filled ? "bg-primary border border-primary elev-1 hover:elev-2" : "glass hover:border-primary/40"
-                }`}
-              >
-                <div
-                  className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110 ${
-                    filled ? "bg-background" : "bg-primary/20"
-                  }`}
-                >
-                  <b.icon className="w-6 h-6 text-foreground" strokeWidth={2.2} />
-                </div>
-                <p className="font-bold leading-snug">{b.label}</p>
-                <span className="mt-2 inline-flex items-center gap-1 text-sm font-semibold opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0">
-                  See how
-                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
-                </span>
-              </Link>
-            );
-          })}
+          {businesses.map((b, i) => (
+            <Link
+              key={i}
+              to={`/industries/${b.slug}`}
+              className="group glass rounded-2xl p-6 flex flex-col items-center text-center hover:-translate-y-1 hover:border-primary/40 transition-all"
+            >
+              <div className="w-14 h-14 rounded-xl bg-primary border border-border flex items-center justify-center mb-3 elev-1 group-hover:scale-105 transition-transform">
+                <b.icon className="w-7 h-7 text-foreground" strokeWidth={2.5} />
+              </div>
+              <p className="font-bold">{b.label}</p>
+            </Link>
+          ))}
         </div>
       </div>
     </section>
