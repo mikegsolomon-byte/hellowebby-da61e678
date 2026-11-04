@@ -32,20 +32,38 @@ const HowItWorks = () => {
             Up and running in <span className="gradient-text">3 simple steps</span>
           </h2>
         </div>
-        <div className="relative grid md:grid-cols-3 gap-8">
-          <div className="hidden md:block absolute top-16 left-[16%] right-[16%] h-[2px] bg-foreground/15" aria-hidden="true" />
-          {steps.map((step, index) => (
-            <Card key={index} className="relative glass border-border/40 hover:border-primary/40 hover:-translate-y-1 transition-all">
-              <CardContent className="p-8">
-                <div className="relative w-16 h-16 rounded-2xl bg-primary text-foreground border border-border flex items-center justify-center mb-4 mx-auto elev-1">
-                  <step.icon className="w-7 h-7" strokeWidth={2.5} />
-                </div>
-                <div className="text-sm font-bold text-center text-muted-foreground mb-2">STEP {step.number}</div>
-                <h3 className="text-xl font-bold mb-3 text-center">{step.title}</h3>
-                <p className="text-muted-foreground text-center">{step.description}</p>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="relative grid md:grid-cols-3 gap-8 md:gap-6 md:items-start md:pb-12">
+          {steps.map((step, index) => {
+            const isPayoff = index === steps.length - 1;
+            return (
+              <Card
+                key={index}
+                className={`group relative overflow-hidden transition-all hover:-translate-y-1 ${
+                  index === 1 ? "md:translate-y-10" : ""
+                } ${isPayoff ? "bg-foreground border-foreground elev-2" : "glass hover:border-primary/40"}`}
+              >
+                <span
+                  aria-hidden="true"
+                  className={`pointer-events-none absolute -top-4 right-4 text-[88px] font-extrabold leading-none ${
+                    isPayoff ? "text-background/10" : "text-foreground/[0.06]"
+                  }`}
+                >
+                  {step.number}
+                </span>
+                <CardContent className="relative p-8">
+                  <div
+                    className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-transform group-hover:scale-110 ${
+                      isPayoff ? "bg-primary text-foreground" : "bg-primary/20 text-foreground"
+                    }`}
+                  >
+                    <step.icon className="w-6 h-6" strokeWidth={2.2} />
+                  </div>
+                  <h3 className={`text-xl font-bold mb-3 ${isPayoff ? "text-background" : ""}`}>{step.title}</h3>
+                  <p className={isPayoff ? "text-background/75" : "text-muted-foreground"}>{step.description}</p>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>
