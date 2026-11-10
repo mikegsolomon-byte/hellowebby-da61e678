@@ -49,7 +49,7 @@ const plans = [
 ];
 
 // Cost facts an agent needs to answer "what will this actually cost me?".
-// Keep in step with the FAQ and sections 2 and 5 of the Terms.
+// Keep in step with the FAQ and sections 2 and 6 of the Terms.
 const pricing = {
   currency: "EUR",
   setupFee: "None. There is no setup fee.",
