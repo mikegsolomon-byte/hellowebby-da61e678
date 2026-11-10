@@ -69,12 +69,12 @@ const groups: FaqGroup[] = [
       {
         question: "Is there a contract or minimum term?",
         answer:
-          "No long-term contract. After your first month you are committing one month at a time, and you are free to stay or go.",
+          "No long-term contract. The only commitment is your first 30 days. After that you can cancel anytime, with no notice period.",
       },
       {
         question: "What happens if I cancel?",
         answer:
-          "Monthly plans can be cancelled after your first month with 30 days' notice; annual plans just need notice at least 30 days before renewal. There are no cancellation fees, and no charge for taking your domain with you. You keep your domain name and all the content you gave us, plus the text and images we created for you, and on request we'll send a full export of your content within 30 days. When the subscription ends, hosting stops and the site goes offline, because our platform, templates and code stay with us.",
+          "Monthly plans can be cancelled anytime after your first 30 days, with no notice period — your site stays live until the end of the month you've paid for and you're not charged again. Annual plans just need notice at least 30 days before renewal. There are no cancellation fees, and no charge for taking your domain with you. You keep your domain name and all the content you gave us, plus the text and images we created for you, and on request we'll send a full export of your content within 30 days. When the subscription ends, hosting stops and the site goes offline, because our platform, templates and code stay with us.",
       },
       {
         question: "What happens if hellowebby closes?",

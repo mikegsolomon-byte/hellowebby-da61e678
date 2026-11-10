@@ -77,7 +77,7 @@ const Pricing = () => {
             Simple, <span className="gradient-text">honest pricing</span>
           </h2>
           <p className="text-lg text-muted-foreground mb-4">
-            One monthly fee. No hidden costs. No contracts after month one.
+            One monthly fee. No hidden costs. No contracts after your first 30 days.
           </p>
           <div className="mt-8 flex justify-center">
             <div className="inline-flex items-center gap-1 p-1 rounded-full border border-border bg-background/60 backdrop-blur">
@@ -126,7 +126,7 @@ const Pricing = () => {
                   )}
                 </div>
                 {billing === "monthly" ? (
-                  <p className="text-xs text-muted-foreground mb-3">Cancel after month 1 · 30 days’ notice · No exit fees</p>
+                  <p className="text-xs text-muted-foreground mb-3">Cancel anytime after your first 30 days · No exit fees</p>
                 ) : (
                   <p className="text-xs text-muted-foreground mb-3">≈ {plan.annualEquivalent}, billed annually</p>
                 )}

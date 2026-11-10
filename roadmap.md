@@ -8,3 +8,8 @@
 
 - [x] Add the exact closure clause, renumber sections and references, and add the FAQ.
 - [x] Bump the consent version and verify the unpublished changes.
+
+# Monthly cancellation wording
+
+- [ ] Update monthly cancellation wording everywhere while preserving annual rules and terms version.
+- [ ] Verify the wording, checkout consent tests, and unpublished pages.

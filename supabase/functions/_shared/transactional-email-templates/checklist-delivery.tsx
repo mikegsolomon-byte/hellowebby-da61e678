@@ -64,7 +64,7 @@ const Email = ({ name = 'there' }: Props) => {
             <Text style={ctaTitle}>Want us to handle all of this for you?</Text>
             <Text style={ctaText}>
               HelloWebby builds and looks after small business websites from €49/mo —
-              no upfront cost, Irish support, cancel anytime. Just hit reply and
+              no upfront cost, Irish support, cancel anytime after your first 30 days. Just hit reply and
               we'll take it from there.
             </Text>
           </Section>
