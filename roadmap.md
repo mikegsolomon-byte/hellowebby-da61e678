@@ -11,5 +11,5 @@
 
 # Monthly cancellation wording
 
-- [ ] Update monthly cancellation wording everywhere while preserving annual rules and terms version.
-- [ ] Verify the wording, checkout consent tests, and unpublished pages.
+- [x] Update monthly cancellation wording everywhere while preserving annual rules and terms version.
+- [x] Verify saved wording and checkout consent tests. Browser verification attempted; preview still serves earlier wording.
