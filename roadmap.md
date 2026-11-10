@@ -6,5 +6,5 @@
 - [x] Log each terms agreement in an admin-only record.
 # Business closure terms update
 
-- [ ] Add the exact closure clause, renumber sections and references, and add the FAQ.
-- [ ] Bump the consent version and verify the unpublished changes.
+- [x] Add the exact closure clause, renumber sections and references, and add the FAQ.
+- [x] Bump the consent version and verify the unpublished changes.
