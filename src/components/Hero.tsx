@@ -28,7 +28,7 @@ const Hero = () => {
           <span className="gradient-text">Unlimited changes.</span> €49/month.
         </h1>
         <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-8">
-          The website subscription for Irish small businesses — we design it, host it and update it whenever you need. No upfront agency fees. Cancel after your first month with 30 days’ notice.
+          The website subscription for Irish small businesses — we design it, host it and update it whenever you need. No upfront agency fees. Cancel anytime after your first 30 days.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
