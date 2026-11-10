@@ -76,6 +76,11 @@ const groups: FaqGroup[] = [
         answer:
           "Monthly plans can be cancelled after your first month with 30 days' notice; annual plans just need notice at least 30 days before renewal. There are no cancellation fees, and no charge for taking your domain with you. You keep your domain name and all the content you gave us, plus the text and images we created for you, and on request we'll send a full export of your content within 30 days. When the subscription ends, hosting stops and the site goes offline, because our platform, templates and code stay with us.",
       },
+      {
+        question: "What happens if hellowebby closes?",
+        answer:
+          "You won't be left stranded. We'd give you at least 60 days' notice, refund any time you've paid for but not used, and hand over your website at no charge: the site files and source code (as a Git repository export), a full export of your content, and your domain moved into an account you control. From then on hosting and upkeep would be yours to arrange. The full detail is in section 5 of our Terms.",
+      },
     ],
   },
   {

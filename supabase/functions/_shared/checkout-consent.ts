@@ -1,4 +1,4 @@
-export const TERMS_VERSION = "2026-10-27";
+export const TERMS_VERSION = "2026-11-10";
 
 export function hasValidTermsAcceptance(accepted: unknown, version: unknown): boolean {
   return accepted === true && version === TERMS_VERSION;
