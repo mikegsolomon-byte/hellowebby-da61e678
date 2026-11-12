@@ -24,11 +24,11 @@ const Hero = () => {
 
       <div className="container relative mx-auto max-w-5xl text-center z-10">
         <h1 className="text-[48px] md:text-6xl lg:text-7xl font-extrabold leading-[1.05] mb-6">
-          Your website. Built for you.{" "}
-          <span className="gradient-text">Unlimited changes.</span> €49/month.
+          High-performing websites built to grow your business.{" "}
+          <span className="gradient-text">From €49/month.</span>
         </h1>
         <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-8">
-          The website subscription for Irish small businesses — we design it, host it and update it whenever you need. No upfront agency fees. Cancel anytime after your first 30 days.
+          Stop settling for a static brochure that just sits there. We design, host, and actively maintain fast, conversion-focused websites for Irish small businesses — with unlimited updates included and no upfront agency fees. Cancel anytime after your first 30 days.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
