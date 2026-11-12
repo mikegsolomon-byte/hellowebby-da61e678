@@ -1,12 +1,20 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import PageMeta from "@/components/PageMeta";
+import { isTrackablePath, trackEvent } from "@/lib/analytics";
 
 const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
+    // Report real misses only; platform URLs land here too and are just noise.
+    if (isTrackablePath(location.pathname)) {
+      trackEvent("page_not_found", {
+        page_path: location.pathname,
+        referrer: document.referrer || "(none)",
+      });
+    }
   }, [location.pathname]);
 
   return (

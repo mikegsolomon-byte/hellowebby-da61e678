@@ -10,6 +10,7 @@ import SecureCheckout from "./pages/SecureCheckout";
 import CheckoutReturn from "./pages/CheckoutReturn";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import Unsubscribe from "./pages/Unsubscribe";
 import Industries from "./pages/Industries";
 import IndustryPage from "./pages/IndustryPage";
 import CookieConsent from "./components/CookieConsent";
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/checkout/return" element={<CheckoutReturn />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/unsubscribe" element={<Unsubscribe />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/industries/:slug" element={<IndustryPage />} />
           <Route path="/login" element={<OAuthLogin />} />

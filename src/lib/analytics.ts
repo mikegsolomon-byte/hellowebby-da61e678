@@ -25,6 +25,21 @@ declare global {
 
 let gaReady = false;
 
+/**
+ * Paths that are not application routes. The host serves index.html for
+ * anything it does not recognise, so platform requests (Lovable's own
+ * /__l5e/* instrumentation, stray asset URLs) boot the app and would
+ * otherwise be recorded as page views of the 404 page.
+ */
+const NON_ROUTE_PATH = /^\/(?:__l5e|assets|\.lovable)\//i;
+
+/** False for platform/asset URLs that only reach the app through the SPA fallback. */
+export function isTrackablePath(path: string): boolean {
+  const clean = path.split("?")[0];
+  if (NON_ROUTE_PATH.test(clean)) return false;
+  return !/\.[a-z0-9]{2,5}$/i.test(clean);
+}
+
 /** True only when the visitor has explicitly accepted optional analytics cookies. */
 export function hasAnalyticsConsent(): boolean {
   if (typeof window === "undefined") return false;
@@ -52,7 +67,16 @@ export function initAnalytics(): void {
   };
   window.gtag("set", "developer_id.dZjgwMW", true);
   window.gtag("js", new Date());
-  window.gtag("config", GA_ID, { anonymize_ip: true });
+  window.gtag("config", GA_ID, { anonymize_ip: true, send_page_view: false });
+
+  // Sent by hand so platform URLs never register as a page view.
+  if (isTrackablePath(window.location.pathname)) {
+    window.gtag("event", "page_view", {
+      page_path: window.location.pathname + window.location.search,
+      page_location: window.location.href,
+      page_title: document.title,
+    });
+  }
 
   if (!document.getElementById(GA_SCRIPT_ID)) {
     const script = document.createElement("script");
@@ -66,11 +90,18 @@ export function initAnalytics(): void {
 /** Send a page view for client-side route changes. No-op without consent. */
 export function trackPageView(path: string): void {
   if (!gaReady || !window.gtag || !hasAnalyticsConsent()) return;
+  if (!isTrackablePath(path)) return;
   window.gtag("event", "page_view", {
     page_path: path,
     page_location: window.location.href,
     page_title: document.title,
   });
+}
+
+/** Send a named GA event. No-op without consent. */
+export function trackEvent(name: string, params: Record<string, unknown> = {}): void {
+  if (!gaReady || !window.gtag || !hasAnalyticsConsent()) return;
+  window.gtag("event", name, params);
 }
 
 /** Stop Google Analytics and remove its cookies when consent is rejected/withdrawn. */
