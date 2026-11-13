@@ -28,11 +28,11 @@ const Index = () => {
     <div className="min-h-screen pb-20 md:pb-0">
       <Navigation />
       <Hero />
-      <RecentWork />
       <HowItWorks />
       <WhoIsThisFor />
       <WhatYouGet />
       <Pricing />
+      <RecentWork />
       <FAQ />
       <NewsletterCTA />
       <Footer />
