@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { useReveal } from "@/hooks/useReveal";
 import { ClipboardList, Laptop, Rocket } from "lucide-react";
+import { accentAt } from "@/config/accents";
 
 const steps = [
   {
@@ -39,8 +40,11 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <Card key={index} className="relative glass border-border/40 hover:border-primary/40 hover:-translate-y-1 transition-all">
               <CardContent className="p-8">
-                <div className="relative w-16 h-16 rounded-2xl bg-primary text-foreground border border-border flex items-center justify-center mb-4 mx-auto elev-1">
-                  <step.icon className="w-7 h-7" strokeWidth={2.5} />
+                <div
+                  className="relative w-16 h-16 rounded-full bg-card border-2 flex items-center justify-center mb-4 mx-auto elev-1"
+                  style={{ borderColor: accentAt(index).ring }}
+                >
+                  <step.icon className="w-7 h-7" style={{ color: accentAt(index).icon }} strokeWidth={2.2} aria-hidden="true" />
                 </div>
                 <div className="text-sm font-bold text-center text-muted-foreground mb-2">STEP {step.number}</div>
                 <h3 className="text-xl font-bold mb-3 text-center">{step.title}</h3>

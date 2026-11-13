@@ -10,6 +10,8 @@ import { Button } from "@/components/ui/button";
 import { getIndustry } from "@/data/industries";
 import NotFound from "./NotFound";
 import IntakeFormDialog, { START_PLAN, QUESTION_PLAN } from "@/components/IntakeFormDialog";
+import { industryAccent } from "@/config/accents";
+import { industryIcon } from "@/config/industryIcons";
 
 const IndustryPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -22,6 +24,9 @@ const IndustryPage = () => {
   };
 
   if (!industry) return <NotFound />;
+
+  const accent = industryAccent(industry.slug);
+  const PageIcon = industryIcon(industry.slug);
 
   const faqLd = {
     "@context": "https://schema.org",
@@ -50,7 +55,12 @@ const IndustryPage = () => {
         <section className="relative px-4 pt-32 pb-12 overflow-hidden">
           <div className="glow-orb bg-primary/25 w-[600px] h-[600px] -top-20 left-1/2 -translate-x-1/2 animate-pulse-glow" />
           <div className="container relative mx-auto max-w-3xl text-center">
-            <div className="text-5xl mb-4" aria-hidden="true">{industry.emoji}</div>
+            <div
+              className="w-16 h-16 rounded-full bg-card border-2 flex items-center justify-center mb-6 mx-auto elev-1"
+              style={{ borderColor: accent.ring }}
+            >
+              <PageIcon className="w-7 h-7" style={{ color: accent.icon }} strokeWidth={2} aria-hidden="true" />
+            </div>
             <h1 className="text-4xl md:text-5xl font-extrabold mb-5 leading-[1.1]">
               {industry.h1.split(" in Ireland")[0]}{" "}
               <span className="gradient-text">in Ireland</span>

@@ -1,5 +1,6 @@
 import { PenLine, RefreshCw, Search, ShieldCheck, Mail, LifeBuoy } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
+import { accentAt } from "@/config/accents";
 
 const benefits = [
   { Icon: PenLine, title: "Designed & built for you", description: "Answer a 10-minute form — we build a fast, mobile-friendly site" },
@@ -20,15 +21,21 @@ const WhatYouGet = () => {
           What You Get
         </h2>
         <div ref={reveal.ref} className={`grid md:grid-cols-2 lg:grid-cols-3 gap-8 ${reveal.className}`}>
-          {benefits.map((benefit, index) => (
+          {benefits.map((benefit, index) => {
+            const accent = accentAt(index);
+            return (
             <div key={index} className="glass rounded-2xl p-8 flex flex-col items-center text-center hover:border-primary/40 hover:-translate-y-1 transition-all">
-              <div className="w-14 h-14 rounded-xl bg-primary flex items-center justify-center mb-4">
-                <benefit.Icon className="w-6 h-6 text-foreground" strokeWidth={2} aria-hidden="true" />
+              <div
+                className="w-14 h-14 rounded-full bg-card border-2 flex items-center justify-center mb-4 elev-1"
+                style={{ borderColor: accent.ring }}
+              >
+                <benefit.Icon className="w-6 h-6" style={{ color: accent.icon }} strokeWidth={2} aria-hidden="true" />
               </div>
               <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
               <p className="text-muted-foreground">{benefit.description}</p>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

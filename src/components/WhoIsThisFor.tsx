@@ -1,6 +1,7 @@
 import { Scissors, Wrench, Coffee, Zap, HardHat, Briefcase, HeartPulse, ShoppingBag } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useReveal } from "@/hooks/useReveal";
+import { industryAccent } from "@/config/accents";
 
 const businesses = [
   { icon: Wrench, label: "Plumbers", slug: "plumbers" },
@@ -27,18 +28,24 @@ const WhoIsThisFor = () => {
           </p>
         </div>
         <div ref={reveal.ref} className={`grid grid-cols-2 md:grid-cols-4 gap-4 ${reveal.className}`}>
-          {businesses.map((b, i) => (
+          {businesses.map((b, i) => {
+            const accent = industryAccent(b.slug);
+            return (
             <Link
               key={i}
               to={`/industries/${b.slug}`}
               className="group glass rounded-2xl p-6 flex flex-col items-center text-center hover:-translate-y-1 hover:border-primary/40 transition-all"
             >
-              <div className="w-14 h-14 rounded-xl bg-primary border border-border flex items-center justify-center mb-3 elev-1 group-hover:scale-105 transition-transform">
-                <b.icon className="w-7 h-7 text-foreground" strokeWidth={2.5} />
+              <div
+                className="w-14 h-14 rounded-full bg-card border-2 flex items-center justify-center mb-3 elev-1 group-hover:scale-105 transition-transform"
+                style={{ borderColor: accent.ring }}
+              >
+                <b.icon className="w-7 h-7" style={{ color: accent.icon }} strokeWidth={2.2} aria-hidden="true" />
               </div>
               <p className="font-bold">{b.label}</p>
             </Link>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
