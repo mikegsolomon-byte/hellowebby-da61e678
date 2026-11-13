@@ -6,6 +6,7 @@ import { Check } from "lucide-react";
 import IntakeFormDialog, { FREE_PREVIEW_PLAN, QUESTION_PLAN } from "./IntakeFormDialog";
 // Founding-offer copy and figures live in one place — see src/config/foundingOffer.ts.
 import { GROWTH_FIRST_YEAR, GROWTH_FIRST_YEAR_BREAKDOWN } from "@/config/foundingOffer";
+import { useReveal } from "@/hooks/useReveal";
 
 const plans = [
   {
@@ -63,6 +64,7 @@ const plans = [
 ];
 
 const Pricing = () => {
+  const reveal = useReveal();
   const [formOpen, setFormOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState("");
   const [billing, setBilling] = useState<"monthly" | "annual">("monthly");
@@ -101,7 +103,7 @@ const Pricing = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        <div ref={reveal.ref} className={`grid md:grid-cols-3 gap-8 mb-12 ${reveal.className}`}>
           {plans.map((plan, index) => (
             <Card key={index} className={`relative glass transition-all hover:-translate-y-1 ${plan.popular ? 'border-foreground border-t-[5px] border-t-primary elev-2 scale-[1.02]' : 'hover:border-primary/40'}`}>
               {plan.popular && (

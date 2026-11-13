@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { useReveal } from "@/hooks/useReveal";
 import { ClipboardList, Laptop, Rocket } from "lucide-react";
 
 const steps = [
@@ -23,6 +24,7 @@ const steps = [
 ];
 
 const HowItWorks = () => {
+  const reveal = useReveal();
   return (
     <section id="how-it-works" className="relative px-4 section-light overflow-hidden py-20">
       <div className="glow-orb bg-primary/20 w-[500px] h-[500px] top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 animate-pulse-glow" />
@@ -32,7 +34,7 @@ const HowItWorks = () => {
             Up and running in <span className="gradient-text">3 simple steps</span>
           </h2>
         </div>
-        <div className="relative grid md:grid-cols-3 gap-8">
+        <div ref={reveal.ref} className={`relative grid md:grid-cols-3 gap-8 ${reveal.className}`}>
           <div className="hidden md:block absolute top-16 left-[16%] right-[16%] h-[2px] bg-foreground/15" aria-hidden="true" />
           {steps.map((step, index) => (
             <Card key={index} className="relative glass border-border/40 hover:border-primary/40 hover:-translate-y-1 transition-all">

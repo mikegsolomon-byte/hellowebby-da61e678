@@ -1,5 +1,6 @@
 import { Scissors, Wrench, Coffee, Zap, HardHat, Briefcase, HeartPulse, ShoppingBag } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useReveal } from "@/hooks/useReveal";
 
 const businesses = [
   { icon: Wrench, label: "Plumbers", slug: "plumbers" },
@@ -13,6 +14,7 @@ const businesses = [
 ];
 
 const WhoIsThisFor = () => {
+  const reveal = useReveal();
   return (
     <section className="relative px-4 section-light overflow-hidden py-20">
       <div className="container mx-auto max-w-6xl">
@@ -24,7 +26,7 @@ const WhoIsThisFor = () => {
             Tap your industry to see how we help — and what your website could do for you.
           </p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div ref={reveal.ref} className={`grid grid-cols-2 md:grid-cols-4 gap-4 ${reveal.className}`}>
           {businesses.map((b, i) => (
             <Link
               key={i}

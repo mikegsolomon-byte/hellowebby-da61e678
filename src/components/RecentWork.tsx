@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { useReveal } from "@/hooks/useReveal";
 
 const works = [
   {
@@ -28,6 +29,7 @@ const works = [
 ];
 
 const RecentWork = () => {
+  const reveal = useReveal();
   return (
     <section id="recent-work" className="relative px-4 overflow-hidden py-[72px] md:py-[96px]">
       <div className="glow-orb bg-primary/20 w-[450px] h-[450px] top-1/3 right-0 animate-float-slow" />
@@ -44,7 +46,7 @@ const RecentWork = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        <div ref={reveal.ref} className={`grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 ${reveal.className}`}>
           {works.map((work, index) => (
             <a
               key={index}
