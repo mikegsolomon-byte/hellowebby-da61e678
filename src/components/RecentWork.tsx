@@ -1,7 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
 import emcallScreenshot from "@/assets/emcall-screenshot.png.asset.json";
-import smartDefibsScreenshot from "@/assets/smart-defibs-screenshot.png.asset.json";
-import invoicePalScreenshot from "@/assets/invoice-pal-screenshot.png.asset.json";
 
 const works = [
   {
@@ -9,7 +7,7 @@ const works = [
     category: "Medical",
     outcome: "Subscription defibrillator service with plans, training and an online product catalogue.",
     url: "https://www.smartdefibs.com",
-    image: smartDefibsScreenshot.url,
+    image: "/recent-work/smart-defibs.png",
     thumb: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.smartdefibs.com?w=1200",
   },
   {
@@ -17,7 +15,7 @@ const works = [
     category: "SaaS",
     outcome: "A voice-to-invoice app that turns a spoken job description into a professional invoice in seconds.",
     url: "https://invoicepal.net",
-    image: invoicePalScreenshot.url,
+    image: "/recent-work/invoice-pal.png",
     thumb: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Finvoicepal.net?w=1200",
   },
   {
