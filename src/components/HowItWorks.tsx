@@ -83,7 +83,7 @@ const HowItWorks = () => {
   const reveal = useReveal();
 
   return (
-    <section id="how-it-works" className="relative px-4 section-light overflow-hidden py-28 md:py-36">
+    <section id="how-it-works" className="relative px-4 section-light overflow-hidden py-16 md:py-24">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-14 md:mb-16">
           <p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground mb-3">How it works</p>

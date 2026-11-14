@@ -161,7 +161,7 @@ const FAQ = () => {
   const [formOpen, setFormOpen] = useState(false);
 
   return (
-    <section id="faq" className="relative px-4 overflow-hidden py-28 md:py-36">
+    <section id="faq" className="relative px-4 overflow-hidden py-16 md:py-24">
       <div className="glow-orb bg-primary/15 w-[500px] h-[500px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse-glow" />
       <div className="container relative mx-auto max-w-3xl">
         <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4">

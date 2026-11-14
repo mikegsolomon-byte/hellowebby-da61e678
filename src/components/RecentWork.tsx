@@ -31,7 +31,7 @@ const works = [
 const RecentWork = () => {
   const reveal = useReveal();
   return (
-    <section id="recent-work" className="relative px-4 section-light overflow-hidden py-28 md:py-40">
+    <section id="recent-work" className="relative px-4 section-light overflow-hidden py-16 md:py-28">
       <div className="glow-orb bg-primary/20 w-[450px] h-[450px] top-1/3 right-0 animate-float-slow" />
       <div className="container relative mx-auto max-w-7xl">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-20 gap-8">
