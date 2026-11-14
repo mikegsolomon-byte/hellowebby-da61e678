@@ -71,7 +71,7 @@ const Pricing = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="pricing" className="relative px-4 overflow-hidden py-28 md:py-36">
+    <section id="pricing" className="relative px-4 overflow-hidden py-16 md:py-24">
       <div className="glow-orb bg-primary/25 w-[600px] h-[600px] top-10 left-1/2 -translate-x-1/2 animate-pulse-glow" />
       <div className="container relative mx-auto max-w-7xl">
         <div className="text-center mb-10">

@@ -17,7 +17,7 @@ const businesses = [
 const WhoIsThisFor = () => {
   const reveal = useReveal();
   return (
-    <section className="relative px-4 py-28 md:py-36 border-t border-border">
+    <section className="relative px-4 py-16 md:py-24 border-t border-border">
       {/* Divider between the three steps and the industries: the band changes
           from white to cream, with a marker sitting on the seam. */}
       <div

@@ -14,7 +14,7 @@ const benefits = [
 const WhatYouGet = () => {
   const reveal = useReveal();
   return (
-    <section id="features" className="relative px-4 section-light overflow-hidden py-28 md:py-36">
+    <section id="features" className="relative px-4 section-light overflow-hidden py-16 md:py-24">
       <div className="glow-orb bg-accent/20 w-[400px] h-[400px] -bottom-20 -left-20 animate-float-slow" />
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16">
