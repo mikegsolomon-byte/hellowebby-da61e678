@@ -32,7 +32,7 @@ const Industries = () => {
           </div>
         </section>
 
-        <section className="relative px-4 section-light overflow-hidden py-20">
+        <section className="relative px-4 section-light overflow-hidden py-28 md:py-36">
           <div className="container mx-auto max-w-6xl">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {industries.map((industry) => {

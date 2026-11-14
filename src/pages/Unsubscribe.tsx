@@ -29,7 +29,7 @@ const Unsubscribe = () => {
               Email{" "}
               <a
                 href="mailto:hello@hellowebby.com?subject=Unsubscribe"
-                className="font-semibold underline underline-offset-4 hover:text-primary transition-colors"
+                className="font-semibold underline underline-offset-4 hover:text-accent-ink transition-colors"
               >
                 hello@hellowebby.com
               </a>{" "}
@@ -44,7 +44,7 @@ const Unsubscribe = () => {
 
           <p className="mt-8 text-sm text-muted-foreground">
             For anything else about your data, see our{" "}
-            <a href="/privacy" className="font-semibold underline underline-offset-4 hover:text-primary transition-colors">
+            <a href="/privacy" className="font-semibold underline underline-offset-4 hover:text-accent-ink transition-colors">
               Privacy Policy
             </a>
             .

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 import logoMark from "@/assets/hellowebby-mark.png";
 import IntakeFormDialog from "./IntakeFormDialog";
 
@@ -19,7 +19,7 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-background/85 backdrop-blur-xl z-50 border-b-2 border-foreground">
+    <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-xl z-50 border-b border-border">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center gap-2.5">
@@ -60,7 +60,16 @@ const Navigation = () => {
             </button>
           </div>
 
-          <Button className="rounded-full px-5 border border-border elev-1 hover:-translate-y-0.5 transition-all" onClick={() => scrollToSection("pricing")}>Get My Website Started</Button>
+          <button
+            type="button"
+            className="btn-ink text-sm h-10 pl-5"
+            onClick={() => scrollToSection("pricing")}
+          >
+            Get my website
+            <span className="btn-ink-chip w-7 h-7" aria-hidden="true">
+              <ArrowRight className="w-3.5 h-3.5" strokeWidth={2.6} />
+            </span>
+          </button>
         </div>
       </div>
       <IntakeFormDialog open={formOpen} onOpenChange={setFormOpen} selectedPlan="General enquiry" />

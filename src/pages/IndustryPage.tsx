@@ -67,7 +67,7 @@ const IndustryPage = () => {
             </h1>
             <p className="text-lg text-muted-foreground mb-8">{industry.intro}</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button size="lg" className="rounded-full ring-glow" onClick={() => openForm(START_PLAN)}>
+              <Button size="lg" className="rounded-full" onClick={() => openForm(START_PLAN)}>
                 Get my website <ArrowRight className="w-4 h-4" />
               </Button>
               <Button asChild size="lg" variant="outline" className="rounded-full">
@@ -78,7 +78,7 @@ const IndustryPage = () => {
         </section>
 
         {/* Benefits */}
-        <section className="relative px-4 section-light overflow-hidden py-20">
+        <section className="relative px-4 section-light overflow-hidden py-28 md:py-36">
           <div className="container mx-auto max-w-6xl">
             <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-10">
               Why {industry.name.toLowerCase()} need a{" "}
@@ -96,7 +96,7 @@ const IndustryPage = () => {
         </section>
 
         {/* What's included */}
-        <section className="relative px-4 overflow-hidden py-20">
+        <section className="relative px-4 overflow-hidden py-28 md:py-36">
           <div className="container mx-auto max-w-3xl">
             <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-8">
               What&apos;s included
@@ -105,7 +105,7 @@ const IndustryPage = () => {
               <ul className="space-y-3">
                 {industry.included.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <Check className="w-5 h-5 text-accent-ink flex-shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -118,7 +118,7 @@ const IndustryPage = () => {
         {industry.slug === "therapists-and-clinics" && <ClinicBriefGenerator />}
 
         {/* FAQ */}
-        <section className="relative px-4 section-light overflow-hidden py-20">
+        <section className="relative px-4 section-light overflow-hidden py-28 md:py-36">
           <div className="container mx-auto max-w-3xl">
             <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-8">
               Frequently asked questions
@@ -145,7 +145,7 @@ const IndustryPage = () => {
               We design, build, host and update it for you — from €49/month, live within a few days.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button size="lg" className="rounded-full ring-glow" onClick={() => openForm(START_PLAN)}>
+              <Button size="lg" className="rounded-full" onClick={() => openForm(START_PLAN)}>
                 Get my website <ArrowRight className="w-4 h-4" />
               </Button>
               <Button size="lg" variant="outline" className="rounded-full" onClick={() => openForm(QUESTION_PLAN)}>

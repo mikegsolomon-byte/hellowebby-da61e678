@@ -71,7 +71,7 @@ const Pricing = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="pricing" className="relative px-4 section-light overflow-hidden py-20">
+    <section id="pricing" className="relative px-4 overflow-hidden py-28 md:py-36">
       <div className="glow-orb bg-primary/25 w-[600px] h-[600px] top-10 left-1/2 -translate-x-1/2 animate-pulse-glow" />
       <div className="container relative mx-auto max-w-7xl">
         <div className="text-center mb-10">
@@ -139,7 +139,7 @@ const Pricing = () => {
               <CardContent className="space-y-3">
                 {plan.features.map((feature, idx) => (
                   <div key={idx} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <Check className="w-5 h-5 text-accent-ink flex-shrink-0 mt-0.5" />
                     <span className="text-sm">{feature}</span>
                   </div>
                 ))}
@@ -185,7 +185,7 @@ const Pricing = () => {
                   setSelectedPlan(QUESTION_PLAN);
                   setFormOpen(true);
                 }}
-                className="text-sm font-semibold underline underline-offset-4 hover:text-primary transition-colors"
+                className="text-sm font-semibold underline underline-offset-4 hover:text-accent-ink transition-colors"
               >
                 Ask a question first
               </button>
@@ -193,7 +193,7 @@ const Pricing = () => {
               <button
                 type="button"
                 onClick={() => document.getElementById("faq")?.scrollIntoView({ behavior: "smooth" })}
-                className="text-sm font-semibold underline underline-offset-4 hover:text-primary transition-colors"
+                className="text-sm font-semibold underline underline-offset-4 hover:text-accent-ink transition-colors"
               >
                 Read the FAQ
               </button>

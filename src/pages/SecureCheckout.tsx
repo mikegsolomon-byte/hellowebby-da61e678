@@ -130,7 +130,7 @@ export default function SecureCheckout() {
               <section>
                 <div className="flex items-baseline justify-between mb-3">
                   <Label className="text-sm font-semibold flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-primary/15 text-primary grid place-items-center text-[11px] font-bold">1</span>
+                    <span className="w-5 h-5 rounded-full bg-primary/15 text-accent-ink grid place-items-center text-[11px] font-bold">1</span>
                     Choose your plan
                   </Label>
                   <span className="text-xs text-muted-foreground">Change anytime</span>
@@ -177,7 +177,7 @@ export default function SecureCheckout() {
                                 active ? "border-primary bg-primary" : "border-border"
                               }`}
                             >
-                              {active && <Check className="w-3 h-3 text-primary-foreground" strokeWidth={3} />}
+                              {active && <Check className="w-3 h-3 text-accent-ink-foreground" strokeWidth={3} />}
                             </span>
                             <div>
                               <div className="font-semibold">{p.name}</div>
@@ -197,7 +197,7 @@ export default function SecureCheckout() {
 
               <section>
                 <Label htmlFor="email" className="text-sm font-semibold mb-2 flex items-center gap-2">
-                  <span className="w-5 h-5 rounded-full bg-primary/15 text-primary grid place-items-center text-[11px] font-bold">2</span>
+                  <span className="w-5 h-5 rounded-full bg-primary/15 text-accent-ink grid place-items-center text-[11px] font-bold">2</span>
                   Your email
                   <span className="text-destructive" aria-hidden>*</span>
                 </Label>
@@ -228,7 +228,7 @@ export default function SecureCheckout() {
 
               <section className="rounded-xl border border-border/40 bg-background/40 p-5 space-y-2">
                 <div className="flex items-center gap-2 text-sm font-semibold mb-1">
-                  <Sparkles className="w-4 h-4 text-primary" />
+                  <Sparkles className="w-4 h-4 text-accent-ink" />
                   Order summary
                 </div>
                 <div className="flex justify-between text-sm">
@@ -269,7 +269,7 @@ export default function SecureCheckout() {
                     <Label htmlFor="terms-accepted" className="font-normal cursor-pointer">
                       I have read, understood and agree to the
                     </Label>{" "}
-                    <a href="/terms" target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-4 hover:text-primary">
+                    <a href="/terms" target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-4 hover:text-accent-ink">
                       Terms and Conditions<span className="sr-only"> (opens in a new tab)</span>
                     </a>
                     , including recurring billing and cancellation terms.

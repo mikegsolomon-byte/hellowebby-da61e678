@@ -76,7 +76,7 @@ export default function OAuthConsent() {
           <>
             <p className="text-lg mb-5"><strong>{details.client.name}</strong> wants to connect to your hellowebby account.</p>
             <div className="rounded-md border border-border bg-muted p-4 mb-6 space-y-3">
-              <p className="flex gap-2"><ShieldCheck className="w-5 h-5 text-primary shrink-0" /> It can view current website plans and submit enquiries after you confirm them.</p>
+              <p className="flex gap-2"><ShieldCheck className="w-5 h-5 text-accent-ink shrink-0" /> It can view current website plans and submit enquiries after you confirm them.</p>
               <p className="text-sm text-muted-foreground">Signed in as {details.user.email}</p>
             </div>
             <div className="flex flex-col-reverse sm:flex-row gap-3 sm:justify-end">

@@ -23,6 +23,9 @@ export default {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
+        /* Deep amber for accent TEXT on light grounds. The brand yellow is a
+           marker, not a text colour: at 1.4:1 on cream it cannot be read. */
+        "accent-ink": "hsl(var(--accent-ink))",
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",

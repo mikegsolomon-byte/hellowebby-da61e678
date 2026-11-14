@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import IntakeFormDialog, { QUESTION_PLAN, START_PLAN } from "./IntakeFormDialog";
-import { Check } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 
 const Hero = () => {
   const [formOpen, setFormOpen] = useState(false);
@@ -30,22 +29,24 @@ const Hero = () => {
         <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-8">
           Stop settling for a static brochure that just sits there. We design, host, and actively maintain fast, conversion-focused websites for Irish small businesses — with unlimited updates included and no upfront agency fees. Cancel anytime after your first 30 days.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button
-            size="lg"
-            className="rounded-2xl text-base px-8 bg-primary text-foreground hover:bg-primary/90 border-0 ring-glow hover:-translate-y-0.5 transition-all"
+        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+          <button
+            type="button"
+            className="btn-ink text-base h-[52px]"
             onClick={() => openForm(START_PLAN)}
           >
             Get my website
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="rounded-2xl text-base px-8 bg-background border border-border text-foreground hover:bg-muted elev-1 hover:-translate-y-0.5 transition-all"
+            <span className="btn-ink-chip w-9 h-9" aria-hidden="true">
+              <ArrowRight className="w-[18px] h-[18px]" strokeWidth={2.6} />
+            </span>
+          </button>
+          <button
+            type="button"
+            className="inline-flex items-center justify-center h-[52px] rounded-full px-7 text-base font-semibold bg-card border border-border text-foreground hover:bg-muted elev-1 hover:-translate-y-0.5 transition-all"
             onClick={() => openForm(QUESTION_PLAN)}
           >
             Ask a question first
-          </Button>
+          </button>
         </div>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm font-medium text-foreground/80">

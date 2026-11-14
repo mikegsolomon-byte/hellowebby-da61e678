@@ -105,7 +105,7 @@ export default function CheckoutReturn() {
         <div className="glass rounded-2xl p-8 text-center">
           {loading ? (
             <>
-              <Loader2 className="w-12 h-12 mx-auto mb-4 animate-spin text-primary" />
+              <Loader2 className="w-12 h-12 mx-auto mb-4 animate-spin text-accent-ink" />
               <h1 className="text-2xl font-bold mb-2">Confirming your payment…</h1>
               <p className="text-muted-foreground">Hang tight, this only takes a moment.</p>
             </>
@@ -121,7 +121,7 @@ export default function CheckoutReturn() {
           ) : paid ? (
             <>
               <div className="w-16 h-16 mx-auto mb-5 rounded-full bg-primary/15 border border-primary/40 flex items-center justify-center">
-                <CheckCircle2 className="w-9 h-9 text-primary" />
+                <CheckCircle2 className="w-9 h-9 text-accent-ink" />
               </div>
               <h1 className="text-3xl md:text-4xl font-extrabold mb-2">
                 You're <span className="gradient-text">all set</span>
@@ -132,7 +132,7 @@ export default function CheckoutReturn() {
             </>
           ) : (
             <>
-              <Loader2 className="w-12 h-12 mx-auto mb-4 animate-spin text-primary" />
+              <Loader2 className="w-12 h-12 mx-auto mb-4 animate-spin text-accent-ink" />
               <h1 className="text-2xl font-bold mb-2">Payment pending</h1>
               <p className="text-muted-foreground">
                 Status: <span className="font-medium">{data?.paymentStatus ?? "processing"}</span>. We'll email you once it clears.
@@ -145,7 +145,7 @@ export default function CheckoutReturn() {
         {data && data.lineItems.length > 0 && (
           <div className="glass rounded-2xl p-6">
             <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-              <FileText className="w-5 h-5 text-primary" /> Order summary
+              <FileText className="w-5 h-5 text-accent-ink" /> Order summary
             </h2>
             <div className="divide-y divide-border/40">
               {data.lineItems.map((li, i) => (
@@ -180,7 +180,7 @@ export default function CheckoutReturn() {
         {paid && (
           <div className="glass rounded-2xl p-6">
             <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-primary" /> What happens next
+              <Sparkles className="w-5 h-5 text-accent-ink" /> What happens next
             </h2>
             <ol className="space-y-4">
               {[
@@ -202,7 +202,7 @@ export default function CheckoutReturn() {
               ].map((s, i) => (
                 <li key={i} className="flex gap-4">
                   <div className="shrink-0 w-10 h-10 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center">
-                    <s.icon className="w-5 h-5 text-primary" />
+                    <s.icon className="w-5 h-5 text-accent-ink" />
                   </div>
                   <div>
                     <div className="font-medium">{s.title}</div>

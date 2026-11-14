@@ -101,7 +101,7 @@ const Terms = () => {
               <h2 className="text-2xl font-bold mb-3">15. Contact and complaints</h2>
               <p className="text-muted-foreground mt-3">{"For cancellation, billing, service issues or complaints, email hello@hellowebby.com with your name, order details and a description of the issue. We will acknowledge your complaint and work with you towards a resolution. This does not require you to waive legal rights or delay seeking a remedy. Consumers can also obtain guidance from the Competition and Consumer Protection Commission at ccpc.ie."}</p>
             </section>
-            <p className="text-sm text-muted-foreground">Read our <a href="/privacy" className="font-semibold underline underline-offset-4 hover:text-primary">Privacy Policy</a>.</p>
+            <p className="text-sm text-muted-foreground">Read our <a href="/privacy" className="font-semibold underline underline-offset-4 hover:text-accent-ink">Privacy Policy</a>.</p>
           </div>
         </div>
       </main>

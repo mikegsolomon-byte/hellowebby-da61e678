@@ -18,8 +18,9 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 8%;
 
-    --primary: 49 100% 52%;           /* HelloWebby yellow */
+    --primary: 49 100% 52%;           /* HelloWebby yellow — a marker, not a text colour */
     --primary-foreground: 0 0% 8%;
+    --accent-ink: 42 100% 24%;        /* deep amber for accent text, 6:1 on the cream ground */
 
     --secondary: 0 0% 8%;             /* black for contrast blocks */
     --secondary-foreground: 49 100% 60%;
@@ -112,11 +113,50 @@ All colors MUST be HSL.
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, sans-serif;
     font-feature-settings: "ss01", "cv11";
+    position: relative;
+  }
+
+  /* One warm wash at the top of the page that fades out, instead of blurred
+     orbs floating in every section. It scrolls away with the page. */
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 540px;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 60% 72% at 20% 0%, hsl(44 100% 72% / 0.80) 0%, hsl(46 100% 85% / 0.55) 40%, transparent 76%),
+      radial-gradient(ellipse 62% 74% at 80% 0%, hsl(39 100% 76% / 0.72) 0%, hsl(45 100% 89% / 0.55) 42%, transparent 78%);
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 30%, transparent 92%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 30%, transparent 92%);
   }
 
   h1, h2, h3 {
     font-family: 'Bricolage Grotesque', 'Inter', sans-serif;
     letter-spacing: -0.02em;
+  }
+
+  /* Display headings read bigger when they are tighter and lighter, not heavier.
+     The components still carry Tailwind's font-extrabold / font-bold; these
+     selectors are one specificity step above a utility class, so the weight is
+     set here rather than in twenty files. */
+  h1.font-extrabold,
+  h2.font-extrabold,
+  h3.font-extrabold,
+  h1.font-bold,
+  h2.font-bold {
+    font-weight: 600;
+  }
+
+  h1, h2 {
+    letter-spacing: -0.042em;
+  }
+
+  h3 {
+    letter-spacing: -0.03em;
   }
 
   html {
@@ -154,14 +194,19 @@ All colors MUST be HSL.
     }
   }
 
+  /* The one accent phrase in a heading. Serif italic in deep amber: the yellow
+     itself is too light to carry text, so it marks instead (chips, fills) and
+     this darker amber speaks. 6:1 on the cream ground. Class name kept so every
+     existing heading picks it up. */
   .gradient-text {
-    color: hsl(var(--foreground));
-    background: linear-gradient(180deg, transparent 62%, hsl(var(--primary)) 62%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    padding: 0 0.15em;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
+    font-family: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.05em;
+    letter-spacing: -0.015em;
+    color: hsl(42 100% 24%);
+    background: none;
+    padding: 0;
   }
 
   .section-light {
@@ -183,15 +228,42 @@ All colors MUST be HSL.
     box-shadow: 0 1px 2px hsl(var(--foreground) / 0.06), 0 10px 24px hsl(var(--foreground) / 0.08);
   }
 
+  /* Retired: the page now carries one wash at the top (body::before) rather
+     than an orb per section. The markup stays so this is a one-line revert. */
   .glow-orb {
-    position: absolute;
-    border-radius: 9999px;
-    filter: blur(120px);
-    pointer-events: none;
-    opacity: 0.22;
+    display: none;
   }
 
-  /* Warm lift for the primary, yellow call to action. */
+  /* Primary call to action: ink pill, yellow arrow chip. Colour points at the
+     action instead of filling it. */
+  .btn-ink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: hsl(var(--foreground));
+    color: hsl(0 0% 100%);
+    border-radius: 9999px;
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+    font-weight: 600;
+    box-shadow: 0 12px 32px -14px hsl(var(--foreground) / 0.45);
+    transition: transform 160ms ease, box-shadow 160ms ease;
+  }
+
+  .btn-ink:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 34px -14px hsl(var(--foreground) / 0.5);
+  }
+
+  .btn-ink-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background: hsl(var(--primary));
+    color: hsl(var(--foreground));
+    flex: none;
+  }
+
   .ring-glow {
     box-shadow: 0 1px 2px hsl(var(--foreground) / 0.10), 0 10px 22px hsl(45 100% 42% / 0.32);
   }

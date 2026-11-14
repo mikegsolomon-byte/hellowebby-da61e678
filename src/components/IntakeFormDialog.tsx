@@ -183,7 +183,7 @@ const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan", ini
         {success ? (
           <div className="relative py-8 text-center space-y-4">
             <div className="mx-auto w-16 h-16 rounded-full bg-primary/15 flex items-center justify-center ring-glow">
-              <CheckCircle2 className="w-8 h-8 text-primary" />
+              <CheckCircle2 className="w-8 h-8 text-accent-ink" />
             </div>
             <DialogHeader className="space-y-2">
               <DialogTitle className="text-2xl text-center">You're in 🎉</DialogTitle>
@@ -205,7 +205,7 @@ const IntakeFormDialog = ({ open, onOpenChange, selectedPlan = "Basic Plan", ini
         ) : (
           <div className="relative">
             <DialogHeader className="space-y-2">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-primary/80">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-accent-ink">
                 <Sparkles className="w-3.5 h-3.5" /> {submittedPlan}
               </div>
               <DialogTitle className="text-2xl">

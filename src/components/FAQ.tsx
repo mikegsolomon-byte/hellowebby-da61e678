@@ -35,12 +35,12 @@ const groups: FaqGroup[] = [
         answer: (
           <>
             Yes — you can{" "}
-            <a href="#recent-work" className="underline underline-offset-4 font-semibold hover:text-primary transition-colors">
+            <a href="#recent-work" className="underline underline-offset-4 font-semibold hover:text-accent-ink transition-colors">
               see our recent work
             </a>{" "}
             further up this page, including Smart Defibs (medical equipment) and Emcall (a public-safety app for
             finding the nearest defibrillator). We've also written up how we approach sites for{" "}
-            <Link to="/industries/therapists-and-clinics" className="underline underline-offset-4 font-semibold hover:text-primary transition-colors">
+            <Link to="/industries/therapists-and-clinics" className="underline underline-offset-4 font-semibold hover:text-accent-ink transition-colors">
               therapists and clinics
             </Link>
             . If you'd like to see something closer to your own practice, just ask and we'll send relevant examples.
@@ -142,7 +142,7 @@ const groups: FaqGroup[] = [
           <>
             Up to a point, and we'll be straight with you about where that point is. Every site comes with an SSL
             certificate, a{" "}
-            <Link to="/privacy" className="underline underline-offset-4 font-semibold hover:text-primary transition-colors">
+            <Link to="/privacy" className="underline underline-offset-4 font-semibold hover:text-accent-ink transition-colors">
               privacy policy
             </Link>{" "}
             page we tailor to your business, and contact forms that collect only what is needed to reply to an
@@ -161,7 +161,7 @@ const FAQ = () => {
   const [formOpen, setFormOpen] = useState(false);
 
   return (
-    <section id="faq" className="relative px-4 overflow-hidden py-20">
+    <section id="faq" className="relative px-4 overflow-hidden py-28 md:py-36">
       <div className="glow-orb bg-primary/15 w-[500px] h-[500px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse-glow" />
       <div className="container relative mx-auto max-w-3xl">
         <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4">
@@ -174,7 +174,7 @@ const FAQ = () => {
         <div className="space-y-10">
           {groups.map((group, groupIndex) => (
             <div key={group.title}>
-              <h3 className="text-sm font-bold uppercase tracking-widest text-primary/80 mb-2">
+              <h3 className="text-sm font-bold uppercase tracking-widest text-accent-ink mb-2">
                 {group.title}
               </h3>
               <Accordion type="single" collapsible className="w-full">
@@ -200,7 +200,7 @@ const FAQ = () => {
             </Button>
             <a
               href="mailto:hello@hellowebby.com"
-              className="text-sm font-semibold underline underline-offset-4 hover:text-primary transition-colors"
+              className="text-sm font-semibold underline underline-offset-4 hover:text-accent-ink transition-colors"
             >
               or email hello@hellowebby.com
             </a>

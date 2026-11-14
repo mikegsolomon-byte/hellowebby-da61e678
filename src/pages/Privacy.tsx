@@ -24,7 +24,7 @@ const Privacy = () => {
               <p className="text-muted-foreground">
                 hellowebby, Ireland, is the data controller for the personal data described in this policy. You can
                 contact us at any time at{" "}
-                <a href="mailto:hello@hellowebby.com" className="underline underline-offset-4 font-semibold hover:text-primary transition-colors">hello@hellowebby.com</a>.
+                <a href="mailto:hello@hellowebby.com" className="underline underline-offset-4 font-semibold hover:text-accent-ink transition-colors">hello@hellowebby.com</a>.
               </p>
               
             </section>
@@ -116,7 +116,7 @@ const Privacy = () => {
               </ul>
               <p className="text-muted-foreground mt-3">
                 You can exercise any of these rights by emailing{" "}
-                <a href="mailto:hello@hellowebby.com" className="underline underline-offset-4 font-semibold hover:text-primary transition-colors">hello@hellowebby.com</a>.
+                <a href="mailto:hello@hellowebby.com" className="underline underline-offset-4 font-semibold hover:text-accent-ink transition-colors">hello@hellowebby.com</a>.
                 You also have the right to lodge a complaint with the Data Protection Commission (dataprotection.ie).
               </p>
             </section>
@@ -159,7 +159,7 @@ const Privacy = () => {
               </ul>
               <p className="text-muted-foreground mt-3">
                 We do not use advertising cookies. You can change your choice anytime using "Cookie preferences" in the footer. If you have questions about our analytics, email us at{" "}
-                <a href="mailto:hello@hellowebby.com" className="underline underline-offset-4 font-semibold hover:text-primary transition-colors">hello@hellowebby.com</a>.
+                <a href="mailto:hello@hellowebby.com" className="underline underline-offset-4 font-semibold hover:text-accent-ink transition-colors">hello@hellowebby.com</a>.
               </p>
             </section>
           </div>

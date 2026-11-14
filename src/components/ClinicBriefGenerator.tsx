@@ -214,7 +214,7 @@ const ClinicBriefGenerator = () => {
     .slice(0, 12000);
 
   return (
-    <section id="clinic-brief" className="relative px-4 section-light overflow-hidden py-20">
+    <section id="clinic-brief" className="relative px-4 section-light overflow-hidden py-28 md:py-36">
       <div className="glow-orb bg-primary/20 w-[520px] h-[520px] top-10 left-1/2 -translate-x-1/2 animate-pulse-glow" />
       <div className="container relative mx-auto max-w-5xl">
         <div className="text-center mb-10">
