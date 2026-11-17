@@ -13,7 +13,6 @@ import PageMeta from "@/components/PageMeta";
 type PlanKey = "starter" | "growth" | "pro";
 type Billing = "monthly" | "annual";
 
-// TODO: annual recurring prices must be created in Stripe / Lovable payments config before this goes live — these IDs are placeholders.
 const PLANS: Record<
   PlanKey,
   {
