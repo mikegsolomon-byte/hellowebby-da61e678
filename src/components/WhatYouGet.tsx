@@ -6,7 +6,7 @@ const benefits = [
   { Icon: PenLine, title: "Designed & built for you", description: "Answer a 10-minute form — we build a fast, mobile-friendly site" },
   { Icon: RefreshCw, title: "Unlimited updates included", description: "Email us any change — we make it, no extra fees" },
   { Icon: Search, title: "Set up to be found on Google", description: "Proper SEO on every page" },
-  { Icon: ShieldCheck, title: "Hosting, domain & SSL handled", description: "No tech admin, ever" },
+  { Icon: ShieldCheck, title: "Hosting, .com domain & SSL handled", description: "No tech admin, ever" },
   { Icon: Mail, title: "Leads straight to your inbox", description: "Contact and enquiry forms included" },
   { Icon: LifeBuoy, title: "Real support from Ireland", description: "Email us — a human replies" },
 ];

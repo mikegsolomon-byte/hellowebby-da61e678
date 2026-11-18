@@ -16,7 +16,7 @@ var plans = [
     features: [
       "5-page professionally designed website",
       "Mobile-responsive design",
-      "Hosting, SSL certificate and domain included",
+      "Hosting, SSL certificate and .com domain included",
       "On-page SEO setup",
       "Contact and lead capture form",
       "Unlimited content updates",
@@ -62,12 +62,12 @@ var pricing = {
   includedInThePrice: [
     "Design and build of the website",
     "Hosting and SSL certificate",
-    "One standard domain, including registration and renewals while the subscription is active",
+    "One standard .com domain, including registration and renewals while the subscription is active",
     "All maintenance and security updates",
     "Unlimited content updates",
     "Email support"
   ],
-  domainNote: "Included domain cover applies to an ordinary domain at a reasonable price. Premium or aftermarket names, specialist extensions with higher registry fees, and any additional domain are quoted in advance and are never purchased without the customer's approval.",
+  domainNote: "Included domain cover applies to an ordinary .com domain at a reasonable price. For .ie and other country-code domains (for example .co.uk), the customer registers in their own business's name and pays the registrar directly; we guide registration and connect it at no charge. Existing domains are connected free. Premium or aftermarket names, specialist extensions with higher registry fees, and any additional domain are quoted in advance and are never purchased without the customer's approval. The domain remains the customer's property and there is no fee to release or transfer it away.",
   noHiddenExtras: "There are no other charges required to keep the website online."
 };
 var get_plans_default = defineTool({

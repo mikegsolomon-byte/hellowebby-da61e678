@@ -1,7 +1,7 @@
 // SEO content for each business vertical shown in the "Built for Irish small
 // businesses like yours" section. Each entry powers a page at /industries/:slug.
 // Keep claims aligned with what hellowebby actually offers (subscription website
-// from €49/month, hosting/domain/SSL, on-page SEO, contact & enquiry forms,
+// from €49/month, hosting/.com domain/SSL, on-page SEO, contact & enquiry forms,
 // unlimited content updates, Irish support). No e-commerce / online-shop claims.
 
 
@@ -59,7 +59,7 @@ export const industries: Industry[] = [
       "Enquiry form that sends jobs straight to your inbox",
       "Services and areas-covered pages set up for local SEO",
       "Fast, mobile-friendly design that works on any phone",
-      "Hosting, domain and SSL certificate included",
+      "Hosting, .com domain and SSL certificate included",
       "Unlimited content updates — email us to add a service or town",
     ],
     localSeo:
@@ -75,7 +75,7 @@ export const industries: Industry[] = [
       },
       {
         q: "How quickly can my plumbing website go live?",
-        a: "Most sites are live within a few days of you sending your details. Hosting, domain and SSL are all handled for you.",
+        a: "Most sites are live within a few days of you sending your details. Hosting, a .com domain and SSL are all handled for you.",
       },
     ],
   },
@@ -108,7 +108,7 @@ export const industries: Industry[] = [
       "Services and price list, easy to keep current",
       "Photo gallery to showcase your work",
       "Mobile-friendly design that looks great on every phone",
-      "Hosting, domain and SSL certificate included",
+      "Hosting, .com domain and SSL certificate included",
       "Unlimited content updates — new prices or offers anytime",
     ],
     localSeo:
@@ -157,7 +157,7 @@ export const industries: Industry[] = [
       "Location, map and directions",
       "Bookings / reservations link or enquiry form",
       "Photo-led, mobile-friendly design that makes food look good",
-      "Hosting, domain and SSL certificate included",
+      "Hosting, .com domain and SSL certificate included",
       "Unlimited content updates — swap the menu anytime",
     ],
     localSeo:
@@ -206,7 +206,7 @@ export const industries: Industry[] = [
       "Enquiry / quote-request form to your inbox",
       "Services and areas-covered pages built for local SEO",
       "Space for certifications, insurance and reviews",
-      "Hosting, domain and SSL certificate included",
+      "Hosting, .com domain and SSL certificate included",
       "Unlimited content updates — add a service anytime",
     ],
     localSeo:
@@ -255,7 +255,7 @@ export const industries: Industry[] = [
       "Services pages built for local SEO",
       "Quote-request enquiry form to your inbox",
       "Click-to-call number on every page",
-      "Hosting, domain and SSL certificate included",
+      "Hosting, .com domain and SSL certificate included",
       "Unlimited content updates — add new projects anytime",
     ],
     localSeo:
@@ -304,7 +304,7 @@ export const industries: Industry[] = [
       "Professional enquiry / consultation-request form",
       "About and team pages to build credibility",
       "On-page SEO so you rank for your specialisms",
-      "Hosting, domain and SSL certificate included",
+      "Hosting, .com domain and SSL certificate included",
       "Unlimited content updates — add services or news anytime",
     ],
     localSeo:
@@ -353,7 +353,7 @@ export const industries: Industry[] = [
       "Treatment / service pages, clearly explained",
       "About page to build a personal connection",
       "Calm, mobile-friendly design",
-      "Hosting, domain and SSL certificate included",
+      "Hosting, .com domain and SSL certificate included",
       "Unlimited content updates — add treatments or hours anytime",
     ],
     localSeo:
@@ -402,7 +402,7 @@ export const industries: Industry[] = [
       "Opening hours, location and directions",
       "Enquiry form for stock and reservation questions",
       "Stylish, mobile-friendly design",
-      "Hosting, domain and SSL certificate included",
+      "Hosting, .com domain and SSL certificate included",
       "Unlimited content updates — refresh products anytime",
     ],
     localSeo:

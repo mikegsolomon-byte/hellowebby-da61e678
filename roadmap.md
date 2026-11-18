@@ -13,3 +13,8 @@
 
 - [x] Update monthly cancellation wording everywhere while preserving annual rules and terms version.
 - [x] Verify saved wording and checkout consent tests. Browser verification attempted; preview still serves earlier wording.
+
+# Included domain policy
+
+- [x] Update Terms, FAQ and every included-domain promise to standard .com only, preserving all other domain rights.
+- [x] Bump terms to 18 November 2026, run consent tests and verify the preview without publishing or deploying.

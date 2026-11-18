@@ -52,7 +52,7 @@ const StepVisual = ({ index }: { index: number }) => {
             <span className="w-[7px] h-[7px] rounded-full bg-muted" />
             <span className="w-[7px] h-[7px] rounded-full bg-muted" />
             <span className="w-[7px] h-[7px] rounded-full bg-muted" />
-            <span className="ml-1.5 text-[9px] text-muted-foreground">yourbusiness.ie — preview</span>
+            <span className="ml-1.5 text-[9px] text-muted-foreground">yourbusiness.com — preview</span>
           </div>
           <div className="px-3.5 py-3">
             <div className="h-2.5 w-[62%] rounded bg-muted mb-2" />
@@ -68,11 +68,11 @@ const StepVisual = ({ index }: { index: number }) => {
         <div className="w-full bg-card rounded-xl p-4 shadow-sm">
           <div className="flex items-center gap-2 mb-2.5">
             <span className="w-2 h-2 rounded-full" style={{ background: "#4B6E3F" }} />
-            <span className="text-[11px] font-semibold">yourbusiness.ie is live</span>
+            <span className="text-[11px] font-semibold">yourbusiness.com is live</span>
           </div>
           <div className="h-2 rounded-full bg-muted mb-1.5" />
           <div className="h-2 rounded-full bg-muted mb-3 w-[70%]" />
-          <span className="inline-block bg-foreground text-background text-[10px] font-semibold rounded-full px-3 py-1">Hosting, domain &amp; SSL handled</span>
+          <span className="inline-block bg-foreground text-background text-[10px] font-semibold rounded-full px-3 py-1">Hosting, .com domain &amp; SSL handled</span>
         </div>
       )}
     </div>
